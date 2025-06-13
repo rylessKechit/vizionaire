@@ -40,11 +40,10 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen bg-black text-white pt-16 relative overflow-hidden">
-      {/* Background gradients - Dubai inspired */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-black to-orange-900/20" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.1),transparent)] animate-pulse" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(234,88,12,0.1),transparent)] animate-pulse" style={{animationDelay: '2s'}} />
+    <section className="min-h-screen text-white pt-16 relative overflow-hidden">
+      {/* Effets de lumière subtils par-dessus l'image de fond - Plus discrets */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.04),transparent)] animate-pulse" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(234,88,12,0.04),transparent)] animate-pulse" style={{animationDelay: '2s'}} />
       
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center">
@@ -72,7 +71,7 @@ export function Hero() {
           
           {/* Subtitle */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
               Built for <span className="bg-gradient-to-r from-yellow-400 to-amber-600 bg-clip-text text-transparent font-medium">Middle East Excellence</span>.
             </p>
           </div>
@@ -121,7 +120,7 @@ export function Hero() {
                         </>
                       )}
                     </h2>
-                    <p className="text-lg text-gray-400">
+                    <p className="text-lg text-gray-300">
                       {highlight.subtitle}
                     </p>
                   </div>
@@ -165,26 +164,36 @@ export function Hero() {
 
           {/* Trust Indicators */}
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto transition-all duration-1000 delay-1100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="flex items-center justify-center gap-2 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-              <CheckCircle className="w-5 h-5 text-emerald-500" />
-              <span className="text-gray-300 font-medium text-sm">48h Setup Guaranteed</span>
+            <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+              <TrendingUp className="w-6 h-6 text-emerald-400" />
+              <div className="text-left">
+                <div className="text-lg font-bold text-white">500% ROI</div>
+                <div className="text-sm text-gray-300">Average increase</div>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-2 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-              <Award className="w-5 h-5 text-amber-500" />
-              <span className="text-gray-300 font-medium text-sm">90-Day ROI Guarantee</span>
+            
+            <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+              <Users className="w-6 h-6 text-blue-400" />
+              <div className="text-left">
+                <div className="text-lg font-bold text-white">500+</div>
+                <div className="text-sm text-gray-300">Happy clients</div>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-2 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-              <Users className="w-5 h-5 text-orange-500" />
-              <span className="text-gray-300 font-medium text-sm">MENA Specialists</span>
+            
+            <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
+              <BarChart3 className="w-6 h-6 text-amber-400" />
+              <div className="text-left">
+                <div className="text-lg font-bold text-white">48h</div>
+                <div className="text-sm text-gray-300">Setup time</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center">
-        <ChevronDown className="w-5 h-5 text-white/50 mx-auto animate-bounce" />
-        <p className="text-xs text-white/50 mt-1">Scroll to explore</p>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ChevronDown className="w-6 h-6 text-white/70" />
       </div>
     </section>
   )

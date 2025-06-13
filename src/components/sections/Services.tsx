@@ -72,7 +72,7 @@ export function Services() {
   ]
 
   return (
-    <section className="bg-black py-12 lg:py-16">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
@@ -81,40 +81,38 @@ export function Services() {
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
               Take a closer look.
             </h2>
-            <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
-              Complete solutions to transform your digital presence and
-              <span className="text-white font-medium"> generate measurable growth</span>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
+              Premium services designed to dominate the Middle East digital landscape
             </p>
           </div>
         </div>
         
         {/* Services Grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {services.map((service: Service, i: number) => (
+        <div className="grid lg:grid-cols-3 gap-8">
+          {services.map((service, i) => (
             <div 
               key={i}
-              className={`relative group cursor-pointer transition-all duration-700 ${
+              className={`group relative transition-all duration-700 ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`}
               style={{ transitionDelay: `${i * 200}ms` }}
               onMouseEnter={() => setHoveredCard(i)}
               onMouseLeave={() => setHoveredCard(null)}
             >
-              {/* Popular Badge */}
-              {service.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="px-3 py-1 bg-gradient-to-r from-red-500 to-amber-500 text-white text-xs font-bold rounded-full">
-                    Most Popular
-                  </div>
-                </div>
-              )}
-
-              {/* Card */}
-              <div className={`relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 h-full transition-all duration-500 ${
-                hoveredCard === i ? 'bg-white/10 border-white/20 scale-105' : ''
-              }`}>
+              <div className={`relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 transition-all duration-500 h-full transform hover:scale-105 ${
+                hoveredCard === i ? 'bg-white/15 border-white/30 scale-105' : ''
+              } ${service.popular ? 'ring-2 ring-green-500/50' : ''}`}>
                 
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                {/* Popular Badge */}
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+                
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                 
                 <div className="relative z-10">
                   {/* Icon */}
@@ -124,12 +122,12 @@ export function Services() {
                   
                   {/* Content */}
                   <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-base text-gray-400 mb-4 font-medium">{service.subtitle}</p>
+                  <p className="text-base text-gray-300 mb-4 font-medium">{service.subtitle}</p>
                   
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 4).map((feature, j) => (
-                      <li key={j} className="flex items-start gap-2 text-gray-300">
+                      <li key={j} className="flex items-start gap-2 text-gray-200">
                         <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                         <span className="text-sm leading-relaxed">{feature}</span>
                       </li>
@@ -139,7 +137,7 @@ export function Services() {
                   {/* Pricing */}
                   <div className="mb-4">
                     <div className="text-lg font-bold text-white mb-1">{service.startingPrice}</div>
-                    <div className="text-xs text-gray-500">Setup included • No contracts</div>
+                    <div className="text-xs text-gray-400">Setup included • No contracts</div>
                   </div>
                   
                   {/* CTA */}
@@ -159,14 +157,14 @@ export function Services() {
         {/* Bottom CTA */}
         <div className="text-center mt-12">
           <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <p className="text-base text-gray-400 mb-6 max-w-2xl mx-auto">
+            <p className="text-base text-gray-300 mb-6 max-w-2xl mx-auto">
               Need something custom? We create personalized packages for unique business needs.
             </p>
             <Link
-              href="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-white/30 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/10 hover:border-white/50 backdrop-blur-sm"
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold transition-all duration-300 hover:bg-gray-200 hover:scale-105"
             >
-              View All Services
+              Get Custom Quote
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
