@@ -30,7 +30,7 @@ export default function HomePage() {
     const calculateZoom = () => {
       if (typeof window !== 'undefined' && document.documentElement) {
         const scrollProgress = Math.min(scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1)
-        setZoomScale(1 + (scrollProgress * 0.3)) // Zoom de 0% à 30% (1.5x plus fort)
+        setZoomScale(1 + (scrollProgress * 0.25)) // Zoom de 0% à 25% (légèrement réduit)
       }
     }
 
@@ -51,11 +51,11 @@ export default function HomePage() {
         }}
       />
       
-      {/* Overlay sombre simple - comme le Hero */}
+      {/* Overlay qui s'éclaircit progressivement - Effet "Vision qui se révèle" */}
       <div 
         className="fixed inset-0 z-10 transition-all duration-300"
         style={{
-          background: `rgba(0, 0, 0, ${0.6 + (scrollY / 3000) * 0.2})`
+          background: `rgba(0, 0, 0, ${0.95 - (scrollY / 6000) * 0.30})`
         }}
       />
       
