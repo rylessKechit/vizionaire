@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { BackgroundLayout } from '@/components/BackgroundLayout'
 import { ArrowRight, Check, Star, TrendingUp, Zap, Globe, Users, Target, BarChart3, Smartphone } from 'lucide-react'
 
 const services = [
@@ -186,16 +187,15 @@ export default function ServicesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <BackgroundLayout backgroundImage="/background-cityscape.jpg">
+      {/* Header avec background transparent */}
+      <div className="relative z-30">
+        <Header />
+      </div>
       
       <main>
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-red-900 to-amber-900">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-          
+        <section className="relative overflow-hidden">
           <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
             <div className="text-center max-w-4xl mx-auto">
               {/* Badge */}
@@ -214,7 +214,7 @@ export default function ServicesPage() {
               </h1>
               
               {/* Subtitle */}
-              <p className="text-xl lg:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+              <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
                 From stunning websites to viral social media campaigns. We deliver measurable results that scale your business in the UAE market.
               </p>
               
@@ -255,16 +255,16 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section id="services" className="py-24 lg:py-32 bg-gray-50">
+        <section id="services" className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
             {/* Section Header */}
-            <div className="text-center mb-20">
+            <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
                   Our Services
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                 End-to-end digital marketing solutions designed to scale your business in the competitive UAE market.
               </p>
             </div>
@@ -276,7 +276,7 @@ export default function ServicesPage() {
                 return (
                   <div 
                     key={service.id}
-                    className={`group relative overflow-hidden rounded-2xl bg-white p-6 border border-gray-200 transition-all duration-500 hover:shadow-xl hover:-translate-y-1`}
+                    className="group relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md p-6 border border-white/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15"
                   >
                     {/* Content */}
                     <div className="relative z-10">
@@ -286,17 +286,17 @@ export default function ServicesPage() {
                           <IconComponent className="w-6 h-6" />
                         </div>
                         <div className="text-right">
-                          <div className="text-xs text-gray-500 mb-1">Starting at</div>
-                          <div className="text-lg font-black text-gray-900">{service.startingPrice} <span className="text-xs font-normal">AED</span></div>
+                          <div className="text-xs text-gray-400 mb-1">Starting at</div>
+                          <div className="text-lg font-black text-white">{service.startingPrice} <span className="text-xs font-normal">AED</span></div>
                         </div>
                       </div>
                       
                       {/* Title & Subtitle */}
-                      <h3 className="text-xl font-black text-gray-900 mb-1">{service.title}</h3>
+                      <h3 className="text-xl font-black text-white mb-1">{service.title}</h3>
                       <p className={`text-sm font-semibold bg-gradient-to-r ${service.color} bg-clip-text text-transparent mb-3`}>
                         {service.subtitle}
                       </p>
-                      <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                      <p className="text-gray-300 mb-4 leading-relaxed text-sm">
                         {service.description}
                       </p>
                       
@@ -305,12 +305,12 @@ export default function ServicesPage() {
                         <div className="space-y-2">
                           {service.features.slice(0, 3).map((feature, i) => (
                             <div key={i} className="flex items-start gap-2">
-                              <Check className={`w-4 h-4 mt-0.5 text-green-600 flex-shrink-0`} />
-                              <span className="text-gray-700 text-sm">{feature}</span>
+                              <Check className="w-4 h-4 mt-0.5 text-green-400 flex-shrink-0" />
+                              <span className="text-gray-200 text-sm">{feature}</span>
                             </div>
                           ))}
                           {service.features.length > 3 && (
-                            <div className="text-xs text-gray-500 mt-2">
+                            <div className="text-xs text-gray-400 mt-2">
                               +{service.features.length - 3} more features included
                             </div>
                           )}
@@ -318,10 +318,12 @@ export default function ServicesPage() {
                       </div>
                       
                       {/* Top Result */}
-                      <div className="mb-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                      <div className="mb-4 p-3 bg-green-500/10 rounded-lg border border-green-500/20">
                         <div className="flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4 text-green-600" />
-                          <span className="text-sm font-semibold text-green-700">{service.results[0]}</span>
+                          <TrendingUp className="w-4 h-4 text-green-400" />
+                          <span className="text-sm font-semibold text-green-400">
+                            {service.results[0]}
+                          </span>
                         </div>
                       </div>
                       
@@ -342,17 +344,17 @@ export default function ServicesPage() {
         </section>
 
         {/* Process Section */}
-        <section className="py-24 lg:py-32 bg-white">
+        <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="text-gray-900">Our Proven</span>
+                <span className="text-white">Our Proven</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
                   4-Step Process
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
                 From strategy to execution, we follow a proven methodology that delivers exceptional results every time.
               </p>
             </div>
@@ -388,8 +390,8 @@ export default function ServicesPage() {
                   <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${process.color} text-white text-2xl font-black mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     {process.step}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{process.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{process.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-4">{process.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{process.description}</p>
                 </div>
               ))}
             </div>
@@ -397,13 +399,13 @@ export default function ServicesPage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-24 lg:py-32 bg-gray-50">
+        <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-20">
+            <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="text-gray-900">What Our</span>
+                <span className="text-white">What Our</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
                   Clients Say
                 </span>
               </h2>
@@ -411,13 +413,13 @@ export default function ServicesPage() {
             
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+                <div key={index} className="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:bg-white/15">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.text}"</p>
+                  <p className="text-gray-200 mb-6 leading-relaxed">"{testimonial.text}"</p>
                   <div className="flex items-center gap-4">
                     <img 
                       src={testimonial.image} 
@@ -425,12 +427,10 @@ export default function ServicesPage() {
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <div className="font-bold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-600">{testimonial.company}</div>
+                      <div className="font-bold text-white">{testimonial.name}</div>
+                      <div className="text-sm text-gray-400">{testimonial.company}</div>
+                      <div className="text-sm text-green-400 font-semibold">{testimonial.result}</div>
                     </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <div className="text-sm font-semibold text-green-600">{testimonial.result}</div>
                   </div>
                 </div>
               ))}
@@ -438,56 +438,32 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-red-900 to-amber-900">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
-          <div className="relative max-w-4xl mx-auto px-6 py-24 lg:py-32 text-center">
-            <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-              <span className="bg-gradient-to-r from-white via-red-200 to-amber-200 bg-clip-text text-transparent">
-                Ready to Transform
-              </span>
-              <br />
-              <span className="text-white">Your Business?</span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Get a free strategy call and discover how we can 3x your business growth in the next 90 days.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+        {/* Final CTA */}
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Ready to Transform Your Business?
+              </h2>
+              <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                Join 500+ successful businesses who chose VIZIONAIRE for their digital transformation.
+              </p>
               <button
                 onClick={handleGetQuote}
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-red-500/25"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
               >
-                Get Free Strategy Call
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Get Your Free Strategy Session
+                <ArrowRight className="w-5 h-5" />
               </button>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-2xl transition-all duration-300 hover:bg-white/20"
-              >
-                View Pricing Plans
-              </Link>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-400">
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                Free consultation included
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                90-day money-back guarantee
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Check className="w-4 h-4 text-green-500" />
-                No long-term contracts
-              </div>
             </div>
           </div>
         </section>
       </main>
       
-      <Footer />
-    </div>
+      {/* Footer */}
+      <div className="bg-black/85 backdrop-blur-sm border-t border-white/10">
+        <Footer />
+      </div>
+    </BackgroundLayout>
   )
 }

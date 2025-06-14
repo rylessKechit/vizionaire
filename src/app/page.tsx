@@ -30,7 +30,7 @@ export default function HomePage() {
     const calculateZoom = () => {
       if (typeof window !== 'undefined' && document.documentElement) {
         const scrollProgress = Math.min(scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1)
-        setZoomScale(1 + (scrollProgress * 0.50)) // Zoom de 0% à 50% (2x plus fort pour mobile)
+        setZoomScale(1 + (scrollProgress * 1)) // Zoom de 0% à 50% (2x plus fort pour mobile)
       }
     }
 
