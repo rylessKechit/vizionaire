@@ -41,9 +41,7 @@ export function Hero() {
 
   return (
     <section className="min-h-screen text-white pt-16 relative overflow-hidden">
-      {/* Effets de lumière subtils par-dessus l'image de fond - Plus discrets */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,191,36,0.04),transparent)] animate-pulse" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(234,88,12,0.04),transparent)] animate-pulse" style={{animationDelay: '2s'}} />
+      {/* Plus d'effets de lumière - Background uniforme comme les autres sections */}
       
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
         <div className="text-center">

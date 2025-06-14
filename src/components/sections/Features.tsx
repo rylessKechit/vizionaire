@@ -38,11 +38,11 @@ export function Features() {
   ]
 
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <div className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
               Get the highlights.
@@ -84,7 +84,7 @@ export function Features() {
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-20">
+        <div className="mt-12">
           <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-12">
               <div className="grid md:grid-cols-3 gap-8 text-center">

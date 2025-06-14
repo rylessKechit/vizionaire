@@ -30,7 +30,7 @@ export default function HomePage() {
     const calculateZoom = () => {
       if (typeof window !== 'undefined' && document.documentElement) {
         const scrollProgress = Math.min(scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1)
-        setZoomScale(1 + (scrollProgress * 0.25)) // Zoom de 0% à 25% (légèrement réduit)
+        setZoomScale(1 + (scrollProgress * 0.50)) // Zoom de 0% à 50% (2x plus fort pour mobile)
       }
     }
 
@@ -55,7 +55,7 @@ export default function HomePage() {
       <div 
         className="fixed inset-0 z-10 transition-all duration-300"
         style={{
-          background: `rgba(0, 0, 0, ${0.95 - (scrollY / 6000) * 0.30})`
+          background: `rgba(0, 0, 0, ${0.90 - (scrollY / 6000) * 0.30})`
         }}
       />
       
@@ -72,27 +72,27 @@ export default function HomePage() {
           <Hero />
           
           {/* Features Section - TRANSPARENT pour voir l'image */}
-          <div className="py-20 lg:py-28">
+          <div className="py-12 lg:py-16">
             <Features />
           </div>
           
           {/* Services Section - TRANSPARENT pour voir l'image */}
-          <div className="py-20 lg:py-28">
+          <div className="py-12 lg:py-16">
             <Services />
           </div>
           
           {/* Stats Section - garde son gradient coloré mais avec transparence */}
-          <div className="py-20 lg:py-28">
+          <div className="py-12 lg:py-16">
             <Stats />
           </div>
           
           {/* Testimonials Section - TRANSPARENT pour voir l'image */}
-          <div className="py-20 lg:py-28">
+          <div className="py-12 lg:py-16">
             <TestimonialsMini />
           </div>
           
           {/* Pricing Section - TRANSPARENT pour voir l'image */}
-          <div className="py-20 lg:py-28">
+          <div className="py-12 lg:py-16">
             <Pricing />
           </div>
           

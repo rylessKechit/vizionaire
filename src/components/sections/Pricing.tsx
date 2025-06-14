@@ -82,11 +82,11 @@ export function Pricing() {
   ]
 
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
               Simple, transparent pricing.
@@ -125,7 +125,7 @@ export function Pricing() {
         </div>
         
         {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, i) => (
             <div 
               key={i}
