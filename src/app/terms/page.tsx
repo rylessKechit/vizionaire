@@ -1,15 +1,9 @@
 'use client'
 
-import { Metadata } from 'next'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { BackgroundLayout } from '@/components/BackgroundLayout'
 import { FileText, Scale, AlertTriangle, CheckCircle, Star, Shield, Clock, Mail, Phone } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Terms of Service - Legal Terms & Conditions',
-  description: 'Read VIZIONAIRE\'s terms of service and understand our legal terms and conditions.',
-}
 
 export default function TermsPage() {
   return (
