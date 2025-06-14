@@ -29,7 +29,7 @@ const services = [
     ],
     startingPrice: '11,000',
     color: 'from-red-600 to-red-500',
-    bgGradient: 'from-red-50 to-orange-50'
+    iconBg: 'from-red-600 to-red-500'
   },
   {
     id: 'social-media',
@@ -52,8 +52,8 @@ const services = [
       '150% more qualified leads'
     ],
     startingPrice: '5,500',
-    color: 'from-green-600 to-green-500',
-    bgGradient: 'from-green-50 to-emerald-50'
+    color: 'from-amber-400 via-orange-500 to-red-500',
+    iconBg: 'from-amber-500 to-orange-500'
   },
   {
     id: 'automation',
@@ -76,8 +76,8 @@ const services = [
       '60% improvement in lead quality'
     ],
     startingPrice: '7,350',
-    color: 'from-amber-600 to-amber-500',
-    bgGradient: 'from-amber-50 to-yellow-50'
+    color: 'from-orange-500 via-red-500 to-rose-600',
+    iconBg: 'from-orange-500 to-red-500'
   },
   {
     id: 'seo',
@@ -100,8 +100,8 @@ const services = [
       '150% improvement in domain authority'
     ],
     startingPrice: '6,500',
-    color: 'from-blue-600 to-blue-500',
-    bgGradient: 'from-blue-50 to-indigo-50'
+    color: 'from-amber-400 via-yellow-500 to-orange-500',
+    iconBg: 'from-amber-500 to-yellow-500'
   },
   {
     id: 'paid-ads',
@@ -124,8 +124,8 @@ const services = [
       '90% improvement in conversion rates'
     ],
     startingPrice: '8,500',
-    color: 'from-purple-600 to-purple-500',
-    bgGradient: 'from-purple-50 to-pink-50'
+    color: 'from-red-600 to-red-500',
+    iconBg: 'from-red-600 to-amber-500'
   },
   {
     id: 'consulting',
@@ -148,8 +148,8 @@ const services = [
       '200% better strategic alignment'
     ],
     startingPrice: '12,500',
-    color: 'from-indigo-600 to-indigo-500',
-    bgGradient: 'from-indigo-50 to-blue-50'
+    color: 'from-amber-400 via-orange-500 to-red-500',
+    iconBg: 'from-amber-500 to-orange-500'
   }
 ]
 
@@ -186,9 +186,14 @@ export default function ServicesPage() {
     window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
   }
 
+  const handleGetService = (serviceName: string) => {
+    const message = encodeURIComponent(`Hi! I'm interested in ${serviceName}. Can we schedule a consultation to discuss my needs?`)
+    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+  }
+
   return (
     <BackgroundLayout backgroundImage="/background-cityscape.jpg">
-      {/* Header avec background transparent */}
+      {/* Header */}
       <div className="relative z-30">
         <Header />
       </div>
@@ -206,7 +211,7 @@ export default function ServicesPage() {
               
               {/* Title */}
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-white via-red-200 to-amber-200 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Complete Digital
                 </span>
                 <br />
@@ -225,11 +230,11 @@ export default function ServicesPage() {
                   <div className="text-sm text-gray-400">Projects Delivered</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-black text-green-400 mb-2">300%</div>
+                  <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">300%</div>
                   <div className="text-sm text-gray-400">Average ROI</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-black text-amber-400 mb-2">24/7</div>
+                  <div className="text-3xl lg:text-4xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-2">24/7</div>
                   <div className="text-sm text-gray-400">Support</div>
                 </div>
               </div>
@@ -238,14 +243,14 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleGetQuote}
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-red-500/25"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
                 >
                   Get Free Strategy Call
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link
                   href="#services"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-2xl transition-all duration-300 hover:bg-white/20"
+                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50"
                 >
                   Explore Services
                 </Link>
@@ -258,9 +263,9 @@ export default function ServicesPage() {
         <section id="services" className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
             {/* Section Header */}
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Our Services
                 </span>
               </h2>
@@ -268,130 +273,74 @@ export default function ServicesPage() {
                 End-to-end digital marketing solutions designed to scale your business in the competitive UAE market.
               </p>
             </div>
-
-            {/* Services Grid */}
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mb-20">
-              {services.map((service, index) => {
-                const IconComponent = service.icon
-                return (
-                  <div 
-                    key={service.id}
-                    className="group relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md p-6 border border-white/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15"
-                  >
-                    {/* Content */}
-                    <div className="relative z-10">
-                      {/* Icon & Price */}
-                      <div className="flex items-start justify-between mb-4">
-                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${service.color} text-white shadow-lg`}>
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <div className="text-right">
-                          <div className="text-xs text-gray-400 mb-1">Starting at</div>
-                          <div className="text-lg font-black text-white">{service.startingPrice} <span className="text-xs font-normal">AED</span></div>
-                        </div>
-                      </div>
-                      
-                      {/* Title & Subtitle */}
-                      <h3 className="text-xl font-black text-white mb-1">{service.title}</h3>
-                      <p className={`text-sm font-semibold bg-gradient-to-r ${service.color} bg-clip-text text-transparent mb-3`}>
+            
+            {/* Services Grid - Cartes plus élégantes */}
+            <div className="grid lg:grid-cols-3 gap-6">
+              {services.map((service, index) => (
+                <div
+                  key={service.id}
+                  className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 transition-all duration-500 hover:bg-white/15 hover:border-white/30 hover:scale-105"
+                >
+                  {/* Service Header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.iconBg} flex items-center justify-center text-white flex-shrink-0`}>
+                      <service.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white">{service.title}</h3>
+                      <p className={`text-sm font-medium bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
                         {service.subtitle}
                       </p>
-                      <p className="text-gray-300 mb-4 leading-relaxed text-sm">
-                        {service.description}
-                      </p>
-                      
-                      {/* Key Features (Top 3) */}
-                      <div className="mb-4">
-                        <div className="space-y-2">
-                          {service.features.slice(0, 3).map((feature, i) => (
-                            <div key={i} className="flex items-start gap-2">
-                              <Check className="w-4 h-4 mt-0.5 text-green-400 flex-shrink-0" />
-                              <span className="text-gray-200 text-sm">{feature}</span>
-                            </div>
-                          ))}
-                          {service.features.length > 3 && (
-                            <div className="text-xs text-gray-400 mt-2">
-                              +{service.features.length - 3} more features included
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Top Result */}
-                      <div className="mb-4 p-3 bg-green-500/10 rounded-lg border border-green-500/20">
-                        <div className="flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4 text-green-400" />
-                          <span className="text-sm font-semibold text-green-400">
-                            {service.results[0]}
-                          </span>
-                        </div>
-                      </div>
-                      
-                      {/* CTA */}
-                      <button
-                        onClick={handleGetQuote}
-                        className={`group w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r ${service.color} text-white font-bold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-sm`}
-                      >
-                        Get Started
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </button>
                     </div>
                   </div>
-                )
-              })}
-            </div>
-          </div>
-        </section>
 
-        {/* Process Section */}
-        <section className="py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="text-white">Our Proven</span>
-                <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
-                  4-Step Process
-                </span>
-              </h2>
-              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                From strategy to execution, we follow a proven methodology that delivers exceptional results every time.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "01",
-                  title: "Strategy & Analysis",
-                  description: "Deep dive into your business, market analysis, competitor research, and strategic planning.",
-                  color: "from-red-600 to-red-500"
-                },
-                {
-                  step: "02", 
-                  title: "Design & Development",
-                  description: "Create stunning designs and develop high-performing solutions tailored to your needs.",
-                  color: "from-amber-600 to-amber-500"
-                },
-                {
-                  step: "03",
-                  title: "Launch & Optimize",
-                  description: "Strategic launch with continuous monitoring, testing, and optimization for maximum performance.",
-                  color: "from-green-600 to-green-500"
-                },
-                {
-                  step: "04",
-                  title: "Scale & Grow",
-                  description: "Scale successful campaigns and strategies to drive sustainable business growth.",
-                  color: "from-blue-600 to-blue-500"
-                }
-              ].map((process, index) => (
-                <div key={index} className="text-center group">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r ${process.color} text-white text-2xl font-black mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    {process.step}
+                  {/* Description */}
+                  <p className="text-gray-200 mb-4 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Features - Seulement les 4 premiers */}
+                  <div className="mb-4">
+                    <p className="text-white font-semibold mb-2 text-sm">What's Included:</p>
+                    <ul className="space-y-1">
+                      {service.features.slice(0, 4).map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="w-3 h-3 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-200 text-xs">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-4">{process.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{process.description}</p>
+
+                  {/* Results - Format compact */}
+                  <div className="mb-4">
+                    <p className="text-white font-semibold mb-2 text-sm">Proven Results:</p>
+                    <div className="grid grid-cols-2 gap-1">
+                      {service.results.slice(0, 2).map((result, i) => (
+                        <div key={i} className="text-center bg-white/5 rounded-lg p-2 border border-white/10">
+                          <div className={`text-xs font-bold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
+                            {result}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Pricing & CTA */}
+                  <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                    <div>
+                      <div className="text-lg font-black text-white">
+                        {service.startingPrice} AED
+                      </div>
+                      <div className="text-xs text-gray-400">Starting price</div>
+                    </div>
+                    <button
+                      onClick={() => handleGetService(service.title)}
+                      className={`px-4 py-2 bg-gradient-to-r ${service.color} text-white rounded-lg font-semibold text-sm transition-all duration-300 hover:scale-105`}
+                    >
+                      Get Started
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -401,36 +350,45 @@ export default function ServicesPage() {
         {/* Testimonials */}
         <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="text-white">What Our</span>
-                <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
-                  Clients Say
-                </span>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Success Stories
               </h2>
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                Real results from real businesses across the UAE
+              </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300 hover:bg-white/15">
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-200 mb-6 leading-relaxed">"{testimonial.text}"</p>
-                  <div className="flex items-center gap-4">
-                    <img 
-                      src={testimonial.image} 
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 transition-all duration-300"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={testimonial.image}
                       alt={testimonial.name}
                       className="w-12 h-12 rounded-full object-cover"
                     />
                     <div>
-                      <div className="font-bold text-white">{testimonial.name}</div>
-                      <div className="text-sm text-gray-400">{testimonial.company}</div>
-                      <div className="text-sm text-green-400 font-semibold">{testimonial.result}</div>
+                      <h4 className="font-bold text-white">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-300">{testimonial.company}</p>
                     </div>
+                  </div>
+                  
+                  <div className="flex mb-3">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-gray-200 mb-4 leading-relaxed text-sm">
+                    "{testimonial.text}"
+                  </p>
+                  
+                  <div className={`text-sm font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent`}>
+                    {testimonial.result}
                   </div>
                 </div>
               ))}
@@ -443,18 +401,41 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
               <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                Ready to Transform Your Business?
+                Ready to <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Dominate</span> Your Market?
               </h2>
               <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                Join 500+ successful businesses who chose VIZIONAIRE for their digital transformation.
+                Every day you wait is potential revenue lost. Start your transformation today.
               </p>
-              <button
-                onClick={handleGetQuote}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
-              >
-                Get Your Free Strategy Session
-                <ArrowRight className="w-5 h-5" />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleGetQuote}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
+                >
+                  Get Your Free Strategy Session
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-8 mt-8 max-w-lg mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">Free</div>
+                  <div className="text-xs text-gray-400">Consultation</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">90d</div>
+                  <div className="text-xs text-gray-400">Guarantee</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">24/7</div>
+                  <div className="text-xs text-gray-400">Support</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

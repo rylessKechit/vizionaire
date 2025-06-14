@@ -10,22 +10,22 @@ const stats = [
   {
     number: "500+",
     label: "Projects Delivered",
-    color: "text-red-400"
+    color: "bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent"
   },
   {
     number: "300%",
     label: "Average ROI",
-    color: "text-green-400"
+    color: "bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent"
   },
   {
     number: "95%",
     label: "Client Retention",
-    color: "text-amber-400"
+    color: "bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent"
   },
   {
     number: "24/7",
     label: "Support Available",
-    color: "text-blue-400"
+    color: "bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent"
   }
 ]
 
@@ -35,28 +35,28 @@ const values = [
     title: "Results-Driven",
     description: "Every strategy is built around measurable outcomes. We don't just create campaigns; we deliver growth that impacts your bottom line.",
     color: "from-red-600 to-red-500",
-    bgColor: "bg-red-50"
+    iconBg: "from-red-600 to-red-500"
   },
   {
     icon: Users,
     title: "Client-Centric",
     description: "Your success is our success. We become an extension of your team, understanding your business inside and out.",
-    color: "from-blue-600 to-blue-500",
-    bgColor: "bg-blue-50"
+    color: "from-orange-500 via-red-500 to-rose-600",
+    iconBg: "from-orange-500 to-red-500"
   },
   {
     icon: Zap,
     title: "Innovation First",
     description: "We stay ahead of digital trends and leverage cutting-edge technologies to give you a competitive advantage.",
-    color: "from-amber-600 to-amber-500",
-    bgColor: "bg-amber-50"
+    color: "from-amber-400 via-orange-500 to-red-500",
+    iconBg: "from-amber-500 to-orange-500"
   },
   {
     icon: Shield,
     title: "Transparency",
     description: "No black boxes or hidden tactics. We provide clear reporting and honest communication throughout our partnership.",
-    color: "from-green-600 to-green-500",
-    bgColor: "bg-green-50"
+    color: "from-amber-400 via-yellow-500 to-orange-500",
+    iconBg: "from-amber-500 to-yellow-500"
   }
 ]
 
@@ -67,7 +67,8 @@ const team = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
     bio: "Digital marketing strategist with 10+ years of experience scaling businesses across the MENA region.",
     expertise: ["Strategy", "Leadership", "Growth"],
-    color: "from-red-600 to-amber-600"
+    color: "from-red-600 to-amber-600",
+    iconBg: "from-red-600 to-orange-500"
   },
   {
     name: "Sarah Al-Mansoori",
@@ -75,7 +76,8 @@ const team = [
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b108?w=300&h=300&fit=crop&crop=face",
     bio: "Award-winning designer passionate about creating visually stunning and conversion-focused experiences.",
     expertise: ["Design", "Branding", "UX/UI"],
-    color: "from-purple-600 to-pink-600"
+    color: "from-amber-400 via-orange-500 to-red-500",
+    iconBg: "from-amber-500 to-orange-500"
   },
   {
     name: "Omar Al-Zaabi",
@@ -83,7 +85,8 @@ const team = [
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
     bio: "Full-stack developer and automation expert who turns complex ideas into seamless digital solutions.",
     expertise: ["Development", "Automation", "Analytics"],
-    color: "from-blue-600 to-indigo-600"
+    color: "from-orange-500 via-red-500 to-rose-600",
+    iconBg: "from-orange-500 to-red-500"
   }
 ]
 
@@ -146,7 +149,7 @@ export default function AboutPage() {
 
   return (
     <BackgroundLayout backgroundImage="/background-cityscape.jpg">
-      {/* Header avec background transparent */}
+      {/* Header */}
       <div className="relative z-30">
         <Header />
       </div>
@@ -158,22 +161,22 @@ export default function AboutPage() {
             <div className="text-center max-w-4xl mx-auto">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-                <Award className="w-4 h-4 text-yellow-400" />
-                <span className="text-white text-sm font-medium">Award-Winning Digital Agency</span>
+                <Star className="w-4 h-4 text-yellow-400" />
+                <span className="text-white text-sm font-medium">🇦🇪 Leading Digital Agency in MENA</span>
               </div>
               
               {/* Title */}
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-white via-red-200 to-amber-200 bg-clip-text text-transparent">
-                  Empowering UAE
-                </span>
+                <span className="text-white">We Turn Your</span>
                 <br />
-                <span className="text-white">Businesses to Thrive</span>
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                  Vision Into Victory
+                </span>
               </h1>
               
               {/* Subtitle */}
               <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-                We're not just another agency. We're your strategic partner in digital transformation, combining local market expertise with global best practices.
+                We're your strategic partner in digital transformation, combining local market expertise with global best practices.
               </p>
               
               {/* Stats Grid */}
@@ -190,14 +193,14 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleGetStarted}
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-red-500/25"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
                 >
                   Start Your Journey
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <Link
                   href="#our-story"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-2xl transition-all duration-300 hover:bg-white/20"
+                  className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50"
                 >
                   Learn Our Story
                 </Link>
@@ -211,8 +214,8 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Mission */}
-              <div>
-                <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/30 rounded-full px-4 py-2 mb-6">
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-orange-500/20 border border-red-500/30 rounded-full px-4 py-2 mb-6">
                   <Target className="w-4 h-4 text-red-400" />
                   <span className="text-red-400 text-sm font-semibold">Our Mission</span>
                 </div>
@@ -234,9 +237,9 @@ export default function AboutPage() {
               
               {/* Vision */}
               <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-                <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/30 rounded-full px-4 py-2 mb-6">
-                  <Globe className="w-4 h-4 text-green-400" />
-                  <span className="text-green-400 text-sm font-semibold">Our Vision</span>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 mb-6">
+                  <Globe className="w-4 h-4 text-orange-400" />
+                  <span className="text-orange-400 text-sm font-semibold">Our Vision</span>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Leading the Digital Revolution</h3>
                 <p className="text-gray-200 mb-6 leading-relaxed">
@@ -246,11 +249,11 @@ export default function AboutPage() {
                   <h4 className="text-lg font-bold text-white mb-4">By 2025, we aim to:</h4>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="text-center">
-                      <div className="text-2xl font-black text-red-400 mb-1">1,000+</div>
+                      <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">1,000+</div>
                       <div className="text-gray-300">Clients Served</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-black text-green-400 mb-1">10+</div>
+                      <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">10+</div>
                       <div className="text-gray-300">Regional Markets</div>
                     </div>
                   </div>
@@ -267,7 +270,7 @@ export default function AboutPage() {
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
                 <span className="text-white">Our Core</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Values
                 </span>
               </h2>
@@ -277,21 +280,18 @@ export default function AboutPage() {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => {
-                const IconComponent = value.icon
-                return (
-                  <div 
-                    key={index}
-                    className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15 text-center"
-                  >
-                    <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r ${value.color} text-white shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className="w-7 h-7" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
-                    <p className="text-gray-200 leading-relaxed text-sm">{value.description}</p>
+              {values.map((value, index) => (
+                <div 
+                  key={index}
+                  className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15"
+                >
+                  <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${value.iconBg} flex items-center justify-center text-white`}>
+                    <value.icon className="w-6 h-6" />
                   </div>
-                )
-              })}
+                  <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                  <p className="text-gray-200 text-sm leading-relaxed">{value.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -303,12 +303,12 @@ export default function AboutPage() {
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
                 <span className="text-white">Meet Our</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Expert Team
                 </span>
               </h2>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Passionate professionals dedicated to your success, bringing together creativity, strategy, and technical excellence.
+                Passionate professionals dedicated to transforming your digital presence and driving exceptional results.
               </p>
             </div>
             
@@ -324,7 +324,7 @@ export default function AboutPage() {
                       alt={member.name}
                       className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-white/20 group-hover:border-white/40 transition-all duration-300"
                     />
-                    <div className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-r ${member.color} flex items-center justify-center`}>
+                    <div className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-r ${member.iconBg} flex items-center justify-center`}>
                       <Heart className="w-4 h-4 text-white" />
                     </div>
                   </div>
@@ -358,7 +358,7 @@ export default function AboutPage() {
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
                 <span className="text-white">Our</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Journey
                 </span>
               </h2>
@@ -368,7 +368,7 @@ export default function AboutPage() {
             </div>
             
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-red-500 via-amber-500 to-green-500 opacity-30"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-red-500 via-amber-500 to-orange-500 opacity-30"></div>
               
               <div className="space-y-12">
                 {timeline.map((item, index) => (
@@ -378,7 +378,7 @@ export default function AboutPage() {
                   >
                     <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                       <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                        <div className="text-2xl font-black text-red-400 mb-2">{item.year}</div>
+                        <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-2">{item.year}</div>
                         <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                         <p className="text-gray-200 leading-relaxed text-sm">{item.description}</p>
                       </div>
@@ -399,7 +399,7 @@ export default function AboutPage() {
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
                 <span className="text-white">Trusted</span>
                 <br />
-                <span className="bg-gradient-to-r from-red-400 via-amber-400 to-green-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Certifications
                 </span>
               </h2>
@@ -428,18 +428,33 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
               <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                Ready to Write Your Success Story?
+                Ready to Write Your <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Success Story</span>?
               </h2>
               <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                 Join hundreds of businesses who trusted VIZIONAIRE to transform their digital presence and achieve extraordinary growth.
               </p>
               <button
                 onClick={handleGetStarted}
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
               >
                 Start Your Transformation
                 <ArrowRight className="w-5 h-5" />
               </button>
+              
+              <div className="grid grid-cols-3 gap-8 mt-8 max-w-lg mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">Free</div>
+                  <div className="text-xs text-gray-400">Consultation</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">90d</div>
+                  <div className="text-xs text-gray-400">Guarantee</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">24/7</div>
+                  <div className="text-xs text-gray-400">Support</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

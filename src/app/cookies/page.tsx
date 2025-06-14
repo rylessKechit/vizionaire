@@ -1,392 +1,462 @@
-import { Metadata } from 'next'
+'use client'
+
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { Cookie, Settings, BarChart, Shield } from 'lucide-react'
+import { BackgroundLayout } from '@/components/BackgroundLayout'
+import { Cookie, Settings, Eye, Shield, Clock, AlertTriangle, CheckCircle, Star, Mail, Phone } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Cookie Policy - How We Use Cookies',
-  description: 'Learn about how VIZIONAIRE uses cookies and similar technologies to improve your browsing experience.',
-}
+const cookieTypes = [
+  {
+    icon: CheckCircle,
+    title: "Essential Cookies",
+    description: "Required for basic website functionality and security.",
+    color: "from-red-600 to-red-500",
+    examples: ["Session management", "Security tokens", "Basic preferences"]
+  },
+  {
+    icon: Eye,
+    title: "Analytics Cookies",
+    description: "Help us understand how visitors interact with our website.",
+    color: "from-amber-500 to-orange-500",
+    examples: ["Google Analytics", "Page views", "User behavior"]
+  },
+  {
+    icon: Settings,
+    title: "Marketing Cookies",
+    description: "Used to deliver relevant advertisements and track campaign effectiveness.",
+    color: "from-orange-500 to-red-500",
+    examples: ["Facebook Pixel", "Google Ads", "Retargeting"]
+  },
+  {
+    icon: Cookie,
+    title: "Preference Cookies",
+    description: "Remember your choices and settings to enhance your experience.",
+    color: "from-amber-400 to-orange-500",
+    examples: ["Language settings", "Theme preferences", "Form data"]
+  }
+]
 
 export default function CookiesPage() {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <BackgroundLayout backgroundImage="/background-cityscape.jpg">
+      <div className="relative z-30">
+        <Header />
+      </div>
       
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
-        <section className="relative py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-8">
-              <div className="p-4 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500">
-                <Cookie className="w-12 h-12 text-white" />
+        <section className="relative overflow-hidden">
+          <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+            <div className="text-center max-w-4xl mx-auto">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+                <Cookie className="w-4 h-4 text-amber-400" />
+                <span className="text-white text-sm font-medium">Cookie Transparency</span>
               </div>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-black mb-8">
-              <span className="bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
-                Cookie Policy
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Learn how we use cookies and similar technologies to enhance your browsing experience and improve our services.
-            </p>
-            <div className="mt-6 text-sm text-gray-400">
-              Last updated: January 1, 2025
+              
+              {/* Title */}
+              <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
+                <span className="text-white">Cookie</span>
+                <br />
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                  Policy
+                </span>
+              </h1>
+              
+              {/* Subtitle */}
+              <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                Learn how we use cookies to enhance your experience and protect your privacy on our website.
+              </p>
+              
+              {/* Last Updated */}
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 max-w-md mx-auto">
+                <p className="text-sm text-gray-300">
+                  <strong className="text-white">Last Updated:</strong> January 15, 2025
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Content */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="prose prose-invert max-w-none">
+        <section className="py-12 lg:py-16">
+          <div className="max-w-4xl mx-auto px-6">
+            
+            {/* What Are Cookies */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-red-500 flex items-center justify-center">
+                  <Cookie className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-black text-white">What Are Cookies?</h2>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 leading-relaxed mb-4">
+                  Cookies are small text files that are stored on your device (computer, smartphone, or tablet) 
+                  when you visit a website. They help websites remember information about your visit, such as 
+                  your preferred language and other settings.
+                </p>
+                <p className="text-gray-200 leading-relaxed">
+                  At VIZIONAIRE, we use cookies to improve your browsing experience, analyze site traffic, 
+                  and personalize content. This policy explains what cookies we use and why.
+                </p>
+              </div>
+            </div>
+
+            {/* Types of Cookies */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                  <Settings className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-black text-white">Types of Cookies We Use</h2>
+              </div>
               
-              {/* What Are Cookies */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <Cookie className="w-8 h-8 text-cyan-400" />
-                  <h2 className="text-3xl font-black text-white">What Are Cookies?</h2>
-                </div>
-                
-                <div className="space-y-4 text-gray-300">
-                  <p>Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better browsing experience by remembering your preferences and analyzing how you use our site.</p>
-                  
-                  <div className="p-6 rounded-xl bg-orange-500/10 border border-orange-500/20">
-                    <h3 className="text-xl font-bold text-orange-300 mb-3">Key Points:</h3>
-                    <ul className="list-disc list-inside space-y-2 text-orange-300">
-                      <li>Cookies are safe and cannot access your personal files</li>
-                      <li>They help improve website functionality and user experience</li>
-                      <li>You can control and delete cookies through your browser settings</li>
-                      <li>Some features may not work properly without certain cookies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Types of Cookies We Use */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <Settings className="w-8 h-8 text-blue-400" />
-                  <h2 className="text-3xl font-black text-white">Types of Cookies We Use</h2>
-                </div>
-                
-                <div className="space-y-8">
-                  <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                    <h3 className="text-xl font-bold text-white mb-3">🔧 Essential Cookies</h3>
-                    <p className="text-gray-300 mb-3">These cookies are necessary for the website to function properly and cannot be switched off.</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
-                      <li>Session management and security</li>
-                      <li>Load balancing and performance</li>
-                      <li>GDPR consent preferences</li>
-                      <li>Basic website functionality</li>
-                    </ul>
-                    <div className="mt-3 text-xs text-gray-400">
-                      <strong>Duration:</strong> Session or up to 1 year
+              <div className="grid md:grid-cols-2 gap-6">
+                {cookieTypes.map((cookie, index) => (
+                  <div 
+                    key={index}
+                    className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${cookie.color} flex items-center justify-center text-white`}>
+                        <cookie.icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white">{cookie.title}</h3>
                     </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                    <h3 className="text-xl font-bold text-white mb-3">📊 Analytics Cookies</h3>
-                    <p className="text-gray-300 mb-3">Help us understand how visitors interact with our website by collecting anonymous information.</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
-                      <li>Google Analytics (traffic analysis)</li>
-                      <li>Page views and bounce rates</li>
-                      <li>User journey tracking</li>
-                      <li>Performance monitoring</li>
-                    </ul>
-                    <div className="mt-3 text-xs text-gray-400">
-                      <strong>Duration:</strong> Up to 2 years
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                    <h3 className="text-xl font-bold text-white mb-3">🎯 Marketing Cookies</h3>
-                    <p className="text-gray-300 mb-3">Used to deliver personalized advertisements and track campaign effectiveness.</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
-                      <li>Facebook Pixel and Google Ads</li>
-                      <li>Retargeting and remarketing</li>
-                      <li>Campaign performance tracking</li>
-                      <li>Social media integration</li>
-                    </ul>
-                    <div className="mt-3 text-xs text-gray-400">
-                      <strong>Duration:</strong> Up to 1 year
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                    <h3 className="text-xl font-bold text-white mb-3">⚙️ Functional Cookies</h3>
-                    <p className="text-gray-300 mb-3">Enable enhanced functionality and personalization features.</p>
-                    <ul className="list-disc list-inside space-y-1 ml-4 text-gray-300 text-sm">
-                      <li>Language and region preferences</li>
-                      <li>Theme and display settings</li>
-                      <li>Form auto-fill data</li>
-                      <li>Live chat functionality</li>
-                    </ul>
-                    <div className="mt-3 text-xs text-gray-400">
-                      <strong>Duration:</strong> Up to 1 year
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Third-Party Cookies */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Third-Party Services</h2>
-                <div className="space-y-6 text-gray-300">
-                  <p>We use several third-party services that may set their own cookies:</p>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                      <h4 className="font-bold text-blue-300 mb-2">Google Services</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Google Analytics</li>
-                        <li>• Google Ads</li>
-                        <li>• Google Tag Manager</li>
-                        <li>• reCAPTCHA</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                      <h4 className="font-bold text-purple-300 mb-2">Social Media</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Facebook Pixel</li>
-                        <li>• LinkedIn Insight Tag</li>
-                        <li>• Twitter Analytics</li>
-                        <li>• Instagram Tracking</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="p-4 rounded-xl bg-green-500/10 border border-green-500/20">
-                      <h4 className="font-bold text-green-300 mb-2">Communication</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• Live Chat Widget</li>
-                        <li>• Email Tracking</li>
-                        <li>• Call Tracking</li>
-                        <li>• Support System</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
-                      <h4 className="font-bold text-orange-300 mb-2">Performance</h4>
-                      <ul className="text-sm space-y-1">
-                        <li>• CDN Services</li>
-                        <li>• Speed Monitoring</li>
-                        <li>• Error Tracking</li>
-                        <li>• A/B Testing</li>
+                    <p className="text-gray-200 mb-4 text-sm">{cookie.description}</p>
+                    <div>
+                      <p className="text-xs font-semibold text-gray-300 mb-2">Examples:</p>
+                      <ul className="text-xs text-gray-400 space-y-1">
+                        {cookie.examples.map((example, i) => (
+                          <li key={i} className="flex items-center gap-1">
+                            <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                            {example}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
+            </div>
 
-              {/* Managing Your Cookies */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <Settings className="w-8 h-8 text-green-400" />
-                  <h2 className="text-3xl font-black text-white">Managing Your Cookie Preferences</h2>
+            {/* How We Use Cookies */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                  <Eye className="w-6 h-6 text-white" />
                 </div>
-                
-                <div className="space-y-6 text-gray-300">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">Browser Settings</h3>
-                    <p className="mb-4">You can control cookies through your browser settings. Here's how:</p>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                        <h4 className="font-bold text-white mb-2">Chrome</h4>
-                        <ol className="text-sm space-y-1 list-decimal list-inside">
-                          <li>Settings → Privacy and Security</li>
-                          <li>Cookies and other site data</li>
-                          <li>Choose your preferences</li>
-                        </ol>
-                      </div>
-                      
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                        <h4 className="font-bold text-white mb-2">Firefox</h4>
-                        <ol className="text-sm space-y-1 list-decimal list-inside">
-                          <li>Options → Privacy & Security</li>
-                          <li>Cookies and Site Data</li>
-                          <li>Manage preferences</li>
-                        </ol>
-                      </div>
-                      
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                        <h4 className="font-bold text-white mb-2">Safari</h4>
-                        <ol className="text-sm space-y-1 list-decimal list-inside">
-                          <li>Preferences → Privacy</li>
-                          <li>Cookies and website data</li>
-                          <li>Adjust settings</li>
-                        </ol>
-                      </div>
-                      
-                      <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                        <h4 className="font-bold text-white mb-2">Edge</h4>
-                        <ol className="text-sm space-y-1 list-decimal list-inside">
-                          <li>Settings → Cookies and site permissions</li>
-                          <li>Cookies and site data</li>
-                          <li>Configure options</li>
-                        </ol>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
-                    <h4 className="text-xl font-bold text-yellow-300 mb-3">⚠️ Important Note</h4>
-                    <p className="text-yellow-300">Disabling certain cookies may affect website functionality. Some features like contact forms, live chat, and personalized content may not work properly without cookies.</p>
-                  </div>
-                </div>
+                <h2 className="text-3xl font-black text-white">How We Use Cookies</h2>
               </div>
-
-              {/* Opt-Out Options */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Opt-Out Options</h2>
-                <div className="space-y-6 text-gray-300">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">Analytics Opt-Out</h3>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li><a href="https://tools.google.com/dlpage/gaoptout" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a></li>
-                      <li><a href="https://www.google.com/settings/ads" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener">Google Ads Settings</a></li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">Advertising Opt-Out</h3>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li><a href="https://www.facebook.com/ads/preferences" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener">Facebook Ad Preferences</a></li>
-                      <li><a href="http://optout.aboutads.info/" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener">Digital Advertising Alliance Opt-out</a></li>
-                      <li><a href="https://www.youronlinechoices.com/" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener">Your Online Choices (EU)</a></li>
-                    </ul>
-                  </div>
+              
+              <div className="space-y-6">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Website Functionality</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>Remember your preferences and settings</li>
+                    <li>Maintain your session while browsing</li>
+                    <li>Provide security features and fraud prevention</li>
+                    <li>Enable essential website functions</li>
+                  </ul>
                 </div>
-              </div>
 
-              {/* Mobile Devices */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Mobile Devices</h2>
-                <div className="space-y-4 text-gray-300">
-                  <p>On mobile devices, you can manage tracking preferences through your device settings:</p>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                      <h4 className="font-bold text-white mb-3">📱 iOS (iPhone/iPad)</h4>
-                      <ol className="text-sm space-y-2 list-decimal list-inside">
-                        <li>Settings → Privacy & Security</li>
-                        <li>Tracking → Allow Apps to Request to Track</li>
-                        <li>Apple Advertising → Personalized Ads</li>
-                        <li>Manage per-app tracking permissions</li>
-                      </ol>
-                    </div>
-                    
-                    <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                      <h4 className="font-bold text-white mb-3">🤖 Android</h4>
-                      <ol className="text-sm space-y-2 list-decimal list-inside">
-                        <li>Settings → Privacy</li>
-                        <li>Ads → Opt out of Ads Personalization</li>
-                        <li>Google → Ads</li>
-                        <li>Reset advertising ID if needed</li>
-                      </ol>
-                    </div>
-                  </div>
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Analytics & Performance</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>Understand how visitors use our website</li>
+                    <li>Identify popular content and pages</li>
+                    <li>Monitor website performance and speed</li>
+                    <li>Improve user experience based on data</li>
+                  </ul>
                 </div>
-              </div>
 
-              {/* Data Protection */}
-              <div className="mb-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <Shield className="w-8 h-8 text-purple-400" />
-                  <h2 className="text-3xl font-black text-white">Data Protection & Security</h2>
-                </div>
-                
-                <div className="space-y-4 text-gray-300">
-                  <p>We take the security of your data seriously and implement several measures to protect cookie data:</p>
-                  
-                  <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li><strong>Encryption:</strong> All data transmission is encrypted using SSL/TLS</li>
-                    <li><strong>Secure Storage:</strong> Cookies are stored securely with appropriate access controls</li>
-                    <li><strong>Data Minimization:</strong> We only collect necessary data for legitimate purposes</li>
-                    <li><strong>Regular Audits:</strong> Periodic review of cookie usage and data practices</li>
-                    <li><strong>Vendor Management:</strong> Third-party services are vetted for security compliance</li>
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Marketing & Advertising</h3>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>Deliver relevant advertisements</li>
+                    <li>Track campaign effectiveness</li>
+                    <li>Retarget visitors with personalized content</li>
+                    <li>Measure conversion rates and ROI</li>
                   </ul>
                 </div>
               </div>
+            </div>
 
-              {/* Legal Compliance */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Legal Compliance</h2>
-                <div className="space-y-6 text-gray-300">
+            {/* Third-Party Cookies */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-black text-white mb-6">Third-Party Services</h2>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 mb-4">
+                  We use trusted third-party services that may place cookies on your device:
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-3">GDPR Compliance</h3>
-                    <p className="mb-4">We comply with the EU General Data Protection Regulation (GDPR) by:</p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
-                      <li>Obtaining explicit consent for non-essential cookies</li>
-                      <li>Providing clear information about cookie usage</li>
-                      <li>Allowing easy withdrawal of consent</li>
-                      <li>Implementing data protection by design</li>
+                    <h4 className="font-semibold text-white mb-2">Analytics Services</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-gray-200">
+                      <li>Google Analytics - Website traffic analysis</li>
+                      <li>Hotjar - User behavior tracking</li>
+                      <li>Facebook Analytics - Social media insights</li>
                     </ul>
                   </div>
-
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-3">Other Regulations</h3>
-                    <p className="mb-4">We also comply with:</p>
-                    <ul className="list-disc list-inside space-y-2 ml-4">
+                    <h4 className="font-semibold text-white mb-2">Marketing Platforms</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-gray-200">
+                      <li>Google Ads - Advertising campaigns</li>
+                      <li>Facebook Pixel - Social media advertising</li>
+                      <li>LinkedIn Insight Tag - B2B marketing</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Cookie Management */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-amber-500 flex items-center justify-center">
+                  <Settings className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-black text-white">Managing Your Cookie Preferences</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Browser Settings</h3>
+                  <p className="text-gray-200 mb-4">
+                    You can control cookies through your browser settings. Most browsers allow you to:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>View which cookies are stored on your device</li>
+                    <li>Delete existing cookies</li>
+                    <li>Block all cookies or specific types</li>
+                    <li>Set notifications when cookies are placed</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Cookie Consent</h3>
+                  <p className="text-gray-200 mb-4">
+                    When you first visit our website, we'll ask for your consent to use non-essential cookies. You can:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>Accept all cookies for the full experience</li>
+                    <li>Accept only essential cookies</li>
+                    <li>Customize your preferences by cookie type</li>
+                    <li>Change your preferences anytime</li>
+                  </ul>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-orange-500/20 rounded-2xl p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <AlertTriangle className="w-5 h-5 text-orange-400" />
+                    <h4 className="font-semibold text-orange-300">Important Note</h4>
+                  </div>
+                  <p className="text-orange-200 text-sm">
+                    Disabling certain cookies may impact website functionality and your user experience. 
+                    Essential cookies cannot be disabled as they are necessary for basic website operation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Data Security */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-black text-white">Data Security & Protection</h2>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 mb-4">
+                  We implement robust security measures to protect cookie data:
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-200">
+                    <li><strong>Secure Transmission:</strong> Cookies are transmitted over encrypted connections</li>
+                    <li><strong>Access Controls:</strong> Limited access to cookie data</li>
+                    <li><strong>Regular Audits:</strong> Periodic review of cookie usage</li>
+                  </ul>
+                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-200">
+                    <li><strong>Data Minimization:</strong> Only necessary data is collected</li>
+                    <li><strong>Retention Limits:</strong> Cookies expire automatically</li>
+                    <li><strong>Vendor Oversight:</strong> Third parties are security vetted</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Legal Compliance */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-black text-white mb-6">Legal Compliance</h2>
+              <div className="space-y-6">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">GDPR Compliance</h3>
+                  <p className="text-gray-200 mb-4">
+                    We comply with the EU General Data Protection Regulation (GDPR) by:
+                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-gray-200">
+                    <li>Obtaining explicit consent for non-essential cookies</li>
+                    <li>Providing clear information about cookie usage</li>
+                    <li>Allowing easy withdrawal of consent</li>
+                    <li>Implementing data protection by design</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                  <h3 className="text-xl font-bold text-white mb-3">Other Regulations</h3>
+                  <p className="text-gray-200 mb-4">We also comply with:</p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <ul className="list-disc list-inside space-y-2 text-sm text-gray-200">
                       <li><strong>CCPA:</strong> California Consumer Privacy Act</li>
                       <li><strong>ePrivacy:</strong> EU ePrivacy Directive</li>
-                      <li><strong>UAE Data Protection:</strong> Local data protection laws</li>
+                    </ul>
+                    <ul className="list-disc list-inside space-y-2 text-sm text-gray-200">
+                      <li><strong>UAE Data Protection:</strong> Local privacy laws</li>
                       <li><strong>PIPEDA:</strong> Canadian privacy legislation</li>
                     </ul>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Updates to Policy */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Updates to This Policy</h2>
-                <div className="text-gray-300">
-                  <p className="mb-4">We may update this cookie policy from time to time to reflect:</p>
-                  <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li>Changes in our cookie usage</li>
-                    <li>New legal requirements</li>
-                    <li>Updates to third-party services</li>
-                    <li>Improvements to our website</li>
-                  </ul>
-                  <p className="mt-4">We will notify you of significant changes by posting the updated policy on our website and updating the "last modified" date.</p>
+            {/* Cookie Retention */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-3xl font-black text-white">Cookie Retention Periods</h2>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 mb-4">
+                  Different types of cookies are retained for different periods:
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold text-white mb-2">Session Cookies</h4>
+                    <p className="text-sm text-gray-200 mb-4">
+                      Deleted when you close your browser
+                    </p>
+                    
+                    <h4 className="font-semibold text-white mb-2">Essential Cookies</h4>
+                    <p className="text-sm text-gray-200">
+                      Up to 1 year for security and functionality
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white mb-2">Analytics Cookies</h4>
+                    <p className="text-sm text-gray-200 mb-4">
+                      Up to 26 months from last activity
+                    </p>
+                    
+                    <h4 className="font-semibold text-white mb-2">Marketing Cookies</h4>
+                    <p className="text-sm text-gray-200">
+                      Up to 2 years or until consent withdrawal
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              {/* Contact Information */}
-              <div className="mb-16">
-                <h2 className="text-3xl font-black text-white mb-6">Questions About Cookies?</h2>
-                <div className="text-gray-300">
-                  <p className="mb-4">If you have any questions about our use of cookies, please contact us:</p>
-                  <div className="p-6 rounded-xl bg-white/5 border border-white/10">
-                    <div className="space-y-2">
-                      <p><strong>Email:</strong> privacy@vizionaire.com</p>
-                      <p><strong>Phone:</strong> +971 4 123 4567</p>
-                      <p><strong>Address:</strong> DIFC, Dubai, UAE</p>
-                      <p><strong>Response Time:</strong> Within 2 business days</p>
+            {/* Updates to Policy */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-black text-white mb-6">Policy Updates</h2>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 mb-4">
+                  We may update this cookie policy from time to time to reflect changes in our practices, 
+                  technology, or legal requirements. When we make significant changes:
+                </p>
+                <ul className="list-disc list-inside space-y-2 ml-4 text-gray-200">
+                  <li>We will notify you via website banner or email</li>
+                  <li>We will update the "Last Updated" date</li>
+                  <li>We may seek renewed consent where required</li>
+                  <li>We will provide a summary of key changes</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-black text-white mb-6">Contact Us About Cookies</h2>
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                <p className="text-gray-200 mb-6">
+                  If you have questions about our use of cookies or want to exercise your rights, please contact us:
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Mail className="w-5 h-5 text-red-400" />
+                      <div>
+                        <p className="font-semibold text-white">Privacy Team</p>
+                        <p className="text-gray-300">privacy@vizionaire.com</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-5 h-5 text-amber-400" />
+                      <div>
+                        <p className="font-semibold text-white">Phone</p>
+                        <p className="text-gray-300">+971 56 566 3377</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-5 h-5 text-orange-400" />
+                      <div>
+                        <p className="font-semibold text-white">Response Time</p>
+                        <p className="text-gray-300">Within 48 hours</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Cookie Consent Management */}
-              <div className="mb-16">
-                <div className="p-6 rounded-xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20">
-                  <h3 className="text-xl font-bold text-white mb-4">🍪 Manage Your Cookie Preferences</h3>
-                  <p className="text-gray-300 mb-4">You can change your cookie preferences at any time by clicking the button below. Your preferences will be saved and applied to your future visits.</p>
-                  <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-xl hover:scale-105 transition-transform duration-300">
-                    Cookie Settings
-                  </button>
-                  <p className="text-sm text-gray-400 mt-2">Note: This is a demo button. In production, this would open your cookie consent manager.</p>
+            {/* Your Rights Summary */}
+            <div className="text-center">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+                <h2 className="text-2xl font-bold text-white mb-4">Your Rights</h2>
+                <p className="text-gray-200 max-w-2xl mx-auto leading-relaxed mb-6">
+                  You have the right to control how cookies are used on your device. You can accept, 
+                  reject, or customize your cookie preferences at any time. Your choices will be 
+                  respected and remembered for future visits.
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <div className="text-lg font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">Accept</div>
+                    <div className="text-xs text-gray-400">All Cookies</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Customize</div>
+                    <div className="text-xs text-gray-400">Your Preferences</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Reject</div>
+                    <div className="text-xs text-gray-400">Non-Essential</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Change</div>
+                    <div className="text-xs text-gray-400">Anytime</div>
+                  </div>
                 </div>
               </div>
-
             </div>
+
           </div>
         </section>
       </main>
       
-      <Footer />
-    </div>
+      {/* Footer */}
+      <div className="bg-black/85 backdrop-blur-sm border-t border-white/10">
+        <Footer />
+      </div>
+    </BackgroundLayout>
   )
 }

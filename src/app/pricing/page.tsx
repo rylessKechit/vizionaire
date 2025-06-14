@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { BackgroundLayout } from '@/components/BackgroundLayout'
-import { ArrowRight, Check, Star, Zap, TrendingUp, Target, Users, Award, Shield, Clock, CheckCircle, Phone } from 'lucide-react'
+import { ArrowRight, Check, Star, Zap, TrendingUp, Target, Users, Award, Shield, Clock, CheckCircle, Phone, ChevronDown } from 'lucide-react'
 
 const plans = [
   {
@@ -25,9 +25,8 @@ const plans = [
       "WhatsApp & email support"
     ],
     popular: false,
-    color: "from-blue-600 to-blue-500",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-200"
+    color: "from-amber-400 via-yellow-500 to-orange-500",
+    iconBg: "from-amber-500 to-orange-500"
   },
   {
     icon: TrendingUp,
@@ -49,9 +48,8 @@ const plans = [
       "A/B testing for all campaigns"
     ],
     popular: true,
-    color: "from-red-600 to-amber-500",
-    bgColor: "bg-gradient-to-br from-red-50 to-amber-50",
-    borderColor: "border-red-200"
+    color: "from-orange-500 via-red-500 to-rose-600",
+    iconBg: "from-red-600 to-red-500"
   },
   {
     icon: Target,
@@ -62,64 +60,69 @@ const plans = [
     description: "Premium solution with dedicated team, unlimited everything, and enterprise-level strategies for market leaders.",
     features: [
       "Dedicated marketing team (3+ specialists)",
-      "Custom strategy development & execution",
+      "Custom strategy development & implementation",
       "Multi-channel campaigns across all platforms",
       "Advanced automation workflows & CRM setup",
       "Unlimited design requests & revisions",
-      "Priority phone support & Slack integration",
-      "Bi-weekly strategy reviews & optimizations",
-      "Exclusive market insights & trend reports",
-      "White-label reporting for your clients",
+      "Priority phone support & weekly calls",
+      "Monthly strategy reviews & optimization",
+      "Exclusive market insights & competitor intelligence",
       "Custom integrations & API development",
-      "Quarterly business reviews with C-level",
-      "Access to our network of industry partners"
+      "White-label reporting for your clients"
     ],
     popular: false,
-    color: "from-purple-600 to-purple-500",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200"
+    color: "from-red-600 to-red-500",
+    iconBg: "from-red-600 to-amber-500"
   }
 ]
 
 const features = [
   {
-    icon: Shield,
-    title: "90-Day Money-Back Guarantee",
-    description: "If you don't see measurable results within 90 days, we'll refund your investment completely."
+    category: "Setup & Onboarding",
+    items: [
+      { name: "Initial consultation & strategy", starter: true, professional: true, enterprise: true },
+      { name: "Account setup & configuration", starter: true, professional: true, enterprise: true },
+      { name: "Brand guidelines creation", starter: false, professional: true, enterprise: true },
+      { name: "Dedicated onboarding specialist", starter: false, professional: false, enterprise: true }
+    ]
   },
   {
-    icon: Clock,
-    title: "48-Hour Setup",
-    description: "We'll have your campaigns live and generating results within 48 hours of signing up."
+    category: "Social Media Management",
+    items: [
+      { name: "Platforms managed", starter: "2", professional: "All", enterprise: "All + Custom" },
+      { name: "Posts per month", starter: "20", professional: "60", enterprise: "Unlimited" },
+      { name: "Custom content creation", starter: false, professional: true, enterprise: true },
+      { name: "Influencer partnerships", starter: false, professional: true, enterprise: true }
+    ]
   },
   {
-    icon: Users,
-    title: "Dedicated Account Manager",
-    description: "Work directly with experienced strategists who understand your business inside and out."
+    category: "Advertising & PPC",
+    items: [
+      { name: "Google Ads management", starter: false, professional: true, enterprise: true },
+      { name: "Meta/Facebook advertising", starter: false, professional: true, enterprise: true },
+      { name: "LinkedIn advertising", starter: false, professional: false, enterprise: true },
+      { name: "Ad spend management", starter: "N/A", professional: "Up to 50k", enterprise: "Unlimited" }
+    ]
   },
   {
-    icon: Award,
-    title: "No Long-Term Contracts",
-    description: "Cancel anytime. We earn your business every month with results, not contracts."
+    category: "Reporting & Analytics",
+    items: [
+      { name: "Performance reports", starter: "Monthly", professional: "Weekly", enterprise: "Real-time" },
+      { name: "Custom dashboards", starter: false, professional: true, enterprise: true },
+      { name: "ROI tracking", starter: true, professional: true, enterprise: true },
+      { name: "Competitor analysis", starter: false, professional: true, enterprise: true }
+    ]
   }
 ]
 
 const faqs = [
   {
-    question: "What's included in the setup fee?",
-    answer: "Setup includes complete strategy development, account creation, initial content creation, and technical implementation. It's a one-time investment for long-term success."
-  },
-  {
     question: "Can I switch plans anytime?",
-    answer: "Absolutely! You can upgrade or downgrade your plan at any time. Changes take effect from your next billing cycle with pro-rated adjustments."
+    answer: "Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately and we'll prorate any billing differences."
   },
   {
-    question: "Do you offer custom packages?",
-    answer: "Yes! We create tailored solutions for unique business needs. Contact us for a custom quote based on your specific requirements and goals."
-  },
-  {
-    question: "What's your money-back guarantee?",
-    answer: "We offer a 90-day money-back guarantee. If you don't see measurable results within 90 days, we'll refund your investment completely."
+    question: "What's included in the 90-day guarantee?",
+    answer: "If you don't see measurable results within 90 days (increased leads, traffic, or sales), we'll refund your investment completely."
   },
   {
     question: "How quickly will I see results?",
@@ -128,11 +131,16 @@ const faqs = [
   {
     question: "Do you work with businesses outside UAE?",
     answer: "While we specialize in the UAE market, we work with businesses globally. Our strategies are adapted to local markets and cultural preferences."
+  },
+  {
+    question: "What if I need something custom?",
+    answer: "We create custom packages for unique needs. Contact us for a personalized quote tailored to your specific requirements and budget."
   }
 ]
 
 export default function PricingPage() {
   const [isAnnual, setIsAnnual] = useState(false)
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   const handleGetStarted = (planName: string) => {
     const message = encodeURIComponent(`Hi! I'm interested in the ${planName} plan. Can we schedule a consultation to discuss my needs?`)
@@ -146,7 +154,7 @@ export default function PricingPage() {
 
   return (
     <BackgroundLayout backgroundImage="/background-cityscape.jpg">
-      {/* Header avec background transparent */}
+      {/* Header */}
       <div className="relative z-30">
         <Header />
       </div>
@@ -164,7 +172,7 @@ export default function PricingPage() {
               
               {/* Title */}
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-white via-green-200 to-blue-200 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Invest in Your
                 </span>
                 <br />
@@ -176,246 +184,264 @@ export default function PricingPage() {
                 No hidden fees, no long-term contracts. Choose the plan that fits your ambition and watch your business transform.
               </p>
               
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-2xl mx-auto">
-                <div className="text-center">
-                  <Shield className="w-8 h-8 text-green-400 mx-auto mb-2" />
-                  <div className="text-sm text-gray-300">90-Day Guarantee</div>
-                </div>
-                <div className="text-center">
-                  <Clock className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                  <div className="text-sm text-gray-300">48h Setup</div>
-                </div>
-                <div className="text-center">
-                  <Users className="w-8 h-8 text-purple-400 mx-auto mb-2" />
-                  <div className="text-sm text-gray-300">Dedicated Team</div>
-                </div>
-                <div className="text-center">
-                  <Award className="w-8 h-8 text-amber-400 mx-auto mb-2" />
-                  <div className="text-sm text-gray-300">No Contracts</div>
-                </div>
+              {/* Billing Toggle */}
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <span className={`text-lg font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>Monthly</span>
+                <button
+                  onClick={() => setIsAnnual(!isAnnual)}
+                  className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${
+                    isAnnual ? 'bg-gradient-to-r from-red-600 to-orange-500' : 'bg-white/20'
+                  }`}
+                >
+                  <div className={`absolute top-1 w-5 h-5 bg-white rounded-full transition-transform duration-300 ${
+                    isAnnual ? 'translate-x-8' : 'translate-x-1'
+                  }`} />
+                </button>
+                <span className={`text-lg font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
+                  Annual
+                  <span className="ml-2 text-sm bg-gradient-to-r from-red-600 to-orange-500 text-white px-2 py-1 rounded-full">
+                    Save 20%
+                  </span>
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Pricing Toggle */}
-        <section className="py-8">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center justify-center gap-4 mb-12">
-              <span className={`text-lg font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
-                Monthly
-              </span>
-              <button
-                onClick={() => setIsAnnual(!isAnnual)}
-                className={`relative inline-flex h-8 w-14 items-center rounded-full transition-colors ${
-                  isAnnual ? 'bg-gradient-to-r from-green-600 to-blue-600' : 'bg-gray-600'
-                }`}
-              >
-                <span
-                  className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform ${
-                    isAnnual ? 'translate-x-7' : 'translate-x-1'
-                  }`}
-                />
-              </button>
-              <span className={`text-lg font-medium ${isAnnual ? 'text-white' : 'text-gray-400'}`}>
-                Annual
-              </span>
-              {isAnnual && (
-                <span className="text-sm bg-green-500/20 text-green-400 px-3 py-1 rounded-full font-bold border border-green-500/30">
-                  Save 20%
-                </span>
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Plans */}
+        {/* Pricing Cards */}
         <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-3 gap-8 mb-16">
-              {plans.map((plan, index) => {
-                const IconComponent = plan.icon
-                const price = isAnnual ? plan.annualPrice : plan.monthlyPrice
-                const savings = plan.monthlyPrice - plan.annualPrice
-                
-                return (
-                  <div 
-                    key={index}
-                    className={`relative group ${plan.popular ? 'md:scale-105 z-20' : 'z-10'}`}
-                    style={{ zIndex: plan.popular ? 20 : 10 }}
-                  >
-                    {plan.popular && (
-                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
-                        <div className="bg-gradient-to-r from-red-600 to-amber-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                          Most Popular
-                        </div>
-                      </div>
-                    )}
-                    
-                    <div className={`relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 hover:bg-white/15 ${plan.popular ? 'shadow-xl border-red-500/30' : 'shadow-lg'}`}>
-                      {/* Icon & Title */}
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${plan.color} text-white shadow-lg`}>
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-black text-white">{plan.name}</h3>
-                          <p className="text-sm text-gray-300">{plan.subtitle}</p>
-                        </div>
-                      </div>
-                      
-                      {/* Price */}
-                      <div className="mb-6">
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-black text-white">{price.toLocaleString()}</span>
-                          <span className="text-gray-300">AED/month</span>
-                        </div>
-                        {isAnnual && (
-                          <div className="text-sm text-green-400 font-semibold mt-1">
-                            Save {savings.toLocaleString()} AED monthly
-                          </div>
-                        )}
-                      </div>
-                      
-                      <p className="text-gray-200 mb-6 text-sm leading-relaxed">{plan.description}</p>
-                      
-                      {/* Features */}
-                      <ul className="space-y-3 mb-8">
-                        {plan.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-200 text-sm leading-relaxed">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      {/* CTA Button */}
-                      <button
-                        onClick={() => handleGetStarted(plan.name)}
-                        className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
-                          plan.popular
-                            ? 'bg-gradient-to-r from-red-600 to-amber-500 text-white shadow-lg hover:shadow-xl'
-                            : 'bg-white/20 backdrop-blur-md text-white hover:bg-white/30 shadow-md hover:shadow-lg border border-white/30'
-                        }`}
-                      >
-                        Get Started Today
-                      </button>
-                      
-                      <div className="text-center mt-4">
-                        <p className="text-xs text-gray-400">No setup fees • Cancel anytime • 90-day guarantee</p>
+            <div className="grid lg:grid-cols-3 gap-8">
+              {plans.map((plan, index) => (
+                <div
+                  key={plan.name}
+                  className={`relative bg-white/10 backdrop-blur-md border rounded-3xl p-8 transition-all duration-500 hover:bg-white/15 hover:scale-105 ${
+                    plan.popular 
+                      ? 'border-orange-500/50 ring-2 ring-orange-500/30 bg-white/15' 
+                      : 'border-white/20 hover:border-white/30'
+                  }`}
+                >
+                  {/* Popular Badge */}
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                        Most Popular
                       </div>
                     </div>
+                  )}
+
+                  {/* Plan Header */}
+                  <div className="text-center mb-6">
+                    <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${plan.iconBg} flex items-center justify-center text-white`}>
+                      <plan.icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                    <p className={`text-lg font-medium bg-gradient-to-r ${plan.color} bg-clip-text text-transparent`}>
+                      {plan.subtitle}
+                    </p>
                   </div>
-                )
-              })}
+
+                  {/* Pricing */}
+                  <div className="text-center mb-6">
+                    <div className="flex items-baseline justify-center mb-2">
+                      <span className="text-4xl font-black text-white">
+                        {isAnnual ? plan.annualPrice.toLocaleString() : plan.monthlyPrice.toLocaleString()}
+                      </span>
+                      <span className="text-lg text-gray-300 ml-2">AED/month</span>
+                    </div>
+                    {isAnnual && (
+                      <div className="text-sm text-gray-400">
+                        <span className="line-through">{plan.monthlyPrice.toLocaleString()} AED</span>
+                        <span className="ml-2 text-green-400 font-medium">Save 20%</span>
+                      </div>
+                    )}
+                    <p className="text-gray-200 mt-2 text-sm leading-relaxed">{plan.description}</p>
+                  </div>
+
+                  {/* Features */}
+                  <div className="mb-8">
+                    <ul className="space-y-3">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-200 text-sm leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => handleGetStarted(plan.name)}
+                    className={`w-full py-4 px-6 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-orange-500/25'
+                        : 'bg-white text-black hover:bg-gray-200'
+                    }`}
+                  >
+                    {plan.popular ? 'Start Dominating' : 'Get Started'}
+                  </button>
+                  
+                  <div className="text-center mt-3">
+                    <span className="text-xs text-gray-400">No setup fees • Cancel anytime</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Features Grid */}
+        {/* Feature Comparison */}
         <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Why Choose VIZIONAIRE?
-                </span>
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Compare All Features
               </h2>
-              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                We're not just another agency. We're your dedicated partner in digital transformation.
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                See exactly what's included in each plan
               </p>
             </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature, index) => {
-                const IconComponent = feature.icon
-                return (
-                  <div 
-                    key={index}
-                    className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15"
-                  >
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>
-                    <p className="text-gray-200 text-sm leading-relaxed">{feature.description}</p>
-                  </div>
-                )
-              })}
+
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-white/20">
+                      <th className="text-left py-4 text-white font-bold">Features</th>
+                      <th className="text-center py-4 text-white font-bold">Starter</th>
+                      <th className="text-center py-4 text-white font-bold">Professional</th>
+                      <th className="text-center py-4 text-white font-bold">Enterprise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {features.map((category, categoryIndex) => (
+                      <>
+                        <tr key={`category-${categoryIndex}`}>
+                          <td colSpan={4} className="py-4">
+                            <h4 className="font-bold text-white bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+                              {category.category}
+                            </h4>
+                          </td>
+                        </tr>
+                        {category.items.map((item, itemIndex) => (
+                          <tr key={`item-${categoryIndex}-${itemIndex}`} className="border-b border-white/10">
+                            <td className="py-3 text-gray-200">{item.name}</td>
+                            <td className="py-3 text-center">
+                              {typeof item.starter === 'boolean' ? (
+                                item.starter ? (
+                                  <Check className="w-5 h-5 text-green-400 mx-auto" />
+                                ) : (
+                                  <span className="text-gray-500">—</span>
+                                )
+                              ) : (
+                                <span className="text-white font-medium">{item.starter}</span>
+                              )}
+                            </td>
+                            <td className="py-3 text-center">
+                              {typeof item.professional === 'boolean' ? (
+                                item.professional ? (
+                                  <Check className="w-5 h-5 text-green-400 mx-auto" />
+                                ) : (
+                                  <span className="text-gray-500">—</span>
+                                )
+                              ) : (
+                                <span className="text-white font-medium">{item.professional}</span>
+                              )}
+                            </td>
+                            <td className="py-3 text-center">
+                              {typeof item.enterprise === 'boolean' ? (
+                                item.enterprise ? (
+                                  <Check className="w-5 h-5 text-green-400 mx-auto" />
+                                ) : (
+                                  <span className="text-gray-500">—</span>
+                                )
+                              ) : (
+                                <span className="text-white font-medium">{item.enterprise}</span>
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Enterprise CTA */}
-        <section className="py-12 lg:py-16">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/20 text-center">
-              <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-                Need a Custom Solution?
-              </h2>
-              <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Large enterprise or unique requirements? We create personalized packages that scale with your ambition.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <button
-                  onClick={handleCustomQuote}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg"
-                >
-                  <Phone className="w-5 h-5" />
-                  Get Custom Quote
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => window.open('https://wa.me/971565663377?text=Hi! I would like to see VIZIONAIRE case studies and ROI examples.', '_blank')}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold rounded-2xl transition-all duration-300 hover:bg-white/30"
-                >
-                  View Case Studies
-                </button>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-gray-300">
-                <div className="flex items-center justify-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400" />
-                  Free consultation included
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400" />
-                  Custom strategy development
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400" />
-                  Flexible payment terms
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
+        {/* FAQ Section */}
         <section className="py-12 lg:py-16">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-                <span className="text-white">Frequently Asked</span>
-                <br />
-                <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Questions
-                </span>
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Frequently Asked Questions
               </h2>
+              <p className="text-xl text-gray-200">
+                Everything you need to know about our pricing
+              </p>
             </div>
-            
-            <div className="space-y-6">
+
+            <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div 
+                <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden"
                 >
-                  <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
-                  <p className="text-gray-200 leading-relaxed">{faq.answer}</p>
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+                  >
+                    <span className="font-bold text-white">{faq.question}</span>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                      expandedFaq === index ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-200 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Money Back Guarantee */}
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/20 text-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-black mb-4 text-white">
+                90-Day Money-Back Guarantee
+              </h2>
+              <p className="text-xl text-gray-200 mb-6 max-w-2xl mx-auto leading-relaxed">
+                We're so confident in our results, if you don't see measurable improvement in your business within 90 days, we'll refund every penny.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-2">
+                    No Risk
+                  </div>
+                  <div className="text-sm text-gray-300">Complete refund if unsatisfied</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-2">
+                    No Hassle
+                  </div>
+                  <div className="text-sm text-gray-300">Simple one-click cancellation</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">
+                    No Questions
+                  </div>
+                  <div className="text-sm text-gray-300">Your satisfaction guaranteed</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -425,40 +451,41 @@ export default function PricingPage() {
           <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
               <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                Ready to Transform Your Business?
+                Ready to <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Transform</span> Your Business?
               </h2>
               <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                Join 500+ successful businesses who chose VIZIONAIRE. Your transformation starts today.
+                Join hundreds of successful businesses across the UAE who chose VIZIONAIRE to accelerate their growth.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleCustomQuote}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
+                >
+                  <Phone className="w-5 h-5" />
+                  Get Your Free Strategy Session
+                </button>
                 <button
                   onClick={() => handleGetStarted('Professional')}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300"
                 >
-                  Start Your Success Story
-                  <ArrowRight className="w-5 h-5" />
+                  Start with Professional
                 </button>
               </div>
               
-              <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
+              <div className="grid grid-cols-3 gap-8 mt-8 max-w-lg mx-auto">
                 <div className="text-center">
-                  <div className="text-2xl font-black text-green-400 mb-1">48h</div>
-                  <div className="text-xs text-gray-400">Setup Time</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">Free</div>
+                  <div className="text-xs text-gray-400">Consultation</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-black text-blue-400 mb-1">90d</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">90d</div>
                   <div className="text-xs text-gray-400">Guarantee</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-black text-purple-400 mb-1">24/7</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">24/7</div>
                   <div className="text-xs text-gray-400">Support</div>
                 </div>
               </div>
-              
-              <p className="text-sm text-gray-400 mt-6">
-                🇦🇪 Proudly serving UAE businesses • Trusted by 500+ companies
-              </p>
             </div>
           </div>
         </section>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { BackgroundLayout } from '@/components/BackgroundLayout'
-import { ArrowRight, Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle, Zap, Calendar, Users, Target, Star } from 'lucide-react'
+import { ArrowRight, Phone, Mail, MapPin, Clock, MessageCircle, Send, CheckCircle, Zap, Calendar, Users, Target, Star, ChevronDown } from 'lucide-react'
 
 const services = [
   'Website Development & E-commerce',
@@ -33,8 +33,8 @@ const contactMethods = [
     subtitle: "Instant Response",
     value: "+971 56 566 3377",
     action: "https://wa.me/971565663377?text=Hi! I'm interested in VIZIONAIRE services. Can we discuss my project?",
-    color: "from-green-600 to-green-500",
-    bgColor: "bg-green-50"
+    color: "from-amber-400 via-orange-500 to-red-500",
+    iconBg: "from-amber-500 to-orange-500"
   },
   {
     icon: Phone,
@@ -42,8 +42,8 @@ const contactMethods = [
     subtitle: "Available 24/7",
     value: "+971 56 566 3377",
     action: "tel:+971565663377",
-    color: "from-blue-600 to-blue-500",
-    bgColor: "bg-blue-50"
+    color: "from-orange-500 via-red-500 to-rose-600",
+    iconBg: "from-red-600 to-red-500"
   },
   {
     icon: Mail,
@@ -51,8 +51,8 @@ const contactMethods = [
     subtitle: "Detailed Proposals",
     value: "hello@vizionaire.com",
     action: "mailto:hello@vizionaire.com?subject=Project Inquiry&body=Hi! I'm interested in discussing my digital marketing needs with VIZIONAIRE.",
-    color: "from-purple-600 to-purple-500",
-    bgColor: "bg-purple-50"
+    color: "from-red-600 to-red-500",
+    iconBg: "from-red-600 to-amber-500"
   },
   {
     icon: Calendar,
@@ -60,8 +60,8 @@ const contactMethods = [
     subtitle: "Book a Strategy Session",
     value: "Free Consultation",
     action: "https://wa.me/971565663377?text=Hi! I'd like to schedule a free strategy consultation. When is your next available slot?",
-    color: "from-red-600 to-red-500",
-    bgColor: "bg-red-50"
+    color: "from-amber-400 via-yellow-500 to-orange-500",
+    iconBg: "from-amber-500 to-yellow-500"
   }
 ]
 
@@ -80,7 +80,11 @@ const faqs = [
   },
   {
     question: "Can you work with my existing team?",
-    answer: "Absolutely! We seamlessly integrate with your internal teams, existing agencies, and current workflows. Collaboration and knowledge transfer are part of our process."
+    answer: "Absolutely! We seamlessly integrate with your internal teams, existing agencies, and current workflows. We become an extension of your team, not a replacement."
+  },
+  {
+    question: "What's your typical ROI timeline?",
+    answer: "Most clients see initial improvements within 30 days, significant results by 90 days, and full ROI within 6 months. We provide weekly progress reports to track your success."
   }
 ]
 
@@ -95,58 +99,49 @@ export default function ContactPage() {
     message: '',
     timeline: ''
   })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [e.target.name]: e.target.value
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
-    
     // Simulate form submission
+    setIsSubmitted(true)
+    
+    // WhatsApp integration with form data
+    const message = encodeURIComponent(`
+Hi! I've submitted a contact form with the following details:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company}
+Service Interest: ${formData.service}
+Budget Range: ${formData.budget}
+Timeline: ${formData.timeline}
+Message: ${formData.message}
+
+I'd like to schedule a consultation to discuss my project.`)
+    
     setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      
-      // Send WhatsApp message with form data
-      const message = encodeURIComponent(
-        `Hi! I'm interested in VIZIONAIRE services.\n\n` +
-        `Name: ${formData.name}\n` +
-        `Company: ${formData.company}\n` +
-        `Service: ${formData.service}\n` +
-        `Budget: ${formData.budget}\n` +
-        `Timeline: ${formData.timeline}\n` +
-        `Message: ${formData.message}\n\n` +
-        `Please contact me to discuss my project.`
-      )
       window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
     }, 1000)
   }
 
-  const handleContactMethod = (action: string) => {
-    if (action.startsWith('http')) {
-      window.open(action, '_blank')
-    } else {
-      window.location.href = action
-    }
-  }
-
   const handleScheduleCall = () => {
-    const message = encodeURIComponent('Hi! I would like to schedule a free strategy consultation with VIZIONAIRE. When is your next available slot?')
+    const message = encodeURIComponent('Hi! I\'d like to schedule a free strategy consultation. When is your next available slot?')
     window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
   }
 
   return (
     <BackgroundLayout backgroundImage="/background-cityscape.jpg">
-      {/* Header avec background transparent */}
+      {/* Header */}
       <div className="relative z-30">
         <Header />
       </div>
@@ -158,58 +153,23 @@ export default function ContactPage() {
             <div className="text-center max-w-4xl mx-auto">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-                <MessageCircle className="w-4 h-4 text-green-400" />
-                <span className="text-white text-sm font-medium">Let's Build Something Amazing Together</span>
+                <Star className="w-4 h-4 text-yellow-400" />
+                <span className="text-white text-sm font-medium">Free Consultation • 24/7 Support</span>
               </div>
               
               {/* Title */}
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-white via-green-200 to-blue-200 bg-clip-text text-transparent">
-                  Ready to Dominate
-                </span>
+                <span className="text-white">Let's Make Your</span>
                 <br />
-                <span className="text-white">Your Market?</span>
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                  Vision Reality
+                </span>
               </h1>
               
               {/* Subtitle */}
               <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-                Your transformation starts with a conversation. Get a free strategy consultation and discover how we can 10x your business growth.
+                Ready to transform your business? We're here to help. Get your free strategy session and see how we can accelerate your growth.
               </p>
-              
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-8 mb-12 max-w-lg mx-auto">
-                <div className="text-center">
-                  <div className="text-2xl font-black text-green-400 mb-1">2h</div>
-                  <div className="text-xs text-gray-400">Response Time</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-black text-blue-400 mb-1">48h</div>
-                  <div className="text-xs text-gray-400">Project Start</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-black text-amber-400 mb-1">90d</div>
-                  <div className="text-xs text-gray-400">ROI Guarantee</div>
-                </div>
-              </div>
-              
-              {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={handleScheduleCall}
-                  className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
-                >
-                  <Calendar className="w-5 h-5" />
-                  Schedule Free Consultation
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <a
-                  href="#contact-form"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-2xl transition-all duration-300 hover:bg-white/20"
-                >
-                  <Send className="w-5 h-5" />
-                  Send Message
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -218,49 +178,48 @@ export default function ContactPage() {
         <section className="py-12 lg:py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-                <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Get In Touch
-                </span>
+              <h2 className="text-3xl lg:text-4xl font-black mb-4 text-white">
+                Get In Touch Today
               </h2>
-              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Choose your preferred way to connect. We're here to help you succeed.
+              <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+                Choose your preferred way to connect. We respond within minutes, not hours.
               </p>
             </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {contactMethods.map((method, index) => {
-                const IconComponent = method.icon
-                return (
-                  <div 
-                    key={index}
-                    className="group cursor-pointer bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:bg-white/15"
-                    onClick={() => handleContactMethod(method.action)}
-                  >
-                    <div className="text-center">
-                      <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r ${method.color} text-white shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <IconComponent className="w-7 h-7" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">{method.title}</h3>
-                      <p className="text-gray-300 text-sm mb-3">{method.subtitle}</p>
-                      <div className={`text-lg font-semibold bg-gradient-to-r ${method.color} bg-clip-text text-transparent`}>
-                        {method.value}
-                      </div>
-                    </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {contactMethods.map((method, index) => (
+                <div
+                  key={index}
+                  className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center transition-all duration-500 hover:bg-white/15 hover:border-white/30 hover:scale-105"
+                >
+                  <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${method.iconBg} flex items-center justify-center text-white`}>
+                    <method.icon className="w-6 h-6" />
                   </div>
-                )
-              })}
+                  <h3 className="text-lg font-bold text-white mb-1">{method.title}</h3>
+                  <p className={`text-sm font-medium bg-gradient-to-r ${method.color} bg-clip-text text-transparent mb-3`}>
+                    {method.subtitle}
+                  </p>
+                  <p className="text-white font-medium mb-4 text-sm">{method.value}</p>
+                  <button
+                    onClick={() => window.open(method.action, '_blank')}
+                    className={`w-full py-2 px-4 bg-gradient-to-r ${method.color} text-white rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105`}
+                  >
+                    Contact Now
+                  </button>
+                </div>
+              ))}
             </div>
-            
+
             {/* Emergency Contact */}
-            <div className="text-center">
-              <div className="bg-red-500/10 rounded-2xl p-6 border border-red-500/20 max-w-md mx-auto">
-                <Zap className="w-8 h-8 text-red-400 mx-auto mb-3" />
-                <h3 className="text-lg font-bold text-white mb-2">Urgent Project?</h3>
-                <p className="text-gray-300 text-sm mb-4">Need immediate assistance? Call our priority line.</p>
+            <div className="mt-12 text-center">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-md mx-auto">
+                <h3 className="text-xl font-bold text-white mb-2">🚨 Urgent Project?</h3>
+                <p className="text-gray-200 mb-4 text-sm">
+                  Need immediate assistance? Call our priority line.
+                </p>
                 <button
                   onClick={() => window.location.href = 'tel:+971565663377'}
-                  className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-xl hover:scale-105 transition-all duration-300"
+                  className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl hover:scale-105 transition-all duration-300"
                 >
                   Call Now: +971 56 566 3377
                 </button>
@@ -276,7 +235,7 @@ export default function ContactPage() {
               <h2 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
                 <span className="text-white">Tell Us About</span>
                 <br />
-                <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Your Project
                 </span>
               </h2>
@@ -300,7 +259,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                         placeholder="Ahmed Al-Rashid"
                       />
                     </div>
@@ -314,7 +273,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                         placeholder="ahmed@company.com"
                       />
                     </div>
@@ -330,7 +289,7 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                         placeholder="+971 50 123 4567"
                       />
                     </div>
@@ -343,28 +302,27 @@ export default function ContactPage() {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                         placeholder="Your Company Ltd."
                       />
                     </div>
                   </div>
 
-                  {/* Project Details */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-white mb-2">
-                        Service Needed *
+                        Service Interest *
                       </label>
                       <select
                         name="service"
                         required
                         value={formData.service}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                       >
-                        <option value="">Select a service</option>
-                        {services.map((service) => (
-                          <option key={service} value={service} className="bg-gray-800">{service}</option>
+                        <option value="" className="text-black">Select a service</option>
+                        {services.map((service, index) => (
+                          <option key={index} value={service} className="text-black">{service}</option>
                         ))}
                       </select>
                     </div>
@@ -376,11 +334,11 @@ export default function ContactPage() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
                       >
-                        <option value="">Select budget range</option>
-                        {budgetRanges.map((range) => (
-                          <option key={range} value={range} className="bg-gray-800">{range}</option>
+                        <option value="" className="text-black">Select budget range</option>
+                        {budgetRanges.map((range, index) => (
+                          <option key={index} value={range} className="text-black">{range}</option>
                         ))}
                       </select>
                     </div>
@@ -390,19 +348,24 @@ export default function ContactPage() {
                     <label className="block text-sm font-bold text-white mb-2">
                       Project Timeline
                     </label>
-                    <input
-                      type="text"
+                    <select
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-                      placeholder="e.g., ASAP, 1-3 months, 3-6 months"
-                    />
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                    >
+                      <option value="" className="text-black">When do you need to start?</option>
+                      <option value="ASAP" className="text-black">ASAP - Within 1 week</option>
+                      <option value="1-2 weeks" className="text-black">Within 1-2 weeks</option>
+                      <option value="1 month" className="text-black">Within 1 month</option>
+                      <option value="2-3 months" className="text-black">In 2-3 months</option>
+                      <option value="Just exploring" className="text-black">Just exploring options</option>
+                    </select>
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-white mb-2">
-                      Project Details *
+                      Tell us about your project *
                     </label>
                     <textarea
                       name="message"
@@ -410,88 +373,73 @@ export default function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none"
-                      placeholder="Tell us about your business goals, target audience, current challenges, and what success looks like for you..."
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300 resize-none"
+                      placeholder="Describe your goals, challenges, and what you hope to achieve with VIZIONAIRE..."
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="text-center pt-6">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5" />
-                          Send Message & Get Free Quote
-                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </>
-                      )}
-                    </button>
-                    
-                    <p className="text-sm text-gray-400 mt-4">
-                      We'll respond within 24 hours with a custom strategy plan
-                    </p>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-4 px-8 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl flex items-center justify-center gap-3"
+                  >
+                    <Send className="w-5 h-5" />
+                    Send My Project Details
+                  </button>
+                  
+                  <p className="text-center text-sm text-gray-400">
+                    We'll respond within 2 hours with a customized strategy plan
+                  </p>
                 </form>
               </div>
             ) : (
-              <div className="bg-green-500/10 rounded-3xl p-8 lg:p-12 border border-green-500/20 text-center">
-                <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-white mb-4">Message Sent Successfully!</h3>
-                <p className="text-lg text-gray-200 mb-6">
-                  Thank you for contacting VIZIONAIRE. We've received your message and will get back to you within 24 hours with a customized strategy plan.
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-green-400 flex items-center justify-center">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Thank You!</h3>
+                <p className="text-gray-200 mb-6">
+                  Your message has been sent successfully. We're redirecting you to WhatsApp to continue the conversation.
                 </p>
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 max-w-md mx-auto">
-                  <h4 className="text-white font-bold mb-3">What's Next?</h4>
-                  <div className="space-y-2 text-sm text-gray-200">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      <span>Free strategy consultation call</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      <span>Custom growth roadmap</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400" />
-                      <span>Project timeline & pricing</span>
-                    </div>
-                  </div>
+                <div className="text-sm text-gray-400">
+                  If WhatsApp doesn't open automatically, you can call us at +971 56 566 3377
                 </div>
               </div>
             )}
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ Section */}
         <section className="py-12 lg:py-16">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
-                <span className="text-white">Frequently Asked</span>
-                <br />
-                <span className="bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Questions
-                </span>
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Frequently Asked Questions
               </h2>
+              <p className="text-xl text-gray-200">
+                Everything you need to know about working with VIZIONAIRE
+              </p>
             </div>
-            
-            <div className="space-y-6">
+
+            <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div 
+                <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden"
                 >
-                  <h3 className="text-lg font-bold text-white mb-3">{faq.question}</h3>
-                  <p className="text-gray-200 leading-relaxed">{faq.answer}</p>
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+                  >
+                    <span className="font-bold text-white">{faq.question}</span>
+                    <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                      expandedFaq === index ? 'rotate-180' : ''
+                    }`} />
+                  </button>
+                  {expandedFaq === index && (
+                    <div className="px-6 pb-4">
+                      <p className="text-gray-200 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -500,7 +448,7 @@ export default function ContactPage() {
               <p className="text-gray-300 mb-4">Still have questions?</p>
               <button
                 onClick={handleScheduleCall}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-xl hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 text-white font-bold rounded-xl hover:scale-105 transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
                 Schedule a Call
@@ -514,7 +462,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-6 text-center">
             <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
               <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                Ready to 10x Your Business?
+                Ready to <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">10x</span> Your Business?
               </h2>
               <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
                 Every day you wait is potential revenue lost. Start your transformation today.
@@ -522,7 +470,7 @@ export default function ContactPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={handleScheduleCall}
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
                 >
                   Get Your Free Strategy Session
                   <ArrowRight className="w-5 h-5" />
@@ -531,15 +479,15 @@ export default function ContactPage() {
               
               <div className="grid grid-cols-3 gap-8 mt-8 max-w-lg mx-auto">
                 <div className="text-center">
-                  <div className="text-2xl font-black text-green-400 mb-1">Free</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">Free</div>
                   <div className="text-xs text-gray-400">Consultation</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-black text-blue-400 mb-1">90d</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">90d</div>
                   <div className="text-xs text-gray-400">Guarantee</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-black text-purple-400 mb-1">24/7</div>
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">24/7</div>
                   <div className="text-xs text-gray-400">Support</div>
                 </div>
               </div>

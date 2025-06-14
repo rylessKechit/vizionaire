@@ -1,13 +1,10 @@
-import { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { Play, ArrowRight, CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react'
-
-export const metadata: Metadata = {
-  title: 'Case Studies & Portfolio - See Our Work',
-  description: 'Explore our successful campaigns and case studies. See how we\'ve helped businesses achieve 300%+ ROI with our digital marketing strategies.',
-}
+import { BackgroundLayout } from '@/components/BackgroundLayout'
+import { Play, ArrowRight, CheckCircle, TrendingUp, Users, DollarSign, Star } from 'lucide-react'
 
 const caseStudies = [
   {
@@ -38,7 +35,7 @@ const caseStudies = [
     testimonial: "Our pipeline went from empty to overflowing. The quality of leads is exceptional and our sales team can't keep up!",
     client: "Ahmed Al-Mansouri, CEO",
     image: "💻",
-    color: "from-green-600 to-green-500"
+    color: "from-amber-400 via-orange-500 to-red-500"
   },
   {
     title: "Restaurant Chain",
@@ -53,7 +50,7 @@ const caseStudies = [
     testimonial: "Every location is now profitable and we're expanding to 3 more cities. VIZIONAIRE made the impossible possible!",
     client: "Khalid Bin Rashid, Owner",
     image: "🍔",
-    color: "from-amber-600 to-amber-500"
+    color: "from-orange-500 via-red-500 to-rose-600"
   },
   {
     title: "Real Estate Agency",
@@ -68,7 +65,7 @@ const caseStudies = [
     testimonial: "We've never seen such high-quality leads. Our closing rate doubled and our marketing costs went down significantly.",
     client: "Omar Khalil, Marketing Director",
     image: "🏠",
-    color: "from-red-600 to-green-600"
+    color: "from-amber-400 via-yellow-500 to-orange-500"
   }
 ]
 
@@ -77,154 +74,165 @@ const portfolioItems = [
     title: "Luxury Wellness Spa",
     type: "Website + Social Media",
     image: "🧘‍♀️",
-    results: "400% increase in bookings"
+    results: "400% increase in bookings",
+    color: "from-red-600 to-red-500"
   },
   {
     title: "Educational Platform",
     type: "Lead Generation",
     image: "📚",
-    results: "180% more enrollments"
+    results: "180% more enrollments",
+    color: "from-amber-500 to-orange-500"
   },
   {
     title: "Fitness Center Chain",
     type: "Local SEO + Ads",
     image: "💪",
-    results: "250% membership growth"
+    results: "250% membership growth",
+    color: "from-orange-500 to-red-500"
   },
   {
     title: "Luxury Car Dealership",
     type: "Digital Transformation",
     image: "🚗",
-    results: "300% increase in test drives"
+    results: "300% increase in test drives",
+    color: "from-red-600 to-orange-500"
   },
   {
     title: "Beauty & Cosmetics",
     type: "Influencer + Paid Ads",
     image: "💄",
-    results: "500% Instagram growth"
+    results: "500% Instagram growth",
+    color: "from-amber-400 to-orange-500"
   },
   {
     title: "Home Services",
     type: "Google Ads + SEO",
     image: "🔧",
-    results: "350% more inquiries"
+    results: "350% more inquiries",
+    color: "from-orange-500 via-red-500 to-rose-600"
   }
 ]
 
 export default function DemoPage() {
+  const handleGetResults = () => {
+    const message = encodeURIComponent('Hi! I saw the VIZIONAIRE case studies and would like to discuss how you can achieve similar results for my business.')
+    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+  }
+
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <BackgroundLayout backgroundImage="/background-cityscape.jpg">
+      <div className="relative z-30">
+        <Header />
+      </div>
       
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
-        <section className="relative py-20 px-6 overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-amber-900/10 to-green-900/20" />
-          </div>
-          
-          <div className="relative z-10 max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-black mb-8">
-              <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                Success Stories
-              </span>
-              <br />
-              <span className="text-white">That Inspire</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto mb-12">
-              Real businesses. Real results. See how we've helped companies across MENA 
-              achieve explosive growth with our proven strategies.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/contact" className="px-8 py-4 bg-gradient-to-r from-red-600 to-green-600 text-white font-bold rounded-xl transition-all duration-300 hover:scale-105">
-                Get Similar Results
-              </Link>
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-xl transition-all duration-300 hover:bg-white/20 flex items-center gap-2 justify-center">
-                <Play className="w-5 h-5" />
-                Watch Video Cases
-              </button>
+        <section className="relative overflow-hidden">
+          <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+            <div className="text-center max-w-4xl mx-auto">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+                <Star className="w-4 h-4 text-yellow-400" />
+                <span className="text-white text-sm font-medium">Real Results • Proven Success</span>
+              </div>
+              
+              {/* Title */}
+              <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                  Success Stories
+                </span>
+                <br />
+                <span className="text-white">That Inspire</span>
+              </h1>
+              
+              {/* Subtitle */}
+              <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                Real businesses. Real results. See how we've helped companies across MENA achieve explosive growth with our proven strategies.
+              </p>
+              
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleGetResults}
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
+                >
+                  Get Similar Results
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/50">
+                  <Play className="w-5 h-5" />
+                  Watch Video Cases
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Case Studies */}
-        <section className="py-20 px-6">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 tracking-tight">
+                <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Detailed Case Studies
                 </span>
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
                 Dive deep into our most successful campaigns and learn how we achieved these results
               </p>
             </div>
             
-            <div className="space-y-16">
+            <div className="space-y-12">
               {caseStudies.map((study, i) => (
                 <div 
                   key={i}
-                  className="relative p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500"
+                  className="group bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 transition-all duration-500 hover:bg-white/15 hover:border-white/30"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${study.color} rounded-3xl opacity-5`} />
-                  
-                  <div className="relative z-10">
-                    <div className="grid lg:grid-cols-3 gap-8">
-                      {/* Case Info */}
-                      <div className="lg:col-span-2">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="text-6xl">{study.image}</div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-white mb-1">{study.title}</h3>
-                            <p className="text-gray-400">{study.industry}</p>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="text-white font-bold mb-2">Challenge:</h4>
-                            <p className="text-gray-300">{study.challenge}</p>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-white font-bold mb-2">Solution:</h4>
-                            <p className="text-gray-300">{study.solution}</p>
-                          </div>
-                          
-                          <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                            <div className="flex items-start gap-3">
-                              <div className="text-2xl">💬</div>
-                              <div>
-                                <p className="text-gray-300 italic mb-2">"{study.testimonial}"</p>
-                                <p className="text-red-500 font-medium">— {study.client}</p>
-                              </div>
-                            </div>
-                          </div>
+                  <div className="grid lg:grid-cols-3 gap-8">
+                    {/* Case Info */}
+                    <div className="lg:col-span-2">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="text-4xl">{study.image}</div>
+                        <div>
+                          <h3 className="text-2xl font-bold text-white mb-1">{study.title}</h3>
+                          <p className="text-gray-400">{study.industry}</p>
                         </div>
                       </div>
                       
-                      {/* Results */}
-                      <div>
-                        <h4 className="text-white font-bold mb-6 text-xl">Key Results:</h4>
-                        <div className="space-y-4">
-                          {study.results.map((result, j) => (
-                            <div key={j} className="p-4 rounded-xl bg-white/5 border border-white/10">
-                              <div className="text-2xl font-black text-green-500 mb-1">{result.value}</div>
-                              <div className="text-white font-medium text-sm">{result.metric}</div>
-                              <div className="text-gray-400 text-xs">{result.period}</div>
-                            </div>
-                          ))}
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">Challenge</h4>
+                          <p className="text-gray-200">{study.challenge}</p>
                         </div>
                         
-                        <Link
-                          href="/contact"
-                          className={`mt-6 w-full inline-flex items-center justify-center gap-2 py-3 px-6 bg-gradient-to-r ${study.color} rounded-xl text-white font-bold transform hover:scale-105 transition-all duration-300`}
-                        >
-                          Get Similar Results
-                          <ArrowRight className="w-4 h-4" />
-                        </Link>
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">Solution</h4>
+                          <p className="text-gray-200">{study.solution}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                        <p className="text-gray-200 italic mb-4">"{study.testimonial}"</p>
+                        <p className="text-sm font-semibold bg-gradient-to-r ${study.color} bg-clip-text text-transparent">
+                          — {study.client}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Results */}
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-4">Key Results</h4>
+                      <div className="space-y-4">
+                        {study.results.map((result, j) => (
+                          <div key={j} className="bg-white/5 rounded-xl p-4 border border-white/10">
+                            <div className={`text-2xl font-black bg-gradient-to-r ${study.color} bg-clip-text text-transparent mb-1`}>
+                              {result.value}
+                            </div>
+                            <div className="text-sm text-gray-300 mb-1">{result.metric}</div>
+                            <div className="text-xs text-gray-400">{result.period}</div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -235,31 +243,28 @@ export default function DemoPage() {
         </section>
 
         {/* Portfolio Grid */}
-        <section className="py-20 px-6">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                  More Success Stories
-                </span>
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Our Portfolio
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                A glimpse into our extensive portfolio of successful campaigns
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                A snapshot of successful projects across various industries
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {portfolioItems.map((item, i) => (
                 <div 
                   key={i}
-                  className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-500 transform hover:scale-105"
+                  className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 transition-all duration-500 hover:bg-white/15 hover:scale-105 text-center"
                 >
                   <div className="text-4xl mb-4">{item.image}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{item.type}</p>
-                  <div className="flex items-center gap-2 text-green-500">
-                    <TrendingUp className="w-4 h-4" />
-                    <span className="text-sm font-medium">{item.results}</span>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-300 mb-3">{item.type}</p>
+                  <div className={`text-sm font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
+                    {item.results}
                   </div>
                 </div>
               ))}
@@ -267,184 +272,98 @@ export default function DemoPage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                  Our Commitment
-                </span>
-              </h2>
-            </div>
-            
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <Users className="w-12 h-12 text-red-500 mx-auto mb-4" />
-                <div className="text-4xl font-black text-white mb-2">2024</div>
-                <div className="text-gray-300">Founded</div>
+        {/* ROI Calculator */}
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 lg:p-12 border border-white/20">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl lg:text-4xl font-black mb-4 text-white">
+                  Average Client Results
+                </h2>
+                <p className="text-lg text-gray-200">
+                  Based on 500+ successful campaigns across MENA region
+                </p>
               </div>
               
-              <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <DollarSign className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                <div className="text-4xl font-black text-white mb-2">48h</div>
-                <div className="text-gray-300">Setup Time</div>
-              </div>
-              
-              <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <TrendingUp className="w-12 h-12 text-amber-500 mx-auto mb-4" />
-                <div className="text-4xl font-black text-white mb-2">90-Day</div>
-                <div className="text-gray-300">ROI Guarantee</div>
-              </div>
-              
-              <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                <CheckCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
-                <div className="text-4xl font-black text-white mb-2">24/7</div>
-                <div className="text-gray-300">Support</div>
+              <div className="grid md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-2">
+                    300%
+                  </div>
+                  <div className="text-sm text-gray-300">Average ROI</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">
+                    90 Days
+                  </div>
+                  <div className="text-sm text-gray-300">To See Results</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-2">
+                    250%
+                  </div>
+                  <div className="text-sm text-gray-300">Lead Increase</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent mb-2">
+                    95%
+                  </div>
+                  <div className="text-sm text-gray-300">Client Retention</div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Process Behind Success */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                  The Process Behind Every Success
-                </span>
+        {/* Final CTA */}
+        <section className="py-12 lg:py-16">
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
+              <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
+                Ready to Be Our Next <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Success Story</span>?
               </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Our proven methodology that delivers consistent results across all industries
+              <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                Join 500+ successful businesses who chose VIZIONAIRE. Your transformation starts today.
               </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-red-600/10 border border-white/10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-600 to-red-500 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">1</span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">Deep Analysis</h3>
-                <p className="text-gray-300 text-sm">Comprehensive audit of your current situation, competitors, and market opportunities.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleGetResults}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-2xl hover:bg-gray-200"
+                >
+                  Start Your Success Story
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 border-2 border-white/30 text-white font-bold rounded-full hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+                >
+                  Schedule Free Consultation
+                </Link>
               </div>
               
-              <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-green-500/10 to-green-600/10 border border-white/10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-600 to-green-500 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">2</span>
+              <div className="grid grid-cols-3 gap-8 mt-8 max-w-lg mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent mb-1">Free</div>
+                  <div className="text-xs text-gray-400">Consultation</div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Custom Strategy</h3>
-                <p className="text-gray-300 text-sm">Tailored action plan designed specifically for your industry and target audience.</p>
-              </div>
-              
-              <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-amber-500/10 to-amber-600/10 border border-white/10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-amber-600 to-amber-500 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">3</span>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">90d</div>
+                  <div className="text-xs text-gray-400">Guarantee</div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Expert Execution</h3>
-                <p className="text-gray-300 text-sm">Professional implementation by our team of specialists with continuous optimization.</p>
-              </div>
-              
-              <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-red-500/10 to-green-500/10 border border-white/10">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-600 to-green-600 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">4</span>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-1">24/7</div>
+                  <div className="text-xs text-gray-400">Support</div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Measurable Results</h3>
-                <p className="text-gray-300 text-sm">Transparent reporting and continuous optimization to maximize your ROI.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Industries We've Transformed */}
-        <section className="py-20 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">
-                <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                  Industries We've Transformed
-                </span>
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                From startups to enterprises, we've delivered success across every major industry
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {[
-                { icon: "🏪", name: "E-commerce" },
-                { icon: "🏥", name: "Healthcare" },
-                { icon: "🏠", name: "Real Estate" },
-                { icon: "📚", name: "Education" },
-                { icon: "💰", name: "Finance" },
-                { icon: "🍔", name: "F&B" },
-                { icon: "🚗", name: "Automotive" },
-                { icon: "💄", name: "Beauty" },
-                { icon: "💪", name: "Fitness" },
-                { icon: "🧘‍♀️", name: "Wellness" },
-                { icon: "🔧", name: "Services" },
-                { icon: "💻", name: "Technology" }
-              ].map((industry, i) => (
-                <div key={i} className="text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300">
-                  <div className="text-3xl mb-2">{industry.icon}</div>
-                  <div className="text-white text-sm font-medium">{industry.name}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-black mb-8">
-              <span className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 bg-clip-text text-transparent">
-                Your Success Story
-              </span>
-              <br />
-              <span className="text-white">Starts Here</span>
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Ready to achieve similar results? Let's discuss how we can transform your business 
-              and create the next success story.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-green-600 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 shadow-2xl"
-              >
-                Start Your Transformation
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              
-              <Link
-                href="/services"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-bold rounded-xl transition-all duration-300 hover:bg-white/20"
-              >
-                Explore Our Services
-              </Link>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 text-sm text-gray-400">
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                Free consultation
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                Custom strategy
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="w-4 h-4 text-green-500" />
-                Results guaranteed
               </div>
             </div>
           </div>
         </section>
       </main>
       
-      <Footer />
-    </div>
+      {/* Footer */}
+      <div className="bg-black/85 backdrop-blur-sm border-t border-white/10">
+        <Footer />
+      </div>
+    </BackgroundLayout>
   )
 }
