@@ -2,19 +2,64 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, MessageCircle, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle, ChevronDown, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
+
+const services = [
+  { 
+    name: 'Website Development', 
+    href: '/services/web-development',
+    icon: Globe,
+    color: 'from-red-600 to-red-500',
+    description: 'Custom websites & landing pages'
+  },
+  { 
+    name: 'Social Media Management', 
+    href: '/services/social-media',
+    icon: Smartphone,
+    color: 'from-amber-400 to-orange-500',
+    description: 'Complete social media strategy'
+  },
+  { 
+    name: 'Marketing Automation', 
+    href: '/services/automation',
+    icon: Zap,
+    color: 'from-purple-600 to-indigo-600',
+    description: 'Automated workflows & funnels'
+  },
+  { 
+    name: 'Paid Advertising', 
+    href: '/services/paid-advertising',
+    icon: Target,
+    color: 'from-green-600 to-emerald-600',
+    description: 'Google, Facebook & LinkedIn ads'
+  },
+  { 
+    name: 'SEO Optimization', 
+    href: '/services/seo',
+    icon: TrendingUp,
+    color: 'from-blue-600 to-cyan-600',
+    description: 'Search engine optimization'
+  },
+  { 
+    name: 'Analytics & Reporting', 
+    href: '/services/analytics',
+    icon: BarChart3,
+    color: 'from-orange-600 to-red-600',
+    description: 'Data-driven insights & reports'
+  }
+]
 
 const navigation = [
-  { name: 'Services', href: '/services' },
+  { name: 'Services', href: '/services', hasSubmenu: true },
   { name: 'About', href: '/about' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'Results', href: '/demo' },
   { name: 'Contact', href: '/contact' },
 ]
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,14 +124,55 @@ export function Header() {
             <div className="hidden lg:flex items-center">
               <nav className="flex items-center space-x-1">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 font-medium text-sm group"
-                  >
-                    {item.name}
-                    <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0 rounded-full" />
-                  </Link>
+                  <div key={item.name} className="relative group">
+                    {item.hasSubmenu ? (
+                      <>
+                        <Link
+                          href={item.href}
+                          className="relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 font-medium text-sm group flex items-center gap-1"
+                          onMouseEnter={() => setServicesOpen(true)}
+                          onMouseLeave={() => setServicesOpen(false)}
+                        >
+                          {item.name}
+                          <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                          <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0 rounded-full" />
+                        </Link>
+                        
+                        {/* Services Dropdown - Simple et clean */}
+                        <div 
+                          className={`absolute top-full left-0 mt-2 w-72 bg-black/95 backdrop-blur-xl border border-white/20 rounded-xl py-3 transition-all duration-300 shadow-xl ${
+                            servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                          }`}
+                          onMouseEnter={() => setServicesOpen(true)}
+                          onMouseLeave={() => setServicesOpen(false)}
+                        >
+                          {services.map((service) => {
+                            const IconComponent = service.icon
+                            return (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className="flex items-center gap-3 px-4 py-2.5 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 group"
+                              >
+                                <div className={`w-6 h-6 rounded-md bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0`}>
+                                  <IconComponent className="w-3.5 h-3.5 text-white" />
+                                </div>
+                                <span className="text-sm font-medium">{service.name}</span>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="relative px-4 py-2 text-white/80 hover:text-white transition-all duration-300 font-medium text-sm group"
+                      >
+                        {item.name}
+                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-red-500 to-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0 rounded-full" />
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </nav>
             </div>
@@ -151,7 +237,7 @@ export function Header() {
         />
         
         {/* Mobile Menu */}
-        <div className="relative z-60 h-full max-w-sm ml-auto bg-black/95 backdrop-blur-xl border-l border-white/10">
+        <div className="relative z-60 h-full max-w-sm ml-auto bg-black/95 backdrop-blur-xl border-l border-white/10 overflow-y-auto">
           <div className="flex justify-between items-center h-16 px-6 border-b border-white/10">
             <div className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300">
               <div className="w-8 h-8 relative">
@@ -179,14 +265,48 @@ export function Header() {
           <div className="px-6 py-8">
             <nav className="space-y-2">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-4 py-3 text-lg font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name}>
+                  {item.hasSubmenu ? (
+                    <div>
+                      <button
+                        onClick={() => setServicesOpen(!servicesOpen)}
+                        className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                      >
+                        {item.name}
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+                      </button>
+                      
+                      {servicesOpen && (
+                        <div className="mt-2 ml-4 space-y-1">
+                          {services.map((service) => {
+                            const IconComponent = service.icon
+                            return (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className="flex items-center gap-3 px-4 py-2 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                <div className={`w-5 h-5 rounded bg-gradient-to-r ${service.color} flex items-center justify-center flex-shrink-0`}>
+                                  <IconComponent className="w-3 h-3 text-white" />
+                                </div>
+                                <span className="text-sm">{service.name}</span>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block px-4 py-3 text-lg font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
               ))}
             </nav>
             
@@ -201,34 +321,17 @@ export function Header() {
                 <Phone className="w-5 h-5" />
                 Request Call
               </button>
-
+              
               <button
                 onClick={() => {
                   handleWhatsAppClick()
                   setIsOpen(false)
                 }}
-                className="flex items-center gap-3 w-full py-3 px-4 border-2 border-white/20 text-white rounded-lg font-medium text-base hover:bg-white/5 hover:border-white/30 transition-all duration-300"
+                className="flex items-center gap-3 w-full py-3 px-4 border-2 border-white/20 text-white rounded-lg font-medium text-base transition-all duration-300 hover:bg-white/5"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp Chat
               </button>
-
-              <button
-                onClick={() => {
-                  handleCallClick()
-                  setIsOpen(false)
-                }}
-                className="w-full py-3 px-4 bg-white text-black rounded-lg font-bold text-base hover:bg-gray-200 transition-all duration-300"
-              >
-                Free Consultation
-              </button>
-            </div>
-            
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <div className="text-center text-white/60 text-sm">
-                <p>📞 +971 56 566 3377</p>
-                <p className="mt-1">🇦🇪 Dubai, UAE</p>
-              </div>
             </div>
           </div>
         </div>
