@@ -66,44 +66,45 @@ export default function HomePage() {
           <Header />
         </div>
         
-        {/* Main Content */}
-        <main>
-          {/* Hero Section - Transparent pour voir l'image */}
-          <Hero />
+        {/* Main Content avec espacements optimisés mobile */}
+        <main className="space-y-8 sm:space-y-12 lg:space-y-16">
+          {/* Hero Section - Padding réduit sur mobile */}
+          <section className="pt-20 sm:pt-24 pb-8 sm:pb-12 lg:pb-16">
+            <Hero />
+          </section>
           
-          {/* Features Section - TRANSPARENT pour voir l'image */}
-          <div className="py-12 lg:py-16">
+          {/* Features Section - Espacement minimal mobile */}
+          <section className="py-6 sm:py-8 lg:py-12">
             <Features />
-          </div>
+          </section>
           
-          {/* Services Section - TRANSPARENT pour voir l'image */}
-          <div className="py-12 lg:py-16">
+          {/* Services Section - Espacement compact */}
+          <section className="py-6 sm:py-10 lg:py-16">
             <Services />
-          </div>
+          </section>
           
-          {/* Stats Section - garde son gradient coloré mais avec transparence */}
-          <div className="py-12 lg:py-16">
+          {/* Stats Section - Très compact sur mobile */}
+          <section className="py-4 sm:py-6 lg:py-12">
             <Stats />
-          </div>
+          </section>
           
-          {/* Testimonials Section - TRANSPARENT pour voir l'image */}
-          <div className="py-12 lg:py-16">
-            <TestimonialsMini />
-          </div>
-          
-          {/* Pricing Section - TRANSPARENT pour voir l'image */}
-          <div className="py-12 lg:py-16">
+          {/* Pricing Section */}
+          <section className="py-6 sm:py-10 lg:py-16">
             <Pricing />
-          </div>
+          </section>
           
-          {/* Final CTA - Plus transparent pour l'effet final de "vision atteinte" */}
-          <CTA />
+          {/* Testimonials Section - Compact */}
+          <section className="py-4 sm:py-8 lg:py-12">
+            <TestimonialsMini />
+          </section>
+          
+          {/* CTA Section - Padding réduit */}
+          <section className="py-6 sm:py-10 lg:py-16">
+            <CTA />
+          </section>
         </main>
-        
-        {/* Footer */}
-        <div className="bg-black/85 backdrop-blur-sm border-t border-white/10">
-          <Footer />
-        </div>
+
+        <Footer />
       </div>
     </div>
   )

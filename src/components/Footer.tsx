@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
 
 export function Footer() {
   const handleWhatsAppClick = () => {
@@ -9,18 +9,13 @@ export function Footer() {
     window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
   }
 
-  const handleCallClick = () => {
-    const message = encodeURIComponent('Hello! I would like to schedule a free consultation to discuss my digital marketing needs.')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
-  }
-
   return (
-    <footer className="relative bg-black/95 backdrop-blur-xl border-t border-white/10">
+    <footer className="relative bg-gradient-to-b from-black/80 to-black border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-5 gap-12">
           
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 relative">
                 <img 
@@ -34,44 +29,39 @@ export function Footer() {
               </div>
             </div>
             
-            <p className="text-gray-300 mb-8 leading-relaxed">
-              Transforming businesses across the UAE with innovative digital marketing strategies. 
-              Fresh expertise, proven results, guaranteed ROI.
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-md">
+              Transform your business with data-driven digital marketing strategies. 
+              We help Dubai companies achieve explosive growth through proven tactics and cutting-edge technology.
             </p>
             
-            {/* Contact Info */}
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-gray-300">
-                <MapPin className="w-5 h-5 text-red-500" />
-                <span>DIFC, Dubai, UAE 🇦🇪</span>
+                <MapPin className="w-5 h-5 text-red-400 flex-shrink-0" />
+                <span>Dubai, United Arab Emirates</span>
               </div>
+              
               <div className="flex items-center gap-3 text-gray-300">
-                <Phone className="w-5 h-5 text-green-500" />
-                <span>+971 56 566 3377</span>
+                <Phone className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                <a href="tel:+971565663377" className="hover:text-white transition-colors duration-300">
+                  +971 56 566 3377
+                </a>
               </div>
+              
               <div className="flex items-center gap-3 text-gray-300">
-                <Mail className="w-5 h-5 text-blue-500" />
-                <span>hello@vizionaire.com</span>
+                <Mail className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                <a href="mailto:hello@vizionaire.com" className="hover:text-white transition-colors duration-300">
+                  hello@vizionaire.com
+                </a>
               </div>
             </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <button
-                onClick={handleWhatsAppClick}
-                className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
-              >
-                <MessageCircle className="w-5 h-5" />
-                WhatsApp Chat
-              </button>
-              <button
-                onClick={handleCallClick}
-                className="flex items-center gap-2 px-6 py-3 border-2 border-white/20 text-white rounded-lg font-medium hover:bg-white/5 hover:border-white/30 transition-all duration-300"
-              >
-                <Phone className="w-5 h-5" />
-                Schedule Call
-              </button>
-            </div>
+            
+            <button
+              onClick={handleWhatsAppClick}
+              className="mt-6 flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105"
+            >
+              <MessageCircle className="w-5 h-5" />
+              Chat on WhatsApp
+            </button>
           </div>
 
           {/* Services */}
@@ -134,6 +124,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  Blog & Insights
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
                   Pricing
                   <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -145,46 +141,6 @@ export function Footer() {
                   <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Resources & Social */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Connect</h3>
-            
-            {/* Social Media */}
-            <div className="flex gap-4 mb-8">
-              <a
-                href="https://instagram.com/vizionaire.ae"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/company/vizionaire-ae"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com/vizionaire_ae"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-            </div>
-
-            {/* Quick Links */}
-            <ul className="space-y-3">
               <li>
                 <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
                   Privacy Policy
@@ -198,38 +154,113 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
 
-            {/* Newsletter Signup */}
-            <div className="mt-8">
-              <h4 className="text-white font-semibold mb-3">Stay Updated</h4>
-              <p className="text-gray-400 text-sm mb-4">Get marketing tips & updates</p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:border-red-500 transition-colors"
-                />
-                <button className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-lg text-sm font-medium hover:shadow-lg transition-all duration-300">
-                  Subscribe
-                </button>
-              </div>
-            </div>
+          {/* Resources & Blog */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Resources</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/blog" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  📝 Marketing Blog
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/digital-marketing" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  Digital Marketing Tips
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/seo" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  SEO Strategies
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/social-media" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  Social Media Insights
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/automation" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  Automation Guides
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/e-commerce" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  E-commerce Success
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/category/innovation" className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+                  Industry Trends
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-white/10 mt-16 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-gray-400 text-sm">
-              © 2025 VIZIONAIRE. All rights reserved. Built with 💜 in Dubai, UAE.
-            </div>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
-              <span>🇦🇪 Proudly UAE Based</span>
-              <span>•</span>
-              <span>100% ROI Guarantee</span>
-              <span>•</span>
-              <span>24/7 Support</span>
-            </div>
+        {/* Newsletter Signup */}
+        <div className="mt-16 pt-12 border-t border-white/10">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Stay Ahead of the Competition
+            </h3>
+            <p className="text-gray-300 mb-8">
+              Get weekly marketing insights, Dubai business tips, and exclusive strategies delivered to your inbox.
+            </p>
+            
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
+                required
+              />
+              <button
+                type="submit"
+                className="px-8 py-3 bg-gradient-to-r from-amber-400 to-orange-500 text-black font-bold rounded-xl hover:scale-105 transition-transform duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
+            
+            <p className="text-gray-400 text-sm mt-4">
+              Join 2,500+ Dubai entrepreneurs. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+
+        {/* Social Links & Bottom */}
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              LinkedIn
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              Instagram
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              Facebook
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              YouTube
+            </a>
+          </div>
+          
+          <div className="text-center lg:text-right">
+            <p className="text-gray-400 text-sm">
+              © 2025 VIZIONAIRE. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              Proudly serving businesses across Dubai, UAE, and the MENA region.
+            </p>
           </div>
         </div>
       </div>
