@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
 @layer base {
   * {
     @apply border-gray-200;
@@ -69,6 +71,11 @@
 }
 
 @layer components {
+  .logo-nunito {
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-weight: 700; /* Extra bold pour un look moderne */
+  }
+
   .btn-primary {
     @apply bg-red-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-red-700 hover:scale-105 shadow-lg hover:shadow-xl;
   }

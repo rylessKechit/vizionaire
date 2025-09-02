@@ -118,7 +118,7 @@ export function Header() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="text-2xl font-bold font-serif bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+              <div className="text-2xl logo-nunito bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
                 VIZIONAIRE
               </div>
             </Link>
@@ -253,7 +253,7 @@ export function Header() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="text-xl font-bold font-serif bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+              <div className="text-xl logo-nunito bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
                 VIZIONAIRE
               </div>
             </div>
