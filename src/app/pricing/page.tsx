@@ -84,7 +84,7 @@ export default function PricingPage() {
       icon: <Zap className="w-6 h-6" />,
       name: "Starter",
       subtitle: "Perfect for small businesses",
-      price: "5500 AED",
+      price: "5500",
       period: "/month",
       description: "Essential digital marketing to get you started with guaranteed results.",
       features: [
@@ -103,7 +103,7 @@ export default function PricingPage() {
       icon: <TrendingUp className="w-6 h-6" />,
       name: "Professional",
       subtitle: "Most popular choice",
-      price: "11000 AED",
+      price: "11000",
       period: "/month",
       description: "Complete marketing solution for growing businesses ready to dominate.",
       features: [
@@ -124,7 +124,7 @@ export default function PricingPage() {
       icon: <Target className="w-6 h-6" />,
       name: "Enterprise",
       subtitle: "For ambitious companies",
-      price: "22000 AED",
+      price: "22000",
       period: "/month",
       description: "Premium solution with dedicated team and unlimited everything.",
       features: [
@@ -267,9 +267,13 @@ export default function PricingPage() {
                       <div className="mb-4">
                         <div className="flex items-baseline gap-1">
                           <span className="text-3xl font-bold text-white">
-                            {isAnnual ? Math.round(parseInt(plan.price) * 0.8).toLocaleString() : parseInt(plan.price).toLocaleString()}
+                            {isAnnual 
+                              ? (Math.round(parseInt(plan.price) * 0.8) * 12).toLocaleString() 
+                              : parseInt(plan.price).toLocaleString()} AED
                           </span>
-                          <span className="text-base text-gray-300">{plan.period}</span>
+                          <span className="text-base text-gray-300">
+                            {isAnnual ? "/year" : plan.period}
+                          </span>
                         </div>
                         {isAnnual && (
                           <div className="text-xs text-green-400 font-medium mt-1">
