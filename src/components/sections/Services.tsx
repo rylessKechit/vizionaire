@@ -50,7 +50,7 @@ export function Services() {
         "Social media advertising",
         "Detailed analytics & reporting"
       ],
-      startingPrice: "From 5,500 AED",
+      startingPrice: "From 5,500 AED AED",
       popular: true,
       color: "from-green-600 to-green-500"
     },

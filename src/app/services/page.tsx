@@ -51,7 +51,7 @@ const services = [
       'Increased brand awareness',
       'Quality lead generation'
     ],
-    startingPrice: '5,500',
+    startingPrice: '5,500 AED',
     color: 'from-amber-400 via-orange-500 to-red-500',
     iconBg: 'from-amber-500 to-orange-500'
   },
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                         <div>
                           <span className="text-gray-400 text-sm">Starting from</span>
                           <div className="text-2xl font-bold text-white">
-                            AED {service.startingPrice}
+                            {service.startingPrice} AED
                             <span className="text-sm text-gray-400 font-normal">/month</span>
                           </div>
                         </div>

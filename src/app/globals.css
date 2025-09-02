@@ -330,3 +330,26 @@
     background-attachment: scroll; /* Fixed peut causer des problèmes sur mobile */
   }
 }
+
+@layer utilities {
+  /* Breakpoint personnalisé à 1300px */
+  @media (min-width: 1300px) {
+    .custom-desktop\:flex {
+      display: flex;
+    }
+    
+    .custom-desktop\:hidden {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1299px) {
+    .custom-mobile\:flex {
+      display: flex;
+    }
+    
+    .custom-mobile\:hidden {
+      display: none;
+    }
+  }
+}

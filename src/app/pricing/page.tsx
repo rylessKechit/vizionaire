@@ -7,82 +7,6 @@ import { Footer } from '@/components/Footer'
 import { BackgroundLayout } from '@/components/BackgroundLayout'
 import { ArrowRight, Check, Star, Zap, TrendingUp, Target, Users, Award, Shield, Clock, CheckCircle, Phone, ChevronDown } from 'lucide-react'
 
-const plans = [
-  {
-    icon: Zap,
-    name: "Starter",
-    subtitle: "Perfect for Small Businesses",
-    monthlyPrice: 5500,
-    annualPrice: 4400,
-    description: "Essential digital marketing to launch your online presence and start generating leads consistently.",
-    features: [
-      "Social media management (2 platforms)",
-      "Basic SEO optimization & local listings",
-      "Monthly performance reports & insights",
-      "Email marketing setup & 2 campaigns",
-      "Google My Business optimization",
-      "48-hour setup & onboarding",
-      "90-day ROI guarantee",
-      "WhatsApp & email support"
-    ],
-    popular: false,
-    color: "from-blue-600/20 to-blue-500/20",
-    iconBg: "from-blue-500 to-blue-600",
-    borderColor: "border-blue-500/30",
-    buttonStyle: "bg-blue-600 hover:bg-blue-700"
-  },
-  {
-    icon: TrendingUp,
-    name: "Professional",
-    subtitle: "Most Popular Choice",
-    monthlyPrice: 11000,
-    annualPrice: 8800,
-    description: "Complete marketing solution for growing businesses ready to dominate their market and scale rapidly.",
-    features: [
-      "Full social media management (all platforms)",
-      "Advanced SEO & monthly content creation",
-      "PPC advertising management (Google & Meta)",
-      "Marketing automation & email sequences",
-      "Weekly strategy calls & optimization",
-      "24/7 priority support & dedicated manager",
-      "Custom landing pages & conversion optimization",
-      "Detailed analytics dashboard & monthly reports",
-      "Competitor analysis & market insights",
-      "A/B testing for all campaigns"
-    ],
-    popular: true,
-    color: "from-red-600/20 via-orange-500/20 to-amber-500/20",
-    iconBg: "from-red-600 to-orange-500",
-    borderColor: "border-orange-500/50",
-    buttonStyle: "bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-700 hover:to-orange-600"
-  },
-  {
-    icon: Target,
-    name: "Enterprise",
-    subtitle: "For Ambitious Companies",
-    monthlyPrice: 22000,
-    annualPrice: 17600,
-    description: "Premium solution with dedicated team, unlimited everything, and enterprise-level strategies for market leaders.",
-    features: [
-      "Dedicated marketing team (3+ specialists)",
-      "Custom strategy development & implementation",
-      "Multi-channel campaigns across all platforms",
-      "Advanced automation workflows & CRM setup",
-      "Unlimited design requests & revisions",
-      "Priority phone support & weekly calls",
-      "Monthly strategy reviews & optimization",
-      "Exclusive market insights & competitor intelligence",
-      "Custom integrations & API development",
-      "White-label reporting for your clients"
-    ],
-    popular: false,
-    color: "from-purple-600/20 to-purple-500/20",
-    iconBg: "from-purple-600 to-purple-500",
-    borderColor: "border-purple-500/30",
-    buttonStyle: "bg-purple-600 hover:bg-purple-700"
-  }
-]
-
 const features = [
   {
     category: "Setup & Onboarding",
@@ -160,7 +84,7 @@ export default function PricingPage() {
       icon: <Zap className="w-6 h-6" />,
       name: "Starter",
       subtitle: "Perfect for small businesses",
-      price: "5500",
+      price: "5500 AED",
       period: "/month",
       description: "Essential digital marketing to get you started with guaranteed results.",
       features: [
@@ -179,7 +103,7 @@ export default function PricingPage() {
       icon: <TrendingUp className="w-6 h-6" />,
       name: "Professional",
       subtitle: "Most popular choice",
-      price: "11000",
+      price: "11000 AED",
       period: "/month",
       description: "Complete marketing solution for growing businesses ready to dominate.",
       features: [
@@ -200,7 +124,7 @@ export default function PricingPage() {
       icon: <Target className="w-6 h-6" />,
       name: "Enterprise",
       subtitle: "For ambitious companies",
-      price: "22000",
+      price: "22000 AED",
       period: "/month",
       description: "Premium solution with dedicated team and unlimited everything.",
       features: [

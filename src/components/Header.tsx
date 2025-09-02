@@ -111,20 +111,20 @@ export function Header() {
               href="/" 
               className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300"
             >
-              <div className="w-10 h-10 lg:w-12 lg:h-12 relative">
+              <div className="w-10 h-10 xl:w-12 xl:h-12 relative">
                 <img 
                   src="/logo.png" 
                   alt="VIZIONAIRE Logo" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="text-2xl font-medium bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+              <div className="text-2xl font-bold font-serif bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
                 VIZIONAIRE
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden xl:flex items-center">
               <nav className="flex items-center space-x-1">
                 {navigation.map((item) => (
                   <div key={item.name} className="relative group">
@@ -157,7 +157,7 @@ export function Header() {
                                 href={service.href}
                                 className="flex items-center gap-3 px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 transition-all duration-300 group"
                               >
-                                <div className={`p-2 rounded-lg bg-gradient-to-r ${service.color} group-hover:scale-110 transition-transform duration-300`}>
+                                <div className={`p-2 rounded-xl bg-gradient-to-r ${service.color} group-hover:scale-110 transition-transform duration-300`}>
                                   <IconComponent className="w-4 h-4 text-white" />
                                 </div>
                                 <div>
@@ -184,7 +184,7 @@ export function Header() {
             </div>
 
             {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden xl:flex items-center gap-4">
               <button
                 onClick={() => window.location.href = 'tel:+971565663377'}
                 className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 text-sm"
@@ -196,7 +196,7 @@ export function Header() {
 
               <button
                 onClick={handleWhatsAppClick}
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-all duration-300 hover:scale-105 text-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 text-sm"
                 title="WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -214,7 +214,7 @@ export function Header() {
             {/* Mobile menu button */}
             <button
               type="button"
-              className="lg:hidden p-2 text-white hover:text-red-400 transition-colors duration-300 rounded-lg hover:bg-white/5"
+              className="xl:hidden p-2 text-white hover:text-red-400 transition-colors duration-300 rounded-xl hover:bg-white/5"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -230,7 +230,7 @@ export function Header() {
 
       {/* Mobile Navigation Overlay */}
       <div
-        className={`lg:hidden fixed inset-0 transition-all duration-300 ease-in-out ${
+        className={`xl:hidden fixed inset-0 transition-all duration-300 ease-in-out ${
           isOpen 
             ? 'opacity-100 pointer-events-auto z-[100]' 
             : 'opacity-0 pointer-events-none z-[-1]'
@@ -253,14 +253,14 @@ export function Header() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="text-xl font-medium bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+              <div className="text-xl font-bold font-serif bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
                 VIZIONAIRE
               </div>
             </div>
             
             <button
               type="button"
-              className="p-2 text-white hover:text-red-400 transition-colors duration-300 rounded-lg hover:bg-white/5"
+              className="p-2 text-white hover:text-red-400 transition-colors duration-300 rounded-xl hover:bg-white/5"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
@@ -276,7 +276,7 @@ export function Header() {
                     <div>
                       <button
                         onClick={() => setServicesOpen(!servicesOpen)}
-                        className="flex items-center justify-between w-full px-4 py-3 text-lg font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                        className="flex items-center justify-between w-full px-4 py-3 text-xl font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
                       >
                         {item.name}
                         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
@@ -291,7 +291,7 @@ export function Header() {
                                 key={service.name}
                                 href={service.href}
                                 onClick={() => setIsOpen(false)}
-                                className="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                                className="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
                               >
                                 <div className={`p-1.5 rounded-md bg-gradient-to-r ${service.color}`}>
                                   <IconComponent className="w-3 h-3 text-white" />
@@ -307,7 +307,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="block px-4 py-3 text-lg font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                      className="block px-4 py-3 text-xl font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
                     >
                       {item.name}
                     </Link>
@@ -323,7 +323,7 @@ export function Header() {
                   window.location.href = 'tel:+971565663377'
                   setIsOpen(false)
                 }}
-                className="flex items-center gap-3 w-full px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-300"
+                className="flex items-center gap-3 w-full px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
               >
                 <Phone className="w-5 h-5" />
                 <span className="font-medium">+971 56 566 3377</span>
@@ -334,7 +334,7 @@ export function Header() {
                   handleWhatsAppClick()
                   setIsOpen(false)
                 }}
-                className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-all duration-300"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-medium transition-all duration-300"
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp Us
@@ -345,7 +345,7 @@ export function Header() {
                   handleCallClick()
                   setIsOpen(false)
                 }}
-                className="w-full px-4 py-3 bg-white text-black rounded-lg font-bold transition-all duration-300 hover:bg-gray-200"
+                className="w-full px-4 py-3 bg-white text-black rounded-xl font-bold transition-all duration-300 hover:bg-gray-200"
               >
                 Free Consultation
               </button>

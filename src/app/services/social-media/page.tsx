@@ -69,7 +69,7 @@ const services = [
 const packages = [
   {
     name: 'Social Starter',
-    price: '5,500',
+    price: '5,500 AED',
     platforms: '2 Platforms',
     posts: '20 posts/month',
     description: 'Perfect for small businesses starting their social media journey',

@@ -103,7 +103,7 @@ const packages = [
   },
   {
     name: 'Analytics Enterprise',
-    price: '15,500',
+    price: '15,500 AED',
     platforms: 'Unlimited Sources',
     reports: 'Real-time Monitoring',
     description: 'Enterprise analytics for large organizations',
@@ -311,7 +311,7 @@ export default function AnalyticsPage() {
                       <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
                       <p className="text-gray-300 mb-4">{pkg.description}</p>
                       <div className="mb-4">
-                        <span className="text-4xl font-black text-white">AED {pkg.price}</span>
+                        <span className="text-4xl font-black text-white">{pkg.price} AED</span>
                         <span className="text-gray-400 text-sm ml-2">/month</span>
                       </div>
                       <div className="flex justify-center gap-4 text-sm text-gray-400 mb-4">

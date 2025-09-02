@@ -85,7 +85,7 @@ const packages = [
   },
   {
     name: 'Ad Growth',
-    price: '15,500',
+    price: '15,500 AED',
     adSpend: '15,000 AED/month',
     platforms: '3 Platforms',
     description: 'Comprehensive advertising across multiple channels',

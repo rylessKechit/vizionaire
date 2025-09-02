@@ -166,7 +166,7 @@ export function Pricing() {
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold text-white">
                         {isAnnual ? 
-                          Math.round(parseInt(plan.price) * 0.8).toLocaleString() : parseInt(plan.price).toLocaleString()}
+                          Math.round(parseInt(plan.price) * 0.8).toLocaleString() : parseInt(plan.price).toLocaleString()} AED
                       </span>
                       <span className="text-base text-gray-300">{plan.period}</span>
                     </div>
