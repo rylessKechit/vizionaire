@@ -159,7 +159,7 @@ export default function PricingPage() {
   }
 
   return (
-    <BackgroundLayout backgroundImage="/images/backgrounds-cityscraper.jpg">
+    <BackgroundLayout backgroundImage="/background-cityscape.jpg">
       <Header />
       
       <main className="pt-20">
