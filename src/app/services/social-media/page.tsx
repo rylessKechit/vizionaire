@@ -162,7 +162,7 @@ const testimonials = [
 export default function SocialMediaPage() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in Social Media Management services. Can we discuss my brand\'s social media strategy?')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (

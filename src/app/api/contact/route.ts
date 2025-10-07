@@ -279,7 +279,7 @@ function generateConfirmationTemplate(name: string): string {
           <ul>
             <li>Check out our <a href="https://vizionaire.com/demo" style="color: #ec4899;">success stories</a></li>
             <li>Follow us on social media for daily tips</li>
-            <li>Call us directly at <a href="tel:+97141234567" style="color: #ec4899;">+971 4 123 4567</a></li>
+            <li>Call us directly at <a href="tel:+971543612610" style="color: #ec4899;">+971 54 361 2610</a></li>
           </ul>
           
           <div class="social">
@@ -291,7 +291,7 @@ function generateConfirmationTemplate(name: string): string {
         
         <div class="footer">
           <p><strong>VIZIONAIRE Digital Marketing</strong></p>
-          <p>DIFC, Dubai, UAE | hello@vizionaire.com | +971 4 123 4567</p>
+          <p>DIFC, Dubai, UAE | hello@vizionaire.com | +971 54 361 2610</p>
           <p>Revolutionizing digital marketing in the Middle East 🇦🇪</p>
         </div>
       </div>

@@ -124,7 +124,7 @@ const milestones = [
 export default function AboutPage() {
   const handleGetStarted = () => {
     const message = encodeURIComponent('Hi! I would like to learn more about VIZIONAIRE and discuss how you can help grow my business.')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (

@@ -31,8 +31,8 @@ const contactMethods = [
     icon: MessageCircle,
     title: "WhatsApp",
     subtitle: "Instant Response",
-    value: "+971 56 566 3377",
-    action: "https://wa.me/971565663377?text=Hi! I'm interested in VIZIONAIRE services. Can we discuss my project?",
+    value: "+971 54 361 2610",
+    action: "https://wa.me/971543612610?text=Hi! I'm interested in VIZIONAIRE services. Can we discuss my project?",
     color: "from-amber-400 via-orange-500 to-red-500",
     iconBg: "from-amber-500 to-orange-500"
   },
@@ -40,8 +40,8 @@ const contactMethods = [
     icon: Phone,
     title: "Direct Call",
     subtitle: "Available 24/7",
-    value: "+971 56 566 3377",
-    action: "tel:+971565663377",
+    value: "+971 54 361 2610",
+    action: "tel:+971543612610",
     color: "from-orange-500 via-red-500 to-rose-600",
     iconBg: "from-red-600 to-red-500"
   },
@@ -59,7 +59,7 @@ const contactMethods = [
     title: "Schedule Call",
     subtitle: "Book a Strategy Session",
     value: "Free Consultation",
-    action: "https://wa.me/971565663377?text=Hi! I'd like to schedule a free strategy consultation. When is your next available slot?",
+    action: "https://wa.me/971543612610?text=Hi! I'd like to schedule a free strategy consultation. When is your next available slot?",
     color: "from-amber-400 via-yellow-500 to-orange-500",
     iconBg: "from-amber-500 to-yellow-500"
   }
@@ -130,13 +130,13 @@ Message: ${formData.message}
 I'd like to schedule a consultation to discuss my project.`)
     
     setTimeout(() => {
-      window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+      window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
     }, 1000)
   }
 
   const handleScheduleCall = () => {
     const message = encodeURIComponent('Hi! I\'d like to schedule a free strategy consultation. When is your next available slot?')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (
@@ -218,10 +218,10 @@ I'd like to schedule a consultation to discuss my project.`)
                   Need immediate assistance? Call our priority line.
                 </p>
                 <button
-                  onClick={() => window.location.href = 'tel:+971565663377'}
+                  onClick={() => window.location.href = 'tel:+971543612610'}
                   className="px-6 py-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-bold rounded-xl hover:scale-105 transition-all duration-300"
                 >
-                  Call Now: +971 56 566 3377
+                  Call Now: +971 54 361 2610
                 </button>
               </div>
             </div>
@@ -290,7 +290,7 @@ I'd like to schedule a consultation to discuss my project.`)
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-all duration-300"
-                        placeholder="+971 50 123 4567"
+                        placeholder="+971 54 361 2610"
                       />
                     </div>
                     <div>
@@ -401,7 +401,7 @@ I'd like to schedule a consultation to discuss my project.`)
                   Your message has been sent successfully. We're redirecting you to WhatsApp to continue the conversation.
                 </p>
                 <div className="text-sm text-gray-400">
-                  If WhatsApp doesn't open automatically, you can call us at +971 56 566 3377
+                  If WhatsApp doesn't open automatically, you can call us at +971 54 361 2610
                 </div>
               </div>
             )}

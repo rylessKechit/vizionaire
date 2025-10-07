@@ -84,12 +84,12 @@ export function Header() {
 
   const handleCallClick = () => {
     const message = encodeURIComponent('Hello! I would like to schedule a free consultation to discuss my digital marketing needs. When would you be available?')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent('Hi! I would like to learn more about your digital marketing services.')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (
@@ -186,12 +186,12 @@ export function Header() {
             {/* Desktop CTA Buttons */}
             <div className="hidden xl:flex items-center gap-4">
               <button
-                onClick={() => window.location.href = 'tel:+971565663377'}
+                onClick={() => window.location.href = 'tel:+971543612610'}
                 className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white transition-colors duration-300 text-sm"
                 title="Call us"
               >
                 <Phone className="w-4 h-4" />
-                <span className="text-sm font-medium">+971 56 566 3377</span>
+                <span className="text-sm font-medium">+971 54 361 2610</span>
               </button>
 
               <button
@@ -320,13 +320,13 @@ export function Header() {
             <div className="mt-8 pt-8 border-t border-white/10 space-y-4">
               <button
                 onClick={() => {
-                  window.location.href = 'tel:+971565663377'
+                  window.location.href = 'tel:+971543612610'
                   setIsOpen(false)
                 }}
                 className="flex items-center gap-3 w-full px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-300"
               >
                 <Phone className="w-5 h-5" />
-                <span className="font-medium">+971 56 566 3377</span>
+                <span className="font-medium">+971 54 361 2610</span>
               </button>
 
               <button

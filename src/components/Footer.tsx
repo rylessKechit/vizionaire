@@ -6,7 +6,7 @@ import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Globe, Smartphone, Zap,
 export function Footer() {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent('Hi! I would like to learn more about your digital marketing services.')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (
@@ -42,8 +42,8 @@ export function Footer() {
               
               <div className="flex items-center gap-3 text-gray-300">
                 <Phone className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                <a href="tel:+971565663377" className="hover:text-white transition-colors duration-300">
-                  +971 56 566 3377
+                <a href="tel:+971543612610" className="hover:text-white transition-colors duration-300">
+                  +971 54 361 2610
                 </a>
               </div>
               
@@ -256,7 +256,7 @@ export function Footer() {
           
           <div className="text-center lg:text-right">
             <p className="text-gray-400 text-sm">
-              © 2025 VIZIONAIRE. All rights reserved.
+              © 2025 VIZIONAIRE by I.T.I SERVICES. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
               Proudly serving businesses across Dubai, UAE, and the MENA region.

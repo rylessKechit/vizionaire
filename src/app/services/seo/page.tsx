@@ -146,7 +146,7 @@ const results = [
 export default function SEOPage() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in SEO Optimization services. Can we discuss improving my website\'s search rankings?')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (

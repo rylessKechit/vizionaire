@@ -315,7 +315,7 @@ export default function TermsPage() {
                       <Phone className="w-5 h-5 text-amber-400" />
                       <div>
                         <p className="font-semibold text-white">Phone</p>
-                        <p className="text-gray-300">+971 56 566 3377</p>
+                        <p className="text-gray-300">+971 54 361 2610</p>
                       </div>
                     </div>
                   </div>

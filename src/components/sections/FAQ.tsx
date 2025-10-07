@@ -115,7 +115,7 @@ export function FAQ() {
             <button 
               onClick={() => {
                 const message = encodeURIComponent('Hello! I have some questions about VIZIONAIRE services. Can we schedule a consultation?')
-                window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+                window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
               }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-full font-bold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 text-sm"
             >

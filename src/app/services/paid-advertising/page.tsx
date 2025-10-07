@@ -146,7 +146,7 @@ const results = [
 export default function PaidAdvertisingPage() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in Paid Advertising services. Can we discuss my advertising strategy and budget?')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   return (

@@ -14,7 +14,7 @@ export function Pricing() {
 
   const handleCallClick = () => {
     const message = encodeURIComponent('Hi! I would like to discuss VIZIONAIRE pricing plans and find the best solution for my business.')
-    window.open(`https://wa.me/971565663377?text=${message}`, '_blank')
+    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
   const plans = [
