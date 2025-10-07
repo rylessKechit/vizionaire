@@ -49,8 +49,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     subtitle: "Detailed Proposals",
-    value: "hello@vizionaire.com",
-    action: "mailto:hello@vizionaire.com?subject=Project Inquiry&body=Hi! I'm interested in discussing my digital marketing needs with VIZIONAIRE.",
+    value: "contact@vizionaire.ae",
+    action: "mailto:contact@vizionaire.ae?subject=Project Inquiry&body=Hi! I'm interested in discussing my digital marketing needs with VIZIONAIRE.",
     color: "from-red-600 to-red-500",
     iconBg: "from-red-600 to-amber-500"
   },

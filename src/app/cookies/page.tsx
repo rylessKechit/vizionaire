@@ -393,7 +393,7 @@ export default function CookiesPage() {
                       <Mail className="w-5 h-5 text-red-400" />
                       <div>
                         <p className="font-semibold text-white">Privacy Team</p>
-                        <p className="text-gray-300">privacy@vizionaire.com</p>
+                        <p className="text-gray-300">contact@vizionaire.ae</p>
                       </div>
                     </div>
                     

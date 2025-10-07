@@ -75,8 +75,8 @@ export async function POST(request: NextRequest) {
     // Simulate email sending (replace with actual email service)
     // In production, use services like Resend, SendGrid, or AWS SES
     const emailData = {
-      to: 'hello@vizionaire.com',
-      from: 'noreply@vizionaire.com',
+      to: 'contact@vizionaire.ae',
+      from: 'contact@vizionaire.ae',
       subject: `New Contact Form Submission from ${validatedData.name}`,
       html: generateEmailTemplate(validatedData),
       replyTo: validatedData.email
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     // Send confirmation email to user
     const confirmationEmail = {
       to: validatedData.email,
-      from: 'hello@vizionaire.com',
+      from: 'contact@vizionaire.ae',
       subject: 'Thank you for contacting VIZIONAIRE!',
       html: generateConfirmationTemplate(validatedData.name)
     }
@@ -291,7 +291,7 @@ function generateConfirmationTemplate(name: string): string {
         
         <div class="footer">
           <p><strong>VIZIONAIRE Digital Marketing</strong></p>
-          <p>DIFC, Dubai, UAE | hello@vizionaire.com | +971 54 361 2610</p>
+          <p>DIFC, Dubai, UAE | contact@vizionaire.ae | +971 54 361 2610</p>
           <p>Revolutionizing digital marketing in the Middle East 🇦🇪</p>
         </div>
       </div>
