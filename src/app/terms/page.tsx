@@ -133,7 +133,7 @@ export default function TermsPage() {
                   <h3 className="text-xl font-bold text-white mb-3">Billing & Payment</h3>
                   <ul className="list-disc list-inside space-y-2 text-gray-200">
                     <li>Monthly services are billed in advance</li>
-                    <li>Payment is due within 30 days of invoice date</li>
+                    <li>Payment is due within 15 days of invoice date</li>
                     <li>Late payments may incur additional fees</li>
                     <li>Services may be suspended for non-payment</li>
                   </ul>

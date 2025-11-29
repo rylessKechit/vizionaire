@@ -349,7 +349,7 @@ export default function PrivacyPage() {
                       <Clock className="w-5 h-5 text-yellow-400" />
                       <div>
                         <p className="font-semibold text-white">Response Time</p>
-                        <p className="text-gray-300">Within 30 days</p>
+                        <p className="text-gray-300">Within 2 - 3 hours</p>
                       </div>
                     </div>
                   </div>
