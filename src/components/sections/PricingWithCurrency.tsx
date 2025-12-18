@@ -1,17 +1,15 @@
-// src/components/sections/Pricing.tsx - VERSION MISE À JOUR
-
+// EXEMPLE D'UTILISATION - src/components/sections/PricingWithCurrency.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useCurrency } from '@/hooks/useCurrency'
 import { Check, Star, Zap, TrendingUp, Target } from 'lucide-react'
-import { useCurrency } from '@/hooks/useCurrency'  // ← AJOUTER cet import
 
-export function Pricing() {
+export function PricingWithCurrency() {
   const [isVisible, setIsVisible] = useState(false)
   const [isAnnual, setIsAnnual] = useState(false)
   
-  // ← AJOUTER le hook de conversion
+  // Utiliser le hook de conversion
   const { convertFromAED, formatPrice, isLoading } = useCurrency()
 
   useEffect(() => {
@@ -23,13 +21,13 @@ export function Pricing() {
     window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
   }
 
-  // ← MODIFIER : changer "price" vers "priceAED" et mettre en number
+  // Prix de base en AED
   const plans = [
     {
       icon: <Zap className="w-6 h-6" />,
       name: "Starter",
       subtitle: "Perfect for small businesses",
-      priceAED: 5500,  // ← CHANGÉ: price → priceAED (number au lieu de string)
+      priceAED: 5500, // Prix de base en AED
       period: "/month",
       description: "Essential digital marketing to get you started with guaranteed results.",
       features: [
@@ -48,7 +46,7 @@ export function Pricing() {
       icon: <TrendingUp className="w-6 h-6" />,
       name: "Professional",
       subtitle: "Most popular choice",
-      priceAED: 11000,  // ← CHANGÉ: price → priceAED
+      priceAED: 11000,
       period: "/month",
       description: "Complete marketing solution for growing businesses ready to dominate.",
       features: [
@@ -69,7 +67,7 @@ export function Pricing() {
       icon: <Target className="w-6 h-6" />,
       name: "Enterprise",
       subtitle: "For ambitious companies",
-      priceAED: 22000,  // ← CHANGÉ: price → priceAED
+      priceAED: 22000,
       period: "/month",
       description: "Premium solution with dedicated team and unlimited everything.",
       features: [
@@ -88,7 +86,7 @@ export function Pricing() {
     }
   ]
 
-  // ← AJOUTER : Affichage de chargement pendant détection
+  // Afficher un loader pendant la détection
   if (isLoading) {
     return (
       <section className="py-12 lg:py-16">
@@ -103,7 +101,7 @@ export function Pricing() {
     <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header - INCHANGÉ */}
+        {/* Header */}
         <div className="text-center mb-12">
           <div className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
@@ -114,7 +112,7 @@ export function Pricing() {
             </p>
           </div>
           
-          {/* Annual Toggle - INCHANGÉ */}
+          {/* Annual Toggle */}
           <div className={`flex items-center justify-center gap-4 mt-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <span className={`text-sm font-medium ${!isAnnual ? 'text-white' : 'text-gray-400'}`}>
               Monthly
@@ -145,7 +143,7 @@ export function Pricing() {
         {/* Pricing Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {plans.map((plan, i) => {
-            // ← MODIFIER : Utiliser la conversion automatique
+            // Convertir le prix AED vers la devise de l'utilisateur
             const convertedPrice = convertFromAED(plan.priceAED)
             const displayPrice = isAnnual 
               ? Math.round(convertedPrice * 0.8 * 12) 
@@ -160,7 +158,7 @@ export function Pricing() {
                 style={{ transitionDelay: `${i * 200}ms` }}
               >
                 
-                {/* Popular Badge - INCHANGÉ */}
+                {/* Popular Badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-red-500 to-amber-500 text-white text-xs font-bold rounded-full">
@@ -173,20 +171,20 @@ export function Pricing() {
                 {/* Card */}
                 <div className={`relative bg-white/10 backdrop-blur-md rounded-2xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-500 border border-white/20 hover:border-white/30 hover:bg-white/15`}>
                   
-                  {/* Background Gradient - INCHANGÉ */}
+                  {/* Background Gradient */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${plan.color} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   
                   <div className="relative z-10">
-                    {/* Icon - INCHANGÉ */}
+                    {/* Icon */}
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${plan.color} flex items-center justify-center mb-4 text-white transition-transform duration-300 group-hover:scale-110`}>
                       {plan.icon}
                     </div>
                     
-                    {/* Plan Info - INCHANGÉ */}
+                    {/* Plan Info */}
                     <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
                     <p className="text-gray-300 mb-4 text-sm">{plan.subtitle}</p>
                     
-                    {/* Pricing - MODIFIÉ : Utiliser formatPrice avec conversion */}
+                    {/* Pricing - AVEC CONVERSION AUTOMATIQUE */}
                     <div className="mb-4">
                       <div className="flex items-baseline gap-1">
                         <span className="text-3xl font-bold text-white">
@@ -203,9 +201,9 @@ export function Pricing() {
                       )}
                     </div>
                     
-                    {/* Description et Features - INCHANGÉ */}
                     <p className="text-gray-300 mb-6 text-sm">{plan.description}</p>
                     
+                    {/* Features */}
                     <ul className="space-y-2 mb-6">
                       {plan.features.slice(0, 6).map((feature, j) => (
                         <li key={j} className="flex items-start gap-2">
@@ -215,7 +213,7 @@ export function Pricing() {
                       ))}
                     </ul>
                     
-                    {/* CTA Button - INCHANGÉ */}
+                    {/* CTA Button */}
                     <button
                       onClick={handleCallClick}
                       className={`w-full py-3 px-4 rounded-full font-bold text-sm transition-all duration-300 transform hover:scale-105 ${
@@ -237,7 +235,7 @@ export function Pricing() {
           })}
         </div>
 
-        {/* Enterprise CTA - INCHANGÉ */}
+        {/* Enterprise CTA */}
         <div className="text-center">
           <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 shadow-lg border border-white/20 max-w-3xl mx-auto">

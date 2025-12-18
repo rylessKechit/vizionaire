@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, Phone, MessageCircle, ChevronDown, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
+import { CurrencySelector } from './CurrencySelector'
 
 const services = [
   { 
@@ -210,6 +211,8 @@ export function Header() {
                 Free Consultation
               </button>
             </div>
+
+            <CurrencySelector />
 
             {/* Mobile menu button */}
             <button

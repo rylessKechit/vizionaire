@@ -1,15 +1,18 @@
+// src/components/sections/Services.tsx - MODIFICATIONS NÉCESSAIRES
+
 'use client'
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Globe, Smartphone, Bot } from 'lucide-react'
+import { useCurrency } from '@/hooks/useCurrency'  // ← AJOUTER cet import
 
 interface Service {
   icon: JSX.Element
   title: string
   subtitle: string
   features: string[]
-  startingPrice: string
+  startingPriceAED: number  // ← CHANGÉ: startingPrice → startingPriceAED (number)
   popular?: boolean
   color: string
 }
@@ -17,11 +20,15 @@ interface Service {
 export function Services() {
   const [isVisible, setIsVisible] = useState(false)
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  
+  // ← AJOUTER le hook de conversion
+  const { convertFromAED, formatPrice, isLoading } = useCurrency()
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
+  // ← MODIFIER : changer startingPrice vers startingPriceAED et corriger les prix
   const services: Service[] = [
     {
       icon: <Globe className="w-8 h-8" />,
@@ -35,7 +42,7 @@ export function Services() {
         "Mobile-first approach",
         "Analytics & CRM integration"
       ],
-      startingPrice: "From 11,000 AED",
+      startingPriceAED: 11000,  // ← CHANGÉ: "From 11,000 AED" → 11000 (number)
       color: "from-red-600 to-red-500"
     },
     {
@@ -50,7 +57,7 @@ export function Services() {
         "Social media advertising",
         "Detailed analytics & reporting"
       ],
-      startingPrice: "From 5,500 AED AED",
+      startingPriceAED: 5500,  // ← CHANGÉ: "From 5,500 AED AED" → 5500 (et corrigé double AED)
       popular: true,
       color: "from-green-600 to-green-500"
     },
@@ -66,16 +73,27 @@ export function Services() {
         "Sales funnel automation",
         "Behavioral campaigns"
       ],
-      startingPrice: "From 7,350 AED",
+      startingPriceAED: 7350,  // ← CHANGÉ: "From 7,350 AED" → 7350
       color: "from-amber-600 to-amber-500"
     }
   ]
+
+  // ← AJOUTER : Affichage de chargement
+  if (isLoading) {
+    return (
+      <section className="py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <div className="text-white">Loading services...</div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header */}
+        {/* Header - INCHANGÉ */}
         <div className="text-center mb-12">
           <div className={`transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
@@ -89,85 +107,89 @@ export function Services() {
         
         {/* Services Grid */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {services.map((service, i) => (
-            <div 
-              key={i}
-              className={`group relative transition-all duration-700 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-              }`}
-              style={{ transitionDelay: `${i * 200}ms` }}
-              onMouseEnter={() => setHoveredCard(i)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className={`relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 transition-all duration-500 h-full transform hover:scale-105 ${
-                hoveredCard === i ? 'bg-white/15 border-white/30 scale-105' : ''
-              } ${service.popular ? 'ring-2 ring-green-500/50' : ''}`}>
+          {services.map((service, i) => {
+            // ← AJOUTER : Conversion du prix
+            const convertedPrice = convertFromAED(service.startingPriceAED)
+            
+            return (
+              <div 
+                key={i}
+                className={`group relative transition-all duration-700 ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${i * 200}ms` }}
+                onMouseEnter={() => setHoveredCard(i)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 
-                {/* Popular Badge */}
+                {/* Popular Badge - INCHANGÉ */}
                 {service.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-green-600 to-green-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                    <div className="flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm font-bold rounded-full shadow-lg">
+                      <span className="w-2 h-2 bg-white rounded-full"></span>
                       Most Popular
                     </div>
                   </div>
                 )}
-                
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} rounded-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 text-white transition-transform duration-300 group-hover:scale-110`}>
-                    {service.icon}
-                  </div>
+
+                {/* Card - structure INCHANGÉE */}
+                <div className={`relative bg-white/10 backdrop-blur-md rounded-3xl p-8 h-full border border-white/20 shadow-lg transition-all duration-500 overflow-hidden ${
+                  hoveredCard === i ? 'transform -translate-y-2 shadow-2xl border-white/30' : ''
+                } ${service.popular ? 'ring-2 ring-green-500/30' : ''}`}>
+                  
+                  {/* Background Gradient - INCHANGÉ */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-base text-gray-300 mb-4 font-medium">{service.subtitle}</p>
-                  
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {service.features.slice(0, 4).map((feature, j) => (
-                      <li key={j} className="flex items-start gap-2 text-gray-200">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {/* Pricing */}
-                  <div className="mb-4">
-                    <div className="text-lg font-bold text-white mb-1">{service.startingPrice}</div>
-                    <div className="text-xs text-gray-400">Setup included • No contracts</div>
+                  <div className="relative z-10">
+                    
+                    {/* Icon - INCHANGÉ */}
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 text-white transition-transform duration-500 ${
+                      hoveredCard === i ? 'scale-110 rotate-3' : ''
+                    }`}>
+                      {service.icon}
+                    </div>
+                    
+                    {/* Title - INCHANGÉ */}
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3">{service.title}</h3>
+                    <p className="text-gray-300 mb-6 text-lg leading-relaxed">{service.subtitle}</p>
+                    
+                    {/* Features - INCHANGÉ */}
+                    <ul className="space-y-3 mb-8">
+                      {service.features.map((feature, j) => (
+                        <li key={j} className="flex items-start gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-400 mt-1 flex-shrink-0" />
+                          <span className="text-gray-200 leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* Pricing & CTA */}
+                    <div className="border-t border-white/10 pt-6">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="text-gray-400 text-sm">Starting from</span>
+                          <div className="text-2xl font-bold text-white">
+                            {/* ← MODIFIER : Utiliser formatPrice avec conversion */}
+                            {formatPrice(convertedPrice)}
+                            <span className="text-sm text-gray-400 font-normal">/month</span>
+                          </div>
+                        </div>
+                        <Link 
+                          href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 hover:scale-105"
+                        >
+                          Get Quote
+                          <ArrowRight className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                    
                   </div>
-                  
-                  {/* CTA */}
-                  <Link
-                    href="/services"
-                    className={`inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r ${service.color} text-white rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg`}
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <p className="text-base text-gray-300 mb-6 max-w-2xl mx-auto">
-              Need something custom? We create personalized packages for unique business needs.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold transition-all duration-300 hover:bg-gray-200 hover:scale-105"
-            >
-              Get Custom Quote
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { CurrencyProvider } from '@/contexts/CurrencyContext'
 import './globals.css'
 
 const inter = Inter({ 
@@ -27,7 +28,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="min-h-screen bg-black font-sans antialiased text-white">
-        {children}
+        <CurrencyProvider>
+          {children}
+        </CurrencyProvider>
       </body>
     </html>
   )
