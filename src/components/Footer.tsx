@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
 
 export function Footer() {
@@ -18,9 +19,11 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 relative">
-                <img 
-                  src="/logo.png" 
-                  alt="VIZIONAIRE Logo" 
+                <Image
+                  src="/logo.png"
+                  alt="VIZIONAIRE Logo"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-contain"
                 />
               </div>

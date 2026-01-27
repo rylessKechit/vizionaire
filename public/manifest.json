@@ -1,0 +1,28 @@
+{
+  "name": "VIZIONAIRE - Digital Marketing Agency Dubai",
+  "short_name": "VIZIONAIRE",
+  "description": "Leading digital marketing agency in Dubai offering SEO, PPC, social media management & web development. 90-day ROI guarantee.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "marketing"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

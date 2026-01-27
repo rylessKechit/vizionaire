@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X, Phone, MessageCircle, ChevronDown, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
 import { CurrencySelector } from './CurrencySelector'
 
@@ -113,10 +114,13 @@ export function Header() {
               className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300"
             >
               <div className="w-10 h-10 xl:w-12 xl:h-12 relative">
-                <img 
-                  src="/logo.png" 
-                  alt="VIZIONAIRE Logo" 
+                <Image
+                  src="/logo.png"
+                  alt="VIZIONAIRE Logo"
+                  width={48}
+                  height={48}
                   className="w-full h-full object-contain"
+                  priority
                 />
               </div>
               <div className="text-2xl logo-nunito bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
@@ -250,9 +254,11 @@ export function Header() {
           <div className="flex justify-between items-center h-16 px-6 border-b border-white/10">
             <div className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300">
               <div className="w-8 h-8 relative">
-                <img 
-                  src="/logo.png" 
-                  alt="VIZIONAIRE Logo" 
+                <Image
+                  src="/logo.png"
+                  alt="VIZIONAIRE Logo"
+                  width={32}
+                  height={32}
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -1,0 +1,29 @@
+# Robots.txt for VIZIONAIRE - Digital Marketing Agency Dubai
+# https://vizionaire.ae
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow important resources
+Allow: /api/placeholder/
+
+# Sitemap location
+Sitemap: https://vizionaire.ae/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
