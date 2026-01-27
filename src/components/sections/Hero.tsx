@@ -78,18 +78,20 @@ export function Hero() {
           <div className={`mb-12 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="relative h-24 overflow-hidden">
               {highlights.map((highlight, index) => (
-                <div 
+                <div
                   key={index}
                   className={`absolute inset-0 transition-all duration-1000 transform ${
-                    index === currentSlide 
-                      ? 'translate-y-0 opacity-100' 
-                      : index < currentSlide 
-                        ? '-translate-y-full opacity-0' 
+                    index === currentSlide
+                      ? 'translate-y-0 opacity-100'
+                      : index < currentSlide
+                        ? '-translate-y-full opacity-0'
                         : 'translate-y-full opacity-0'
                   }`}
+                  role="tabpanel"
+                  aria-hidden={index !== currentSlide}
                 >
                   <div className="text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    <p className="text-3xl md:text-4xl font-bold mb-2">
                       {index === 0 ? (
                         <>
                           We make your{" "}
@@ -117,24 +119,27 @@ export function Hero() {
                           {" "}in 48h.
                         </>
                       )}
-                    </h2>
-                    <p className="text-lg text-gray-300">
-                      {highlight.subtitle}
                     </p>
+                    <span className="text-lg text-gray-300 block">
+                      {highlight.subtitle}
+                    </span>
                   </div>
                 </div>
               ))}
             </div>
             
             {/* Slide Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {highlights.map((_, index) => (
+            <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Highlight slides">
+              {highlights.map((highlight, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide 
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-500' 
+                  aria-label={`Go to slide ${index + 1}: ${highlight.title}`}
+                  aria-selected={index === currentSlide}
+                  role="tab"
+                  className={`w-3 h-3 rounded-full transition-all duration-300 min-w-[12px] min-h-[12px] ${
+                    index === currentSlide
+                      ? 'bg-gradient-to-r from-amber-500 to-orange-500'
                       : 'bg-white/30 hover:bg-white/50'
                   }`}
                 />
@@ -142,20 +147,22 @@ export function Hero() {
             </div>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - min 44px touch targets */}
           <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <button
               onClick={handleCallClick}
-              className="px-7 py-3 bg-white text-black rounded-full font-semibold text-base hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              aria-label="Get a free consultation via WhatsApp"
+              className="px-8 py-4 min-h-[44px] bg-white text-black rounded-full font-semibold text-base hover:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Free Consultation
             </button>
-            
+
             <Link
               href="/demo"
-              className="px-7 py-3 border-2 border-white/30 text-white rounded-full font-semibold text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
+              aria-label="See our client results and case studies"
+              className="px-8 py-4 min-h-[44px] border-2 border-white/30 text-white rounded-full font-semibold text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm inline-flex items-center justify-center"
             >
-              <Play className="w-4 h-4 inline mr-2" />
+              <Play className="w-4 h-4 mr-2" aria-hidden="true" />
               See Results
             </Link>
           </div>
