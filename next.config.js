@@ -55,12 +55,6 @@ const nextConfig = {
     ]
   },
 
-  // Experimental features
-  experimental: {
-    optimizeCss: true,
-    serverComponentsExternalPackages: ['@prisma/client'],
-  },
-
   // Output configuration
   poweredByHeader: false,
   compress: true,
