@@ -254,13 +254,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="canonical" href={baseUrl} />
-        <link
-          rel="preload"
-          href="/background-cityscape.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
         <meta name="theme-color" content="#000000" />
         <meta name="geo.region" content="AE-DU" />
         <meta name="geo.placename" content="Dubai" />

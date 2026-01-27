@@ -2,19 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Combined font import for better performance */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
-/* Respect user's motion preferences for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   * {
@@ -230,10 +220,6 @@
 
 .animate-slide-in-up {
   animation: slideInUp 0.6s ease-out;
-}
-
-.animate-fade-in-up {
-  animation: slideInUp 0.6s ease-out both;
 }
 
 .animate-fade-in-scale {
