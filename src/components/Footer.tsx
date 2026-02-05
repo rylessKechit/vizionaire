@@ -265,7 +265,7 @@ export function Footer() {
               Proudly serving businesses across Dubai, UAE, and the MENA region.
             </p>
             <p className="text-gray-600 text-xs mt-2">
-              I T I Services - F.Z.E | Ajman Free Zone C1 Building, Ajman Free Zone, Ajman, UAE | TRN: 104997078100001
+              I.T.I SERVICES - F.Z.E | Ajman Free Zone C1 Building, Ajman Free Zone, Ajman, UAE | TRN: 104997078100001
             </p>
           </div>
         </div>
