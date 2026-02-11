@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Phone, Mail, MapPin, MessageCircle, Globe, Smartphone, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react'
+import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
 
 export function Footer() {
   const handleWhatsAppClick = () => {
@@ -243,23 +243,23 @@ export function Footer() {
         {/* Social Links & Bottom */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.linkedin.com/company/vizionaire" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               LinkedIn
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.instagram.com/vizionaire.ae" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               Instagram
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.facebook.com/vizionaire.ae" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               Facebook
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+            <a href="https://www.youtube.com/@vizionaire" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
               YouTube
             </a>
           </div>
           
           <div className="text-center lg:text-right">
             <p className="text-gray-400 text-sm">
-              © 2025 VIZIONAIRE by I.T.I SERVICES. All rights reserved.
+              © 2025-2026 VIZIONAIRE by I.T.I SERVICES. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
               Proudly serving businesses across Dubai, UAE, and the MENA region.
