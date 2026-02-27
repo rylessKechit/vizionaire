@@ -150,14 +150,6 @@ export function Hero() {
             >
               Free Consultation
             </button>
-            
-            <Link
-              href="/demo"
-              className="px-7 py-3 border-2 border-white/30 text-white rounded-full font-semibold text-base hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
-            >
-              <Play className="w-4 h-4 inline mr-2" />
-              See Results
-            </Link>
           </div>
 
           {/* Trust Indicators */}
