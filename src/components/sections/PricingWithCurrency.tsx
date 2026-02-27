@@ -18,7 +18,7 @@ export function PricingWithCurrency() {
 
   const handleCallClick = () => {
     const message = encodeURIComponent('Hi! I would like to discuss VIZIONAIRE pricing plans and find the best solution for my business.')
-    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
+    window.open(`https://wa.me/971544785454?text=${message}`, '_blank')
   }
 
   // Prix de base en AED

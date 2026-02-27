@@ -156,7 +156,7 @@ const services = [
 export default function ServicesPageClient() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in VIZIONAIRE services and would like to get a free strategy consultation.')
-    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
+    window.open(`https://wa.me/971544785454?text=${message}`, '_blank')
   }
 
   return (

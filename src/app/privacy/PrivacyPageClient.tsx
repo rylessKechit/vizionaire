@@ -144,7 +144,7 @@ export default function PrivacyPageClient() {
                   </div>
                   <div className="flex items-center gap-3 text-gray-200">
                     <Phone className="w-5 h-5 text-orange-500" />
-                    <span>+971 54 361 2610</span>
+                    <span>+971 54 478 5454</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-200">
                     <MapPin className="w-5 h-5 text-orange-500" />

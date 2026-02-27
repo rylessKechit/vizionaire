@@ -3,7 +3,7 @@ import ContactPageClient from './ContactPageClient'
 
 export const metadata: Metadata = {
   title: 'Contact Us - Digital Marketing Agency Dubai',
-  description: 'Contact VIZIONAIRE for a free digital marketing consultation. Call +971 54 361 2610, email contact@vizionaire.ae, or fill out our form. 24/7 support available. Dubai, UAE.',
+  description: 'Contact VIZIONAIRE for a free digital marketing consultation. Call +971 54 478 5454, email contact@vizionaire.ae, or fill out our form. 24/7 support available. Dubai, UAE.',
   keywords: [
     'contact digital marketing agency dubai',
     'marketing consultation dubai',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Contact VIZIONAIRE - Free Marketing Consultation Dubai',
-    description: 'Get your free strategy consultation. Call +971 54 361 2610 or fill out our form. 24/7 support available.',
+    description: 'Get your free strategy consultation. Call +971 54 478 5454 or fill out our form. 24/7 support available.',
     url: 'https://vizionaire.ae/contact',
     type: 'website',
     images: [

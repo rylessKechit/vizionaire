@@ -12,12 +12,12 @@ export function CTA() {
 
   const handleCallClick = () => {
     const message = encodeURIComponent('Hello! I am ready to dominate my market with VIZIONAIRE. When can we schedule our strategy session?')
-    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
+    window.open(`https://wa.me/971544785454?text=${message}`, '_blank')
   }
 
   const handleDemoClick = () => {
     const message = encodeURIComponent('Hi! I would like to see VIZIONAIRE case studies and results. Can you share some examples?')
-    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
+    window.open(`https://wa.me/971544785454?text=${message}`, '_blank')
   }
 
   return (

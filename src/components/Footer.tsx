@@ -7,7 +7,7 @@ import { ArrowRight, Phone, Mail, MapPin, MessageCircle } from 'lucide-react'
 export function Footer() {
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent('Hi! I would like to learn more about your digital marketing services.')
-    window.open(`https://wa.me/971543612610?text=${message}`, '_blank')
+    window.open(`https://wa.me/971544785454?text=${message}`, '_blank')
   }
 
   return (
@@ -45,8 +45,8 @@ export function Footer() {
               
               <div className="flex items-center gap-3 text-gray-300">
                 <Phone className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                <a href="tel:+971543612610" className="hover:text-white transition-colors duration-300">
-                  +971 54 361 2610
+                <a href="tel:+971544785454" className="hover:text-white transition-colors duration-300">
+                  +971 54 478 5454
                 </a>
               </div>
               
