@@ -15,7 +15,7 @@ const baseUrl = 'https://vizionaire.ae'
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'VIZIONAIRE - Digital Marketing Agency Dubai | SEO, PPC, Social Media',
+    default: 'Digital Marketing Agency Dubai | VIZIONAIRE',
     template: '%s | VIZIONAIRE Dubai'
   },
   description: 'Leading digital marketing agency in Dubai offering SEO, social media management, PPC advertising, web development & marketing automation. 90-day ROI guarantee. Get your free consultation today.',
