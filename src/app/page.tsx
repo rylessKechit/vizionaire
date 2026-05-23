@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import HomePageClient from './HomePageClient'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Agency Dubai | SEO, PPC, Social Media | VIZIONAIRE',
-  description: 'VIZIONAIRE is Dubai\'s leading digital marketing agency. We deliver guaranteed ROI with SEO, PPC advertising, social media management, web development & automation. 90-day money-back guarantee. Free consultation.',
+  title: 'Digital Marketing Agency Dubai | VIZIONAIRE',
+  description: 'VIZIONAIRE is Dubai\'s leading digital marketing agency. SEO, PPC, social media & web development with guaranteed ROI. Free consultation.',
   keywords: [
     'digital marketing agency dubai',
     'seo company dubai',
