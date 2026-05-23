@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     default: 'Digital Marketing Agency Dubai | VIZIONAIRE',
     template: '%s | VIZIONAIRE Dubai'
   },
-  description: 'Leading digital marketing agency in Dubai offering SEO, social media management, PPC advertising, web development & marketing automation. 90-day ROI guarantee. Get your free consultation today.',
+  description: 'Dubai digital marketing agency offering SEO, PPC, social media & web development. 90-day ROI guarantee for UAE businesses. Get your free consultation.',
   keywords: [
     'digital marketing agency dubai',
     'seo services dubai',
