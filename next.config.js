@@ -52,6 +52,12 @@ const nextConfig = {
         destination: '/dashboard',
         permanent: false,
       },
+      // Legacy URL -> current service page (avoid 404, preserve SEO)
+      {
+        source: '/services/marketing-automation',
+        destination: '/services/automation',
+        permanent: true,
+      },
     ]
   },
 
