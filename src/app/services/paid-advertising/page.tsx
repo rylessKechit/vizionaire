@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import PaidAdvertisingPageClient from './PaidAdvertisingPageClient'
 
 export const metadata: Metadata = {
-  title: 'PPC Advertising Dubai - Google Ads, Facebook & LinkedIn Ads',
-  description: 'Expert PPC advertising services in Dubai. Google Ads, Facebook Ads, LinkedIn Ads management. 4.2x average ROAS, -45% cost per lead. Strategic campaign management & optimization.',
+  title: 'PPC & Google Ads Dubai – Maximize ROI',
+  description: 'Expert PPC management in Dubai: Google, Facebook & LinkedIn Ads. 4.2x average ROAS and lower cost per lead. Maximize your ROI with a free audit.',
   keywords: [
     'ppc advertising dubai',
     'google ads agency dubai',

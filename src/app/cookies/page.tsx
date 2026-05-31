@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import CookiesPageClient from './CookiesPageClient'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy - VIZIONAIRE Digital Marketing Agency',
+  title: 'Cookie Policy',
   description: 'Learn about VIZIONAIRE\'s cookie policy. Understand how we use cookies to enhance your experience. Manage your cookie preferences. Dubai, UAE.',
   robots: {
     index: true,

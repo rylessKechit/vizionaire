@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import SEOPageClient from './SEOPageClient'
 
 export const metadata: Metadata = {
-  title: 'SEO Services Dubai - Search Engine Optimization Agency',
-  description: 'Expert SEO services in Dubai. Dominate Google rankings with our technical SEO, on-page optimization, link building & local SEO. 285% average traffic increase. Free SEO audit.',
+  title: 'SEO Services Dubai – Grow Your Rankings',
+  description: 'Expert SEO services in Dubai: technical SEO, on-page, link building & local SEO. 285% average traffic increase. Get your free SEO audit today.',
   keywords: [
     'seo services dubai',
     'seo agency uae',

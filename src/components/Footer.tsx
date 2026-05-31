@@ -235,7 +235,7 @@ export function Footer() {
             </form>
             
             <p className="text-gray-400 text-sm mt-4">
-              Join 2,500+ Dubai entrepreneurs. Unsubscribe anytime.
+              Get marketing insights for Dubai businesses. Unsubscribe anytime.
             </p>
           </div>
         </div>

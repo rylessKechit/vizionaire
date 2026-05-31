@@ -51,7 +51,7 @@ export function CTA() {
           
           {/* Subtitle */}
           <p className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-            Join the 500+ companies that chose excellence. Your transformation starts with a single conversation.
+            Your transformation starts with a single conversation.
           </p>
         </div>
 
@@ -90,14 +90,10 @@ export function CTA() {
         </div>
 
         {/* Stats Grid */}
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto mb-10 transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="text-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
             <div className="text-3xl font-bold text-red-400 mb-1">48h</div>
             <div className="text-gray-300 font-medium">Setup Time</div>
-          </div>
-          <div className="text-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-            <div className="text-3xl font-bold text-green-400 mb-1">500+</div>
-            <div className="text-gray-300 font-medium">Success Stories</div>
           </div>
           <div className="text-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
             <div className="text-3xl font-bold text-amber-400 mb-1">24/7</div>
@@ -108,7 +104,7 @@ export function CTA() {
         {/* Final Message */}
         <div className={`transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <p className="text-gray-400 text-sm">
-            🇦🇪 Proudly serving the Middle East • Trusted by industry leaders
+            🇦🇪 Proudly serving the Middle East • Built for ambitious UAE businesses
           </p>
         </div>
       </div>

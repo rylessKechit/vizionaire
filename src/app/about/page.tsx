@@ -3,7 +3,7 @@ import AboutPageClient from './AboutPageClient'
 
 export const metadata: Metadata = {
   title: 'About Us - Digital Marketing Agency Dubai',
-  description: 'Learn about VIZIONAIRE, Dubai\'s innovative digital marketing agency. Meet our expert team, discover our values, and see why we\'re the trusted choice for UAE businesses. 90-day ROI guarantee.',
+  description: 'Meet VIZIONAIRE, Dubai\'s digital marketing agency. Our expert team helps UAE businesses grow with proven strategies. 90-day ROI guarantee. Get in touch.',
   keywords: [
     'about vizionaire',
     'digital marketing team dubai',
@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     'marketing consultants dubai',
   ],
   openGraph: {
-    title: 'About VIZIONAIRE - Dubai\'s Leading Digital Marketing Agency',
-    description: 'Meet the team behind Dubai\'s most innovative digital marketing agency. Fresh perspectives, proven strategies, guaranteed results.',
+    title: 'About VIZIONAIRE - Digital Marketing Agency Dubai',
+    description: 'Meet the team behind our Dubai digital marketing agency. Fresh perspectives, proven strategies, guaranteed results.',
     url: 'https://vizionaire.ae/about',
     type: 'website',
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'About VIZIONAIRE - Digital Marketing Agency Dubai',
-    description: 'Meet the team behind Dubai\'s most innovative digital marketing agency.',
+    description: 'Meet the team behind our Dubai digital marketing agency.',
     images: ['/og-image.jpg'],
   },
   alternates: {

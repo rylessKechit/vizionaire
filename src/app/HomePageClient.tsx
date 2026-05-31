@@ -4,9 +4,7 @@ import { useEffect, useState } from 'react'
 import { Hero } from '@/components/sections/Hero'
 import { Features } from '@/components/sections/Features'
 import { Services } from '@/components/sections/Services'
-import { Stats } from '@/components/sections/Stats'
 import { Pricing } from '@/components/sections/Pricing'
-import { TestimonialsMini } from '@/components/sections/TestimonialsMini'
 import { CTA } from '@/components/sections/CTA'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -83,19 +81,9 @@ export default function HomePageClient() {
             <Services />
           </section>
 
-          {/* Stats Section - Très compact sur mobile */}
-          <section className="py-4 sm:py-6 lg:py-12">
-            <Stats />
-          </section>
-
           {/* Pricing Section */}
           <section className="py-6 sm:py-10 lg:py-16">
             <Pricing />
-          </section>
-
-          {/* Testimonials Section - Compact */}
-          <section className="py-4 sm:py-8 lg:py-12">
-            <TestimonialsMini />
           </section>
 
           {/* CTA Section - Padding réduit */}

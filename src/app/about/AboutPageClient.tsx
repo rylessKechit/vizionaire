@@ -138,7 +138,7 @@ export default function AboutPageClient() {
           <section className="pt-20 pb-12 lg:pt-32 lg:pb-16">
             <div className="max-w-7xl mx-auto px-6 text-center">
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="text-white">Building the</span>
+                <span className="text-white">Building the </span>
                 <br />
                 <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Future of Marketing

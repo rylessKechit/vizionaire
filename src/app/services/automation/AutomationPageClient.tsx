@@ -134,7 +134,7 @@ export default function AutomationPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Scale Without</span>
+                  <span className="text-white">Scale Without </span>
                   <br />
                   <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
                     Limits

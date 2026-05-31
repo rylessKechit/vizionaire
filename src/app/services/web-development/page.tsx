@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import WebDevelopmentPageClient from './WebDevelopmentPageClient'
 
 export const metadata: Metadata = {
-  title: 'Web Development Dubai - Custom Website Design & Development',
-  description: 'Professional web development services in Dubai. Custom responsive websites, e-commerce solutions, landing pages. 95+ PageSpeed scores. Starting from 11,000 AED. Free consultation.',
+  title: 'Web Development Dubai – Custom Websites',
+  description: 'Custom web development in Dubai: responsive websites, e-commerce & landing pages. 95+ PageSpeed scores. From 11,000 AED. Book a free consultation.',
   keywords: [
     'web development dubai',
     'website design uae',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'web developer dubai',
   ],
   openGraph: {
-    title: 'Web Development Dubai - Custom Websites That Convert | VIZIONAIRE',
+    title: 'Web Development Dubai - Custom Websites | VIZIONAIRE',
     description: 'Professional web development with 95+ PageSpeed scores. Custom design, e-commerce, mobile-responsive. Starting from 11,000 AED.',
     url: 'https://vizionaire.ae/services/web-development',
     type: 'website',

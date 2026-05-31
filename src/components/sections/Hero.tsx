@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Play, Phone, Award, CheckCircle, TrendingUp, Users, BarChart3 } from 'lucide-react'
+import { ChevronDown, BarChart3 } from 'lucide-react'
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -49,7 +49,7 @@ export function Hero() {
           {/* Badge */}
           <div className={`inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-medium mb-6 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <span className="w-2 h-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full mr-3 animate-pulse"></span>
-            🇦🇪 #1 Agency in Dubai & MENA Region
+            🇦🇪 Digital Marketing for Dubai & the MENA Region
           </div>
           
           {/* Main Title */}
@@ -153,23 +153,7 @@ export function Hero() {
           </div>
 
           {/* Trust Indicators */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto transition-all duration-1000 delay-1100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
-              <TrendingUp className="w-6 h-6 text-emerald-400" />
-              <div className="text-left">
-                <div className="text-lg font-bold text-white">500% ROI</div>
-                <div className="text-sm text-gray-300">Average increase</div>
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
-              <Users className="w-6 h-6 text-blue-400" />
-              <div className="text-left">
-                <div className="text-lg font-bold text-white">500+</div>
-                <div className="text-sm text-gray-300">Happy clients</div>
-              </div>
-            </div>
-            
+          <div className={`grid grid-cols-1 max-w-xs mx-auto transition-all duration-1000 delay-1100 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
             <div className="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4">
               <BarChart3 className="w-6 h-6 text-amber-400" />
               <div className="text-left">

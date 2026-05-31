@@ -83,27 +83,6 @@ export function Features() {
           })}
         </div>
 
-        {/* Bottom Stats */}
-        <div className="mt-12">
-          <div className={`transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 lg:p-12">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div className="space-y-2">
-                  <div className="text-4xl lg:text-5xl font-bold text-white">500+</div>
-                  <div className="text-gray-300 font-medium">Companies Transformed</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-4xl lg:text-5xl font-bold text-white">347%</div>
-                  <div className="text-gray-300 font-medium">Average ROI Increase</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-4xl lg:text-5xl font-bold text-white">48h</div>
-                  <div className="text-gray-300 font-medium">Setup Time</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

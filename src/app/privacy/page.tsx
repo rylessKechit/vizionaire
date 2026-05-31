@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import PrivacyPageClient from './PrivacyPageClient'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - VIZIONAIRE Digital Marketing Agency',
+  title: 'Privacy Policy',
   description: 'Read VIZIONAIRE\'s privacy policy. Learn how we collect, use, and protect your personal data. GDPR compliant. Dubai, UAE digital marketing agency.',
   robots: {
     index: true,

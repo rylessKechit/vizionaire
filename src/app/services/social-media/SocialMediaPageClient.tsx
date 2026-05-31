@@ -144,21 +144,6 @@ const results = [
   }
 ]
 
-const testimonials = [
-  {
-    name: 'Layla Al-Zahra',
-    company: 'Beauty & Wellness Spa',
-    text: 'Our Instagram following grew from 500 to 15,000 in just 6 months. The content quality is exceptional and our bookings have tripled.',
-    avatar: '💄'
-  },
-  {
-    name: 'Omar Al-Rashid',
-    company: 'Restaurant Chain',
-    text: 'VIZIONAIRE transformed our social media presence. Our TikTok videos consistently go viral and our delivery orders have increased by 250%.',
-    avatar: '🍽️'
-  }
-]
-
 export default function SocialMediaPageClient() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in Social Media Management services. Can we discuss my brand\'s social media strategy?')
@@ -183,7 +168,7 @@ export default function SocialMediaPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Dominate Every</span>
+                  <span className="text-white">Dominate Every </span>
                   <br />
                   <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                     Platform
@@ -362,34 +347,6 @@ export default function SocialMediaPageClient() {
             </div>
           </section>
 
-          {/* Testimonials */}
-          <section className="py-12 lg:py-16">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                  Client <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Success</span>
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
-                  >
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="text-3xl">{testimonial.avatar}</div>
-                      <div>
-                        <h4 className="text-white font-bold">{testimonial.name}</h4>
-                        <p className="text-gray-400 text-sm">{testimonial.company}</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-200 leading-relaxed">"{testimonial.text}"</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
           {/* CTA Section */}
           <section className="py-12 lg:py-16">

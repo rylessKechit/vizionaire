@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import AnalyticsPageClient from './AnalyticsPageClient'
 
 export const metadata: Metadata = {
-  title: 'Analytics & Reporting Dubai - Google Analytics, Data Insights',
-  description: 'Professional analytics services in Dubai. Google Analytics 4 setup, custom dashboards, conversion tracking, ROI reporting. Data-driven decisions with 99.9% accuracy.',
+  title: 'Analytics & Reporting Dubai',
+  description: 'Analytics services in Dubai: GA4 setup, custom dashboards, conversion tracking & ROI reporting. Make data-driven decisions. Get your free audit.',
   keywords: [
     'analytics services dubai',
     'google analytics dubai',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'ga4 setup uae',
   ],
   openGraph: {
-    title: 'Analytics & Reporting Dubai - Data-Driven Decisions | VIZIONAIRE',
+    title: 'Analytics & Reporting Dubai | VIZIONAIRE',
     description: 'Professional analytics with 99.9% data accuracy. GA4 setup, custom dashboards & ROI reporting.',
     url: 'https://vizionaire.ae/services/analytics',
     type: 'website',

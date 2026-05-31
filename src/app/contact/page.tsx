@@ -3,7 +3,7 @@ import ContactPageClient from './ContactPageClient'
 
 export const metadata: Metadata = {
   title: 'Contact Us - Digital Marketing Agency Dubai',
-  description: 'Contact VIZIONAIRE for a free digital marketing consultation. Call +971 54 478 5454, email contact@vizionaire.ae, or fill out our form. 24/7 support available. Dubai, UAE.',
+  description: 'Contact VIZIONAIRE for a free digital marketing consultation in Dubai. Call +971 54 478 5454 or fill out our form. 24/7 support available.',
   keywords: [
     'contact digital marketing agency dubai',
     'marketing consultation dubai',

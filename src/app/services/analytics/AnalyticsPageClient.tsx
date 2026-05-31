@@ -167,7 +167,7 @@ export default function AnalyticsPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Data-Driven</span>
+                  <span className="text-white">Data-Driven </span>
                   <br />
                   <span className="bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 bg-clip-text text-transparent">
                     Decisions

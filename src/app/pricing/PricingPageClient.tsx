@@ -397,7 +397,7 @@ export default function PricingPageClient() {
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Proven Track Record</h3>
-                  <p className="text-gray-300">500+ successful campaigns across the UAE and beyond.</p>
+                  <p className="text-gray-300">Proven strategies tailored to the UAE market.</p>
                 </div>
               </div>
             </div>

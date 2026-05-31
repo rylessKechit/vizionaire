@@ -78,7 +78,7 @@ export default function TermsPageClient() {
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="text-white">Terms of</span>
+                <span className="text-white">Terms of </span>
                 <br />
                 <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Service

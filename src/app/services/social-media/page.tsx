@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import SocialMediaPageClient from './SocialMediaPageClient'
 
 export const metadata: Metadata = {
-  title: 'Social Media Management Dubai - Instagram, LinkedIn, TikTok',
-  description: 'Professional social media management in Dubai. Instagram, LinkedIn, TikTok & Facebook marketing. 5x follower growth, 8.5% engagement rate. Content creation & influencer partnerships.',
+  title: 'Social Media Management Dubai',
+  description: 'Social media management in Dubai for Instagram, LinkedIn, TikTok & Facebook. 5x follower growth and 8.5% engagement. Grow your brand today.',
   keywords: [
     'social media management dubai',
     'instagram marketing uae',

@@ -167,7 +167,7 @@ export default function PaidAdvertisingPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Maximum ROI</span>
+                  <span className="text-white">Maximum ROI </span>
                   <br />
                   <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                     Minimum Waste

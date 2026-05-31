@@ -69,7 +69,7 @@ export default function PrivacyPageClient() {
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                <span className="text-white">Privacy</span>
+                <span className="text-white">Privacy </span>
                 <br />
                 <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Policy

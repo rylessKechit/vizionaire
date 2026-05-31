@@ -250,7 +250,7 @@ export default function BlogPageClient() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h1 className="text-4xl lg:text-6xl font-black mb-6 tracking-tight">
-                <span className="text-white">Marketing</span>
+                <span className="text-white">Marketing </span>
                 <br />
                 <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Insights
@@ -468,7 +468,7 @@ export default function BlogPageClient() {
               </div>
 
               <p className="text-black/60 text-sm mt-4">
-                Join 2,500+ Dubai business owners getting weekly insights
+                Get weekly digital marketing insights for Dubai businesses
               </p>
             </div>
           </div>

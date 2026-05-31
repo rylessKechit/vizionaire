@@ -3,7 +3,7 @@ import BlogPageClient from './BlogPageClient'
 
 export const metadata: Metadata = {
   title: 'Blog - Digital Marketing Insights Dubai',
-  description: 'Expert insights on digital marketing, SEO, social media, PPC advertising, and business growth strategies for Dubai and UAE businesses. Stay ahead with the latest trends and tips.',
+  description: 'Expert digital marketing insights for Dubai businesses: SEO, social media, PPC & growth strategies. Stay ahead with the latest trends and tips.',
   keywords: [
     'digital marketing blog dubai',
     'seo tips uae',

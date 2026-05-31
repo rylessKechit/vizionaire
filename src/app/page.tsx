@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import HomePageClient from './HomePageClient'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Agency Dubai | SEO, PPC, Social Media | VIZIONAIRE',
-  description: 'VIZIONAIRE is Dubai\'s leading digital marketing agency. We deliver guaranteed ROI with SEO, PPC advertising, social media management, web development & automation. 90-day money-back guarantee. Free consultation.',
+  title: 'Digital Marketing Agency Dubai – SEO & PPC',
+  description: 'Dubai digital marketing agency delivering guaranteed ROI with SEO, PPC, social media & web development. 90-day guarantee. Book a free consultation.',
   keywords: [
     'digital marketing agency dubai',
     'seo company dubai',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     'facebook marketing uae',
   ],
   openGraph: {
-    title: 'VIZIONAIRE - #1 Digital Marketing Agency in Dubai',
-    description: 'Transform your business with Dubai\'s leading digital marketing agency. SEO, PPC, Social Media, Web Development. 90-day ROI guarantee. Free consultation.',
+    title: 'VIZIONAIRE - Digital Marketing Agency in Dubai',
+    description: 'Transform your business with a digital marketing agency in Dubai & the UAE. SEO, PPC, Social Media, Web Development. 90-day ROI guarantee. Free consultation.',
     url: 'https://vizionaire.ae',
     type: 'website',
     images: [

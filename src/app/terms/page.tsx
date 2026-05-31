@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import TermsPageClient from './TermsPageClient'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - VIZIONAIRE Digital Marketing Agency',
+  title: 'Terms of Service',
   description: 'Read VIZIONAIRE\'s terms of service. Understand our service agreement, payment terms, and policies. Dubai, UAE digital marketing agency.',
   robots: {
     index: true,

@@ -3,7 +3,7 @@ import PricingPageClient from './PricingPageClient'
 
 export const metadata: Metadata = {
   title: 'Pricing Plans - Digital Marketing Agency Dubai',
-  description: 'Transparent pricing for digital marketing services in Dubai. Starter from 5,500 AED/month, Professional 11,000 AED/month, Enterprise 22,000 AED/month. 90-day ROI guarantee. No hidden fees.',
+  description: 'Transparent digital marketing pricing in Dubai. Plans from 5,500 AED/month with a 90-day ROI guarantee. No hidden fees. View packages today.',
   keywords: [
     'digital marketing pricing dubai',
     'marketing agency prices uae',

@@ -171,7 +171,7 @@ export default function ServicesPageClient() {
               <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
                 <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                   Transform
-                </span>
+                </span>{' '}
                 <br />
                 <span className="text-white">Your Business</span>
               </h1>

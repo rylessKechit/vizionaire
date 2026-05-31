@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import AutomationPageClient from './AutomationPageClient'
 
 export const metadata: Metadata = {
-  title: 'Marketing Automation Dubai - Email Marketing & Lead Nurturing',
-  description: 'Marketing automation services in Dubai. Email marketing, lead nurturing, CRM integration. Save 20+ hours weekly, 3x higher conversion. Automated workflows that scale your business.',
+  title: 'Marketing Automation Dubai',
+  description: 'Marketing automation in Dubai: email marketing, lead nurturing & CRM integration. Save 20+ hours weekly with workflows that scale. Get started.',
   keywords: [
     'marketing automation dubai',
     'email marketing uae',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'hubspot dubai',
   ],
   openGraph: {
-    title: 'Marketing Automation Dubai - Scale Without Limits | VIZIONAIRE',
+    title: 'Marketing Automation Dubai | VIZIONAIRE',
     description: 'Marketing automation that saves 20+ hours weekly. Email marketing, lead nurturing & CRM integration.',
     url: 'https://vizionaire.ae/services/automation',
     type: 'website',

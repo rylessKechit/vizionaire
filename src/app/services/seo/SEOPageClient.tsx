@@ -120,29 +120,6 @@ const packages = [
   }
 ]
 
-const results = [
-  {
-    metric: 'Organic Traffic',
-    value: '+285%',
-    description: 'Average increase in 6 months'
-  },
-  {
-    metric: 'Keyword Rankings',
-    value: '85%',
-    description: 'Keywords in top 10 positions'
-  },
-  {
-    metric: 'Local Visibility',
-    value: '+400%',
-    description: 'Improvement in local searches'
-  },
-  {
-    metric: 'Conversion Rate',
-    value: '12.3%',
-    description: 'From organic search traffic'
-  }
-]
-
 export default function SEOPageClient() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in SEO Optimization services. Can we discuss improving my website\'s search rankings?')
@@ -167,7 +144,7 @@ export default function SEOPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Dominate Google</span>
+                  <span className="text-white">Dominate Google </span>
                   <br />
                   <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent">
                     Rankings
@@ -244,35 +221,6 @@ export default function SEOPageClient() {
                     </div>
                   )
                 })}
-              </div>
-            </div>
-          </section>
-
-          {/* Results Section */}
-          <section className="py-12 lg:py-16">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                  Expected <span className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent">Results</span>
-                </h2>
-                <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                  What you can expect from our SEO expertise
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="text-center bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
-                  >
-                    <div className="text-4xl font-black bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 bg-clip-text text-transparent mb-4">
-                      {result.value}
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">{result.metric}</h3>
-                    <p className="text-gray-300 text-sm">{result.description}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </section>

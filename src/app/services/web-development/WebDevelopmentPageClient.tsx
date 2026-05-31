@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { BackgroundLayout } from '@/components/BackgroundLayout'
-import { ArrowRight, Check, Globe, Zap, Shield, Clock, Star, Users, Target, Smartphone, Search, BarChart3 } from 'lucide-react'
+import { ArrowRight, Check, Globe, Zap, Shield, Clock, Users, Target, Smartphone, Search, BarChart3 } from 'lucide-react'
 
 const features = [
   {
@@ -120,21 +120,6 @@ const process = [
   }
 ]
 
-const testimonials = [
-  {
-    name: 'Ahmed Al-Rashid',
-    company: 'Dubai Tech Solutions',
-    text: 'VIZIONAIRE delivered exactly what we needed - a fast, beautiful website that actually converts visitors into customers.',
-    avatar: '👨‍💼'
-  },
-  {
-    name: 'Sarah Al-Mansoori',
-    company: 'Luxury Real Estate Dubai',
-    text: 'The team understood our luxury brand perfectly. Our new website has significantly improved our online presence.',
-    avatar: '👩‍💼'
-  }
-]
-
 export default function WebDevelopmentPageClient() {
   const handleGetQuote = () => {
     const message = encodeURIComponent('Hi! I\'m interested in Website Development services. Can we discuss my project requirements?')
@@ -159,7 +144,7 @@ export default function WebDevelopmentPageClient() {
                 </div>
 
                 <h1 className="text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-                  <span className="text-white">Websites That</span>
+                  <span className="text-white">Websites That </span>
                   <br />
                   <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
                     Convert
@@ -343,34 +328,6 @@ export default function WebDevelopmentPageClient() {
             </div>
           </section>
 
-          {/* Testimonials */}
-          <section className="py-12 lg:py-16">
-            <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white">
-                  Client <span className="bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">Success</span>
-                </h2>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                {testimonials.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10"
-                  >
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="text-3xl">{testimonial.avatar}</div>
-                      <div>
-                        <h4 className="text-white font-bold">{testimonial.name}</h4>
-                        <p className="text-gray-400 text-sm">{testimonial.company}</p>
-                      </div>
-                    </div>
-                    <p className="text-gray-200 leading-relaxed">"{testimonial.text}"</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
 
           {/* CTA Section */}
           <section className="py-12 lg:py-16">

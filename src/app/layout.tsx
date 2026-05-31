@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: 'VIZIONAIRE - Digital Marketing Agency Dubai | SEO, PPC, Social Media',
-    template: '%s | VIZIONAIRE Dubai'
+    template: '%s | VIZIONAIRE'
   },
-  description: 'Leading digital marketing agency in Dubai offering SEO, social media management, PPC advertising, web development & marketing automation. 90-day ROI guarantee. Get your free consultation today.',
+  description: 'Digital marketing agency in Dubai offering SEO, social media management, PPC advertising, web development & marketing automation. 90-day ROI guarantee. Get your free consultation today.',
   keywords: [
     'digital marketing agency dubai',
     'seo services dubai',
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     locale: 'en_AE',
     url: baseUrl,
     siteName: 'VIZIONAIRE',
-    title: 'VIZIONAIRE - Premium Digital Marketing Agency Dubai',
-    description: 'Transform your business with Dubai\'s leading digital marketing agency. SEO, PPC, Social Media, Web Development. 90-day ROI guarantee.',
+    title: 'VIZIONAIRE - Digital Marketing Agency Dubai',
+    description: 'Transform your business with a digital marketing agency in Dubai & the UAE. SEO, PPC, Social Media, Web Development. 90-day ROI guarantee.',
     images: [
       {
         url: '/og-image.jpg',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'VIZIONAIRE - Digital Marketing Agency Dubai',
-    description: 'Transform your business with Dubai\'s leading digital marketing agency. 90-day ROI guarantee.',
+    description: 'Transform your business with a digital marketing agency in Dubai & the UAE. 90-day ROI guarantee.',
     images: ['/og-image.jpg'],
     creator: '@vizionaire_ae',
   },
@@ -116,14 +116,14 @@ const jsonLd = {
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+971-54-361-2610',
+          telephone: '+971-54-478-5454',
           contactType: 'sales',
           availableLanguage: ['English', 'Arabic'],
           areaServed: ['AE', 'SA', 'QA', 'KW', 'BH', 'OM'],
         },
         {
           '@type': 'ContactPoint',
-          telephone: '+971-54-361-2610',
+          telephone: '+971-54-478-5454',
           contactType: 'customer service',
           availableLanguage: ['English', 'Arabic'],
         },
@@ -165,7 +165,7 @@ const jsonLd = {
       name: 'VIZIONAIRE - Digital Marketing Agency',
       image: `${baseUrl}/logo.png`,
       url: baseUrl,
-      telephone: '+971-54-361-2610',
+      telephone: '+971-54-478-5454',
       email: 'contact@vizionaire.ae',
       address: {
         '@type': 'PostalAddress',
@@ -208,19 +208,13 @@ const jsonLd = {
       },
       serviceArea: [
         { '@type': 'Country', name: 'United Arab Emirates' },
+        { '@type': 'City', name: 'Dubai' },
         { '@type': 'Country', name: 'Saudi Arabia' },
         { '@type': 'Country', name: 'Qatar' },
         { '@type': 'Country', name: 'Kuwait' },
         { '@type': 'Country', name: 'Bahrain' },
         { '@type': 'Country', name: 'Oman' },
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '127',
-        bestRating: '5',
-        worstRating: '1',
-      },
     },
     {
       '@type': 'WebSite',
@@ -346,12 +340,11 @@ export default function RootLayout({
         {/* Preload LCP image */}
         <link rel="preload" href="/background-cityscape.jpg" as="image" fetchPriority="high" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="canonical" href={baseUrl} />
         <meta name="theme-color" content="#000000" />
-        <meta name="geo.region" content="AE-DU" />
-        <meta name="geo.placename" content="Dubai" />
-        <meta name="geo.position" content="25.2048;55.2708" />
-        <meta name="ICBM" content="25.2048, 55.2708" />
+        <meta name="geo.region" content="AE-AJ" />
+        <meta name="geo.placename" content="Ajman" />
+        <meta name="geo.position" content="25.4052;55.5136" />
+        <meta name="ICBM" content="25.4052, 55.5136" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

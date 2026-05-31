@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import ServicesPageClient from './ServicesPageClient'
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Services Dubai - SEO, PPC, Social Media',
-  description: 'Comprehensive digital marketing services in Dubai: SEO optimization, PPC advertising, social media management, web development, marketing automation & analytics. Get your free strategy consultation.',
+  title: 'Digital Marketing Services Dubai',
+  description: 'Digital marketing services in Dubai: SEO, PPC, social media, web development, automation & analytics. Get your free strategy consultation today.',
   keywords: [
     'digital marketing services dubai',
     'seo services uae',
